@@ -1,4 +1,7 @@
 @charset "utf-8";
-@import "../node_modules/bulma/bulma.sass";
+
+@import "./variables.scss";
 
 @import "./pkp-tweaks.scss";
+
+@import "../node_modules/bulma/bulma.sass";
