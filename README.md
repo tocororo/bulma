@@ -5,7 +5,7 @@ A Bulma theme for [OJS 3.3.0.*](https://pkp.sfu.ca/ojs/)
 [Repo](https://github.com/tocororo/bulma)
 
 ## Description
-The Bulma theme is designed based on Bulma library(https://bulma.io/).
+The Bulma theme is designed based on [Bulma CSS framework](https://bulma.io/).
 
 
 ## Installation
