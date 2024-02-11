@@ -1,9 +1,9 @@
 {**
  * templates/frontend/objects/article_summary.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief View of an Article summary which is shown within a list of articles.
  *
@@ -13,63 +13,87 @@
  * @uses $showDatePublished bool Show the date this article was published?
  * @uses $hideGalleys bool Hide the article galleys for this article?
  * @uses $primaryGenreIds array List of file genre ids for primary file types
+ * @uses $heading string HTML heading element, default: h2
  *}
 {assign var=articlePath value=$article->getBestId()}
+{if !$heading}
+	{assign var="heading" value="h2"}
+{/if}
 
 {if (!$section.hideAuthor && $article->getHideAuthor() == $smarty.const.AUTHOR_TOC_DEFAULT) || $article->getHideAuthor() == $smarty.const.AUTHOR_TOC_SHOW}
 	{assign var="showAuthor" value=true}
 {/if}
 
-{assign var="publication" value=$article->getCurrentPublication()}
-{assign var="coverImage" value=$publication->getLocalizedData('coverImage')}
-{assign var="coverImageUrl" value=$publication->getLocalizedCoverImageUrl($article->getData('contextId'))}
-<article class="article">
-	<div class="row">
-		{if $coverImage && $requestedOp !== "search"}
-			<div class="col-md-4">
-				<figure class="article__img">
-					<a {if $journal}href="{url journal=$journal->getPath() page="article" op="view" path=$articlePath}"{else}href="{url page="article" op="view" path=$articlePath}"{/if} class="file">
-						<img class="img-fluid"
-					 		src="{$coverImageUrl|escape}"
-							{if $coverImage.altText != ''} alt="{$coverImage.altText|escape}"{else} alt="{translate key="article.coverPage.altText"}"{/if}>
-					</a>
-				</figure>
+{assign var=publication value=$article->getCurrentPublication()}
+<div class="obj_article_summary">
+	{if $publication->getLocalizedData('coverImage')}
+		<div class="cover">
+			<a {if $journal}href="{url journal=$journal->getPath() page="article" op="view" path=$articlePath}"{else}href="{url page="article" op="view" path=$articlePath}"{/if} class="file">
+				{assign var="coverImage" value=$publication->getLocalizedData('coverImage')}
+				<img
+					src="{$publication->getLocalizedCoverImageUrl($article->getData('contextId'))|escape}"
+					alt="{$coverImage.altText|escape|default:''}"
+				>
+			</a>
+		</div>
+	{/if}
+
+	<{$heading} class="title">
+		<a id="article-{$article->getId()}" {if $journal}href="{url journal=$journal->getPath() page="article" op="view" path=$articlePath}"{else}href="{url page="article" op="view" path=$articlePath}"{/if}>
+			{$article->getLocalizedTitle()|strip_unsafe_html}
+			{if $article->getLocalizedSubtitle()}
+				<span class="subtitle">
+					{$article->getLocalizedSubtitle()|escape}
+				</span>
+			{/if}
+		</a>
+	</{$heading}>
+
+	{assign var=submissionPages value=$publication->getData('pages')}
+	{assign var=submissionDatePublished value=$publication->getData('datePublished')}
+	{if $showAuthor || $submissionPages || ($submissionDatePublished && $showDatePublished)}
+	<div class="meta">
+		{if $showAuthor}
+		<div class="authors">
+			{$article->getAuthorString()|escape}
+		</div>
+		{/if}
+
+		{* Page numbers for this article *}
+		{if $submissionPages}
+			<div class="pages">
+				{$submissionPages|escape}
 			</div>
 		{/if}
-		<div class="col-md-{if $requestedOp === "search"}12{else}8{/if}{if !$coverImageUrl} offset-md-4{/if}">
-			{if $showAuthor}
-				<p class="article__meta">{$article->getAuthorString()|escape}</p>
-			{/if}
 
-			<h4 class="article__title">
-				<a {if $journal}href="{url journal=$journal->getPath() page="article" op="view" path=$articlePath}"{else}href="{url page="article" op="view" path=$articlePath}"{/if}>
-					{if $article->getLocalizedFullTitle()}
-						{$article->getLocalizedFullTitle()|escape}
-					{/if}
-				</a>
-			</h4>
+		{if $showDatePublished && $submissionDatePublished}
+			<div class="published">
+				{$submissionDatePublished|date_format:$dateFormatShort}
+			</div>
+		{/if}
 
-			{if !$hideGalleys}
-				<ul class="article__btn-group">
-					{foreach from=$article->getGalleys() item=galley}
-						{if $primaryGenreIds}
-							{assign var="file" value=$galley->getFile()}
-							{if !$galley->getRemoteUrl() && !($file && in_array($file->getGenreId(), $primaryGenreIds))}
-								{continue}
-							{/if}
-						{/if}
-						<li>
-							{assign var="hasArticleAccess" value=$hasAccess}
-							{if $currentContext->getSetting('publishingMode') == $smarty.const.PUBLISHING_MODE_OPEN || $article->getCurrentPublication()->getData('accessStatus') == $smarty.const.ARTICLE_ACCESS_OPEN}
-								{assign var="hasArticleAccess" value=1}
-							{/if}
-							{include file="frontend/objects/galley_link.tpl" parent=$article hasAccess=$hasArticleAccess purchaseFee=$currentJournal->getData('purchaseArticleFee') purchaseCurrency=$currentJournal->getData('currency')}
-						</li>
-					{/foreach}
-				</ul>
-			{/if}
-		</div>
-
-		{call_hook name="Templates::Issue::Issue::Article"}
 	</div>
-</article>
+	{/if}
+
+	{if !$hideGalleys}
+		<ul class="galleys_links">
+			{foreach from=$article->getGalleys() item=galley}
+				{if $primaryGenreIds}
+					{assign var="file" value=$galley->getFile()}
+					{if !$galley->getRemoteUrl() && !($file && in_array($file->getGenreId(), $primaryGenreIds))}
+						{continue}
+					{/if}
+				{/if}
+				<li>
+					{assign var="hasArticleAccess" value=$hasAccess}
+					{if $currentContext->getSetting('publishingMode') == $smarty.const.PUBLISHING_MODE_OPEN || $publication->getData('accessStatus') == $smarty.const.ARTICLE_ACCESS_OPEN}
+						{assign var="hasArticleAccess" value=1}
+					{/if}
+					{include file="frontend/objects/galley_link.tpl" parent=$article publication=$publication labelledBy="article-{$article->getId()}" hasAccess=$hasArticleAccess purchaseFee=$currentJournal->getData('purchaseArticleFee') purchaseCurrency=$currentJournal->getData('currency')}
+				</li>
+			{/foreach}
+		</ul>
+	{/if}
+
+	{call_hook name="Templates::Issue::Issue::Article"}
+</div>

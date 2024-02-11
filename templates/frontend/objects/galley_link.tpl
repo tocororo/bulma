@@ -1,9 +1,9 @@
 {**
  * templates/frontend/objects/galley_link.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief View of a galley object as a link to view or download the galley, to be used
  *  in a list of galleys.
@@ -41,7 +41,7 @@
 	{assign var="page" value="article"}
 	{assign var="parentId" value=$parent->getBestId()}
 	{* Get a versioned link if we have an older publication *}
-	{if $publication && $publication->getId() !== $parent->getCurrentPublication()->getId()}
+	{if $publication && $publication->getId() !== $parent->getData('currentPublicationId')}
 		{assign var="path" value=$parentId|to_array:"version":$publication->getId():$galley->getBestGalleyId()}
 	{else}
 		{assign var="path" value=$parentId|to_array:$galley->getBestGalleyId()}
@@ -58,11 +58,11 @@
 {/if}
 
 {* Don't be frightened. This is just a link *}
-<a class="{if $isSupplementary}article__btn galley_supplementary{else}article__btn{/if} {$type|escape}{if $restricted} restricted{/if}" href="{url page=$page op="view" path=$path}">
+<a class="{if $isSupplementary}obj_galley_link_supplementary{else}obj_galley_link{/if} {$type|escape}{if $restricted} restricted{/if}" href="{url page=$page op="view" path=$path}"{if $labelledBy} aria-labelledby={$labelledBy}{/if}>
 
 	{* Add some screen reader text to indicate if a galley is restricted *}
 	{if $restricted}
-		<span class="sr-only">
+		<span class="pkp_screen_reader">
 			{if $purchaseArticleEnabled}
 				{translate key="reader.subscriptionOrFeeAccess"}
 			{else}

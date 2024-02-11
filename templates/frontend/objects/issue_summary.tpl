@@ -1,9 +1,9 @@
 {**
  * templates/frontend/objects/issue_summary.tpl
  *
- * Copyright (c) 2014-2020 Simon Fraser University
- * Copyright (c) 2003-2020 John Willinsky
- * Distributed under the GNU GPL v2. For full terms see the file docs/COPYING.
+ * Copyright (c) 2014-2021 Simon Fraser University
+ * Copyright (c) 2003-2021 John Willinsky
+ * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
  * @brief View of an Issue which displays a summary for use in lists
  *
@@ -15,25 +15,30 @@
 {assign var=issueSeries value=$issue->getIssueSeries()}
 {assign var=issueCover value=$issue->getLocalizedCoverImageUrl()}
 
-{if $issueCover}
-	<a class="issue-summary__link img-wrapper" href="{url op="view" path=$issue->getBestIssueId()}">
-		<img src="{$issueCover|escape}" alt="{$issue->getLocalizedCoverImageAltText()|escape|default:''}" class="img-fluid">
-	</a>
-{/if}
+<div class="obj_issue_summary">
 
-<a class="issue-summary__link" href="{url op="view" path=$issue->getBestIssueId()}">
-	<h3 class="archived-issue__title">
-		{if $issueTitle}
-			<span>{$issueTitle|escape}</span>
-		{else}
-			<span>{$issueSeries|escape}</span>
+	{if $issueCover}
+		<a class="cover" href="{url op="view" path=$issue->getBestIssueId()}">
+			<img src="{$issueCover|escape}" alt="{$issue->getLocalizedCoverImageAltText()|escape|default:''}">
+		</a>
+	{/if}
+
+	<h2>
+		<a class="title" href="{url op="view" path=$issue->getBestIssueId()}">
+			{if $issueTitle}
+				{$issueTitle|escape}
+			{else}
+				{$issueSeries|escape}
+			{/if}
+		</a>
+		{if $issueTitle && $issueSeries}
+			<div class="series">
+				{$issueSeries|escape}
+			</div>
 		{/if}
-	</h3>
-</a>
-{if $issueTitle && $issueSeries}
-	<div class="series">
-		<span>{$issueSeries|escape}</span>
-	</div>
-{/if}
+	</h2>
 
-<p class="archived-issue__date"><small>{$issue->getDatePublished()|date_format:$dateFormatLong}</small></p>
+	<div class="description">
+		{$issue->getLocalizedDescription()|strip_unsafe_html}
+	</div>
+</div><!-- .obj_issue_summary -->
