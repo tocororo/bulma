@@ -1,0 +1,17 @@
+{
+  "name": "ojs-bulma",
+  "version": "1.0.0",
+  "description": "A Bulma theme for [OJS 3.3.0.*](https://pkp.sfu.ca/ojs/)",
+  "main": "resources/main.scss",
+  "author": "Rafael Martinez Estevez <malayibiri@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "css-build": "node-sass --omit-source-map-url resources/main.scss resources/main.css",
+    "css-watch": "npm run css-build -- --watch",
+    "start": "npm run css-watch"
+  },
+  "devDependencies": {
+    "node-sass": "^9.0.0",
+    "bulma": "^0.9.4"
+  }
+}

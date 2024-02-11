@@ -26,7 +26,7 @@ class BulmaThemePlugin extends ThemePlugin
 	public function init()
 	{
 		$this->addStyle(
-			'bulma-css', 'resources/bulma-0.9.4/bulma/css/bulma.min.css'
+			'bulma', 'resources/main.css'
 		);
 	}
 

@@ -31,9 +31,9 @@
 			{* Skip to content nav links *}
 			{include file="frontend/components/skipLinks.tpl"}
 
-			<div class="pkp_head_wrapper">
+			<div class="pkp_head_wrapper navbar is-primary">
 
-				<div class="pkp_site_name_wrapper">
+				<div class="pkp_site_name_wrapper navbar-brand">
 					<button class="pkp_site_nav_toggle">
 						<span>Open Menu</span>
 					</button>
@@ -46,7 +46,7 @@
 							{/if}
 						</h1>
 					{/if}
-					<div class="pkp_site_name">
+					<div class="pkp_site_name navbar-item">
 					{capture assign="homeUrl"}
 						{url page="index" router=$smarty.const.ROUTE_PAGE}
 					{/capture}
@@ -68,7 +68,7 @@
 					{load_menu name="primary" id="navigationPrimary" ulClass="pkp_navigation_primary"}
 				{/capture}
 
-				<nav class="pkp_site_nav_menu" aria-label="{translate|escape key="common.navigation.site"}">
+				<nav class="pkp_site_nav_menu navbar-menu" aria-label="{translate|escape key="common.navigation.site"}">
 					<a id="siteNav"></a>
 					<div class="pkp_navigation_primary_row">
 						<div class="pkp_navigation_primary_wrapper">
@@ -86,7 +86,7 @@
 							{/if}
 						</div>
 					</div>
-					<div class="pkp_navigation_user_wrapper" id="navigationUserWrapper">
+					<div class="pkp_navigation_user_wrapper navbar-end" id="navigationUserWrapper">
 						{load_menu name="user" id="navigationUser" ulClass="pkp_navigation_user" liClass="profile"}
 					</div>
 				</nav>
