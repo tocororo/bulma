@@ -1,6 +1,8 @@
 # Bulma Theme
 
-A Bulma theme for [OJS 3.3.0.*](https://pkp.sfu.ca/ojs/)
+A Bulma theme for [OJS 3.3.0.*](https://pkp.sfu.ca/ojs/) 
+
+[Repo](https://github.com/tocororo/bulma)
 
 ## Description
 The Bulma theme is designed based on Bulma library(https://bulma.io/).
@@ -12,7 +14,7 @@ This theme can be installed through the **Plugin Gallery** in Open Journal Syste
 ## Contribution
 
 This theme was developed by:
-* Madi Nuralin ([madi-nuralin](https://github.com/madi-nuralin))
+* Rafael Martinez Estevez ([malayibiri](https://github.com/malayibiri))
 
 ### Contribution list:
 * If you have any suggestions or improvements you are welcome!
