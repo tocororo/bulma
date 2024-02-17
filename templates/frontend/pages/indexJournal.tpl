@@ -20,25 +20,35 @@
 
 <div class="page_index_journal">
 
-	{call_hook name="Templates::Index::journal"}
+	<section class="hero is-primary">
+		{call_hook name="Templates::Index::journal"}
 
-	{if !$activeTheme->getOption('useHomepageImageAsHeader') && $homepageImage}
-		<div class="homepage_image">
-			<img src="{$publicFilesDir}/{$homepageImage.uploadName|escape:"url"}"{if $homepageImage.altText} alt="{$homepageImage.altText|escape}"{/if}>
+		<div class="hero-body">
+			{if !$activeTheme->getOption('useHomepageImageAsHeader') && $homepageImage}
+				<div class="homepage_image">
+					<img src="{$publicFilesDir}/{$homepageImage.uploadName|escape:"url"}" {if $homepageImage.altText}
+						alt="{$homepageImage.altText|escape}" {/if}>
+				</div>
+			{/if}
+
+			{* Journal Description *}
+			{if $activeTheme->getOption('showDescriptionInJournalIndex')}
+				<section class="homepage_about">
+					<a id="homepageAbout"></a>
+					{* <h2>{translate key="about.aboutContext"}</h2> *}
+					{$currentContext->getLocalizedData('description')}
+				</section>
+			{/if}
 		</div>
-	{/if}
 
-	{* Journal Description *}
-	{if $activeTheme->getOption('showDescriptionInJournalIndex')}
-		<section class="homepage_about">
-			<a id="homepageAbout"></a>
-			<h2>{translate key="about.aboutContext"}</h2>
-			{$currentContext->getLocalizedData('description')}
-		</section>
-	{/if}
+
+
+	</section>
+
 
 	{* Announcements *}
 	{if $numAnnouncementsHomepage && $announcements|@count}
+		<div class="hero-foot">
 		<section class="cmp_announcements highlight_first">
 			<a id="homepageAnnouncements"></a>
 			<h2>
@@ -66,8 +76,8 @@
 			{/foreach}
 			</div><!-- .more -->
 		</section>
+		</div>
 	{/if}
-
 	{* Latest issue *}
 	{if $issue}
 		<section class="current_issue">

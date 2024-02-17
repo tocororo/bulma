@@ -28,6 +28,21 @@ class BulmaThemePlugin extends ThemePlugin
 		$this->addStyle(
 			'bulma', 'resources/main.css'
 		);
+		$this->addMenuArea(array('primary', 'user'));
+
+		$this->addScript('menu', '/resources/js/menu.js');
+
+		$this->addOption('showDescriptionInJournalIndex', 'FieldOptions', [
+			'label' => __('manager.setup.contextSummary'),
+				'options' => [
+				[
+					'value' => true,
+					'label' => __('plugins.themes.default.option.showDescriptionInJournalIndex.option'),
+				],
+			],
+			'default' => false,
+		]);
+		
 	}
 
 	/**

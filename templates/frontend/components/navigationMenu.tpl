@@ -14,29 +14,36 @@
  *}
 
 {if $navigationMenu}
-	<ul id="{$id|escape}" class="{$ulClass|escape} pkp_nav_list">
+	<ul id="{$id|escape}" class="{$ulClass|escape} pkp_nav_list navbar-item">
 		{foreach key=field item=navigationMenuItemAssignment from=$navigationMenu->menuTree}
 			{if !$navigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
 				{continue}
 			{/if}
-			<li class="{$liClass|escape}">
-				<a href="{$navigationMenuItemAssignment->navigationMenuItem->getUrl()}">
-					{$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
-				</a>
-				{if $navigationMenuItemAssignment->navigationMenuItem->getIsChildVisible()}
-					<ul>
-						{foreach key=childField item=childNavigationMenuItemAssignment from=$navigationMenuItemAssignment->children}
-							{if $childNavigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
-								<li class="{$liClass|escape}">
-									<a href="{$childNavigationMenuItemAssignment->navigationMenuItem->getUrl()}">
-										{$childNavigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
-									</a>
-								</li>
-							{/if}
-						{/foreach}
+			{if $navigationMenuItemAssignment->navigationMenuItem->getIsChildVisible()}
+				<li class="{$liClass|escape} navbar-item has-dropdown is-hoverable">
+					<a class="navbar-link" href="#">
+						{$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
+					</a>
+					<ul class="navbar-dropdown">
+					{foreach key=childField item=childNavigationMenuItemAssignment from=$navigationMenuItemAssignment->children}
+						{if $childNavigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
+							<li class="{$liClass|escape} navbar-item">
+								<a href="{$childNavigationMenuItemAssignment->navigationMenuItem->getUrl()}">
+									{$childNavigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
+								</a>
+							</li>
+						{/if}
+					{/foreach}
 					</ul>
-				{/if}
-			</li>
-		{/foreach}
-	</ul>
-{/if}
+				</li>
+			{else}
+				<li class="{$liClass|escape} navbar-item">
+					<a href="{$navigationMenuItemAssignment->navigationMenuItem->getUrl()}">
+						{$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
+					</a>
+				</li>
+			{/if}
+				
+			{/foreach}
+		</ul>
+	{/if}

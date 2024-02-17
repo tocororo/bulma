@@ -1,4 +1,69 @@
 .pkp_screen_reader {
-    display: none;
+  display: none;
 }
 
+section,
+.page,
+.additional_content {
+  @extend .section;
+}
+
+h1 {
+  @extend .title;
+  @extend .is-1;
+}
+
+h2 {
+  @extend .title;
+  @extend .is-2;
+}
+
+h3,
+.current_issue_title {
+  @extend .title;
+  @extend .is-3;
+}
+
+h4 {
+  @extend .title;
+  @extend .is-4;
+}
+
+h4 {
+  @extend .title;
+  @extend .is-4;
+}
+
+h5 {
+  @extend .title;
+  @extend .is-5;
+}
+
+h6 {
+  @extend .title;
+  @extend .is-6;
+}
+
+.cmp_breadcrumbs {
+  @extend .breadcrumb;
+  @extend .is-medium;
+
+  li {
+    .separator {
+      display: none;
+    }
+  }
+
+  li.current {
+    span {
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      padding: 0 0.75em;
+    }
+  }
+}
+
+// .current {
+//     @extend .is-active;
+// }
