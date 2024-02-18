@@ -34,7 +34,7 @@
 		<div class="pkp_structure_page">
 
 
-		{* Header *}
+			{* Header *}
 			<header class="pkp_structure_head" id="headerNavigationContainer" role="banner">
 				{* Skip to content nav links *}
 				{include file="frontend/components/skipLinks.tpl"}
@@ -48,8 +48,8 @@
 						{/if}
 					</h1>
 				{/if}
-				
-				<nav class="pkp_head_wrapper navbar is-transparent" role="navigation" aria-label="main navigation">
+
+				<nav class="pkp_head_wrapper navbar is-primary" role="navigation" aria-label="main navigation">
 					<div class="container">
 						<div class="pkp_site_name_wrapper navbar-brand">
 							<div class="pkp_site_name navbar-item">
@@ -94,8 +94,8 @@
 							aria-label="{translate|escape key="common.navigation.site"}">
 							<a id="siteNav"></a>
 							<div class="pkp_navigation_primary_row navbar-start">
-									{* Primary navigation menu for current application *}
-									{$primaryMenu}
+								{* Primary navigation menu for current application *}
+								{$primaryMenu}
 							</div>
 							{* Search form *}
 							{if $currentContext && $requestedPage !== 'search'}
@@ -107,7 +107,18 @@
 								</div>
 							{/if}
 							<div class="pkp_navigation_user_wrapper navbar-end" id="navigationUserWrapper">
-								{load_menu name="user" id="navigationUser" ulClass="pkp_navigation_user" liClass="profile"}
+								<div class="navbar-item has-dropdown is-hoverable">
+									<span class="icon-text has-text-info">
+										<span class="icon">
+											<i class="fas fa-info-circle"></i>
+										</span>
+										<span>Info</span>
+									</span>
+									<div class="navbar-dropdown">
+										{load_menu name="user" id="navigationUser" ulClass="pkp_navigation_user" liClass="profile"}
+									</div>
+								</div>
+
 							</div>
 						</div>
 					</div>
