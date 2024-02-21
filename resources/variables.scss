@@ -10,6 +10,10 @@ $navbar-height: 4.25rem !default;
 
 $navbar-item-img-max-height: 3.75rem !default;
 
-$navbar-item-color: $white;
-$navbar-item-hover-color: $blue;
-$navbar-item-hover-background-color: $white;
+$navbar-item-color: $primary !default;
+$navbar-item-hover-color: $white !default;
+$navbar-item-hover-background-color: $primary !default;
+
+// $navbar-dropdown-background-color: $primary;
+$navbar-dropdown-item-hover-color: $white;
+$navbar-dropdown-item-hover-background-color: $primary;

@@ -28,14 +28,13 @@ class BulmaThemePlugin extends ThemePlugin
 		$this->addStyle(
 			'bulma', 'resources/main.css'
 		);
-		$this->addStyle(
-			'fontawesome
-			5', 'resources/fa/css/all.min.css'
-		);
 
 		$this->addMenuArea(array('primary', 'user'));
 
 		$this->addScript('menu', '/resources/js/menu.js');
+		$this->addScript('collapsable', '/resources/js/collapsable.js');
+		// $this->addScript('search', '/resources/js/search.js');
+		// $this->addScript('collapsible', '/resources/collapsible/bulma-collapsible.min.js');
 
 		$this->addOption('showDescriptionInJournalIndex', 'FieldOptions', [
 			'label' => __('manager.setup.contextSummary'),

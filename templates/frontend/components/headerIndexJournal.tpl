@@ -130,44 +130,49 @@
 					</div>
 				</nav><!-- .pkp_head_wrapper -->
 			</header><!-- .pkp_structure_head -->
-			{if $requestedPage == 'index'}
-
-				<section class="hero is-primary ">
-					{call_hook name="Templates::Index::journal"}
-
-					<div class="hero-body">
-						{if !$activeTheme->getOption('useHomepageImageAsHeader') && $homepageImage}
-							<div class="homepage_image container has-text-centered">
-								<p class="title">
-									{$displayPageHeaderTitle|escape}</a>
-								</p>
-								{* <img src="{$publicFilesDir}/{$homepageImage.uploadName|escape:"url"}" {if $homepageImage.altText}
-					alt="{$homepageImage.altText|escape}" {/if}> *}
-							</div>
-						{/if}
-
-						{* Journal Description *}
-						{if $activeTheme->getOption('showDescriptionInJournalIndex')}
-							<section class="section homepage_about">
-								<a id="homepageAbout"></a>
-								{* <h2>{translate key="about.aboutContext"}</h2> *}
-								{$currentContext->getLocalizedData('description')}
-							</section>
-						{/if}
-					</div>
-
-					<div class="hero-foot">
-
-					</div>
-
-				</section>
 
 
-			{{/if}}
+			<div class="page_index_journal">
+
+			<section class="hero is-primary ">
+				{call_hook name="Templates::Index::journal"}
+		
+				<div class="hero-body">
+					{if !$activeTheme->getOption('useHomepageImageAsHeader') && $homepageImage}
+						<div class="homepage_image container has-text-centered">
+						<p class="title">
+						{$displayPageHeaderTitle|escape}</a>
+						</p>
+							{* <img src="{$publicFilesDir}/{$homepageImage.uploadName|escape:"url"}" {if $homepageImage.altText}
+								alt="{$homepageImage.altText|escape}" {/if}> *}
+						</div>
+					{/if}
+		
+					{* Journal Description *}
+					{if $activeTheme->getOption('showDescriptionInJournalIndex')}
+						<section class="section homepage_about">
+							<a id="homepageAbout"></a>
+							{* <h2>{translate key="about.aboutContext"}</h2> *}
+							{$currentContext->getLocalizedData('description')}
+						</section>
+					{/if}
+				</div>
+		
+				<div class="hero-foot">
+		
+				</div>
+		
+			</section>
+		
+		<div>
+		
+		
+
 			{* Wrapper for page content and sidebars *}
 			{if $isFullWidth}
 				{assign var=hasSidebar value=0}
 			{/if}
+
 			<div class="tile is-ancestor pkp_structure_content{if $hasSidebar} has_sidebar{/if}">
 				<div class="pkp_structure_main tile is-8" role="main">
 <a id="pkp_content_main"></a>

@@ -64,6 +64,52 @@ h6 {
   }
 }
 
+.pkp_block {
+  @extend .panel;
+  @extend .block;
+
+  h2 {
+    @extend .panel-heading
+  }
+  .content {
+    @extend .panel-block;
+  }
+}
+
+.block_make_submission_link{
+  @extend .button;
+  @extend .is-link;
+}
 // .current {
 //     @extend .is-active;
 // }
+label {
+  @extend .label;
+}
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=tel]
+ {
+  @extend .input;
+}
+textarea {
+  @extend .textarea;
+}
+select {
+  @extend .select;
+}
+input[type=checkbox] {
+  @extend .checkbox;
+}
+input[type=radio]{
+  @extend .radio;
+}
+button {
+  @extend .button;
+}
+fieldset {
+  @extend .field;
+}
+
+

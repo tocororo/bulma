@@ -14,36 +14,36 @@
  *}
 
 {if $navigationMenu}
-	<ul id="{$id|escape}" class="{$ulClass|escape} pkp_nav_list navbar-item">
+	{* <ul id="{$id|escape}" class="{$ulClass|escape} pkp_nav_list"> *}
 		{foreach key=field item=navigationMenuItemAssignment from=$navigationMenu->menuTree}
 			{if !$navigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
 				{continue}
 			{/if}
 			{if $navigationMenuItemAssignment->navigationMenuItem->getIsChildVisible()}
-				<li class="{$liClass|escape} navbar-item has-dropdown is-hoverable">
+				<div class="{$liClass|escape} navbar-item has-dropdown is-hoverable">
 					<a class="navbar-link" href="#">
 						{$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
 					</a>
-					<ul class="navbar-dropdown">
+					<div class="navbar-dropdown {$isRightClass|escape}">
 					{foreach key=childField item=childNavigationMenuItemAssignment from=$navigationMenuItemAssignment->children}
 						{if $childNavigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
-							<li class="{$liClass|escape} navbar-item">
-								<a href="{$childNavigationMenuItemAssignment->navigationMenuItem->getUrl()}">
+							{* <li class="{$liClass|escape} navbar-item"> *}
+								<a class="navbar-item" href="{$childNavigationMenuItemAssignment->navigationMenuItem->getUrl()}">
 									{$childNavigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
 								</a>
-							</li>
+							{* </li> *}
 						{/if}
 					{/foreach}
-					</ul>
-				</li>
+					</div>
+				</div>
 			{else}
-				<li class="{$liClass|escape} navbar-item">
-					<a href="{$navigationMenuItemAssignment->navigationMenuItem->getUrl()}">
+				{* <li class="{$liClass|escape}"> *}
+					<a class="navbar-item" href="{$navigationMenuItemAssignment->navigationMenuItem->getUrl()}">
 						{$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
 					</a>
-				</li>
+				{* </li> *}
 			{/if}
 				
 			{/foreach}
-		</ul>
+		{* </ul> *}
 	{/if}
