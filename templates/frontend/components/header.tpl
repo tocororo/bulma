@@ -130,7 +130,7 @@
 					</div>
 				</nav><!-- .pkp_head_wrapper -->
 			</header><!-- .pkp_structure_head -->
-			{if $requestedPage == 'index'}
+			{if $requestedPage == 'index'  || $requestedPage == ''}
 
 				<section class="hero is-primary ">
 					{call_hook name="Templates::Index::journal"}
