@@ -10,10 +10,49 @@
  * @uses $issue Issue The issue
  *}
 {if $issue->getShowTitle()}
-{assign var=issueTitle value=$issue->getLocalizedTitle()}
+	{assign var=issueTitle value=$issue->getLocalizedTitle()}
 {/if}
 {assign var=issueSeries value=$issue->getIssueSeries()}
 {assign var=issueCover value=$issue->getLocalizedCoverImageUrl()}
+
+
+<div class="issue_archive card">
+	{if $issueCover}
+		<div class="card-image">
+
+			<img class="image is-fullwidth is-cover" src="{$issueCover|escape}"
+				alt="{$issue->getLocalizedCoverImageAltText()|escape|default:''}">
+
+		</div>
+	{/if}
+	<div class="card-content">
+		<a href="{url op="view" path=$issue->getBestIssueId()}">
+
+			<p class="title is-5">
+				{* <a class="title" href="{url op="view" path=$issue->getBestIssueId()}"> *}
+				{if $issueTitle}
+					{$issueTitle|escape}
+				{else}
+					{$issueSeries|escape}
+				{/if}
+				{* </a> *}
+			</p>
+
+			{if $issueTitle && $issueSeries}
+				<p class="series subtitle is-6">
+					{$issueSeries|escape}
+				</p>
+			{/if}
+			<div class="description content">
+				{$issue->getLocalizedDescription()|strip_unsafe_html}
+			</div>
+		</a>
+	</div>
+	<footer class="card-footer">
+	</footer>
+</div>
+
+{* 
 
 <div class="obj_issue_summary">
 
@@ -41,4 +80,4 @@
 	<div class="description">
 		{$issue->getLocalizedDescription()|strip_unsafe_html}
 	</div>
-</div><!-- .obj_issue_summary -->
+</div><!-- .obj_issue_summary --> *}

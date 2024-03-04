@@ -10,33 +10,33 @@ section,
 
 h1 {
   @extend .title;
-  @extend .is-1;
+  @extend .is-2;
 }
 
 h2 {
   @extend .title;
-  @extend .is-2;
+  @extend .is-3;
 }
 
 h3,
 .current_issue_title {
   @extend .title;
-  @extend .is-3;
-}
-
-h4 {
-  @extend .title;
   @extend .is-4;
 }
 
 h4 {
   @extend .title;
-  @extend .is-4;
+  @extend .is-5;
 }
 
 h5 {
   @extend .title;
-  @extend .is-5;
+  @extend .is-6;
+}
+
+h5 {
+  @extend .title;
+  @extend .is-7;
 }
 
 h6 {
@@ -69,28 +69,29 @@ h6 {
   @extend .block;
 
   h2 {
-    @extend .panel-heading
+    @extend .panel-heading;
   }
   .content {
     @extend .panel-block;
   }
 }
 
-.block_make_submission_link{
+.block_make_submission_link {
   @extend .button;
   @extend .is-link;
 }
+
+
 // .current {
 //     @extend .is-active;
 // }
 label {
   @extend .label;
 }
-input[type=text],
-input[type=password],
-input[type=email],
-input[type=tel]
- {
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"] {
   @extend .input;
 }
 textarea {
@@ -99,10 +100,10 @@ textarea {
 select {
   @extend .select;
 }
-input[type=checkbox] {
+input[type="checkbox"] {
   @extend .checkbox;
 }
-input[type=radio]{
+input[type="radio"] {
   @extend .radio;
 }
 button {
@@ -112,4 +113,39 @@ fieldset {
   @extend .field;
 }
 
+.cmp_edit_link {
+  @extend .tag;
+  @extend .is-link;
+}
 
+.cmp_pagination {
+  @extend .pagination;
+  @extend .is-small;
+
+  .prev {
+    @extend .pagination-previous;
+  }
+  .next {
+    @extend .pagination-next;
+  }
+  .current {
+    @extend .pagination-list;
+  }
+}
+
+.is-notice {
+  @extend .is-primary;
+}
+
+.date {
+  @extend .tag;
+  @extend .is-primary;
+  @extend .is-light;
+}
+
+
+.issue_archive {
+ .card-content {
+    padding: 0.5rem;
+ }
+}

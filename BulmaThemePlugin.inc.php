@@ -31,8 +31,8 @@ class BulmaThemePlugin extends ThemePlugin
 
 		$this->addMenuArea(array('primary', 'user'));
 
-		$this->addScript('menu', '/resources/js/menu.js');
-		$this->addScript('collapsable', '/resources/js/collapsable.js');
+		$this->addScript('menu', '/resources/js/all.js');
+		// $this->addScript('collapsable', '/resources/js/collapsable.js');
 		// $this->addScript('search', '/resources/js/search.js');
 		// $this->addScript('collapsible', '/resources/collapsible/bulma-collapsible.min.js');
 
@@ -46,7 +46,33 @@ class BulmaThemePlugin extends ThemePlugin
 			],
 			'default' => false,
 		]);
+
+		HookRegistry::register ('TemplateManager::display', array($this, 'loadAdditionalData'));
 		
+	}
+
+	public function loadAdditionalData($hookName, $args) {
+		$smarty = $args[0];
+
+		$request = $this->getRequest();
+		$context = $request->getContext();
+
+		if (!defined('SESSION_DISABLE_INIT')) {
+
+			// Get possible locales
+			if ($context) {
+				$locales = $context->getSupportedLocaleNames();
+			} else {
+				$locales = $request->getSite()->getSupportedLocaleNames();
+			}
+
+			// $orcidImageUrl = $this->getPluginPath() . '/' . ORCID_IMAGE_URL;
+
+			$smarty->assign(array(
+				'languageToggleLocales' => $locales,
+				// 'orcidImageUrl' =>  $orcidImageUrl,
+			));
+		}
 	}
 
 	/**

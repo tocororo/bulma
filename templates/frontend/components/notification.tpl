@@ -12,7 +12,7 @@
  * @uses $message string The notification message
  * @uses $messageKey string Optional translation key to generate the message
  *}
-<div class="cmp_notification {$type|escape|replace:' ':'_'}">
+<div class="cmp_notification notification is-light is-{$type|escape|replace:' ':'_'}">
 	{if $messageKey}
 		{translate key=$messageKey}
 	{else}

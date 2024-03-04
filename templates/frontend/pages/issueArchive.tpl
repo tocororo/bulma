@@ -33,15 +33,16 @@
 	{if empty($issues)}
 		<p>{translate key="current.noCurrentIssueDesc"}</p>
 
-	{* List issues *}
+		{* List issues *}
 	{else}
-		<ul class="issues_archive">
+		<div class="issues_archive columns is-multiline">
 			{foreach from=$issues item="issue"}
-				<li>
+				<div class="column  is-12-mobile is-6-tablet is-4-desktop is-3-widescreen is-2-fullhd">
 					{include file="frontend/objects/issue_summary.tpl"}
-				</li>
+				</div>
 			{/foreach}
-		</ul>
+		</div>
+
 
 		{* Pagination *}
 		{if $prevPage > 1}
@@ -53,13 +54,13 @@
 			{capture assign=nextUrl}{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive" path=$nextPage}{/capture}
 		{/if}
 		{include
-			file="frontend/components/pagination.tpl"
-			prevUrl=$prevUrl
-			nextUrl=$nextUrl
-			showingStart=$showingStart
-			showingEnd=$showingEnd
-			total=$total
-		}
+				file="frontend/components/pagination.tpl"
+				prevUrl=$prevUrl
+				nextUrl=$nextUrl
+				showingStart=$showingStart
+				showingEnd=$showingEnd
+				total=$total
+			}
 	{/if}
 </div>
 

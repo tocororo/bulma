@@ -29,10 +29,11 @@
 		{translate key="common.search"}
 	</h1>
 
-	{capture name="searchFormUrl"}{url escape=false}{/capture}
-	{assign var=formUrlParameters value=[]}{* Prevent Smarty warning *}
-	{$smarty.capture.searchFormUrl|parse_url:$smarty.const.PHP_URL_QUERY|parse_str:$formUrlParameters}
-
+	<div class="notification  is-warning is-light" style="word-wrap: anywhere;">
+		{capture name="searchFormUrl"}{url escape=false}{/capture}
+		{assign var=formUrlParameters value=[]}{* Prevent Smarty warning *}
+		{$smarty.capture.searchFormUrl|parse_url:$smarty.const.PHP_URL_QUERY|parse_str:$formUrlParameters}
+	</div>
 	<form class="cmp_form" method="get" action="{$smarty.capture.searchFormUrl|strtok:"?"|escape}">
 		{foreach from=$formUrlParameters key=paramKey item=paramValue}
 			<input type="hidden" name="{$paramKey|escape}" value="{$paramValue|escape}" />
@@ -128,8 +129,12 @@
 			{* Results pagination *}
 		{else}
 			<div class="cmp_pagination">
-				{page_info iterator=$results}
-				{page_links anchor="results" iterator=$results name="search" query=$query searchJournal=$searchJournal authors=$authors dateFromMonth=$dateFromMonth dateFromDay=$dateFromDay dateFromYear=$dateFromYear dateToMonth=$dateToMonth dateToDay=$dateToDay dateToYear=$dateToYear}
+				<div class="tag is-primary is-light is-medium">
+					{page_info iterator=$results}
+				</div>
+
+				<div>
+				{page_links anchor="results" iterator=$results name="search" query=$query searchJournal=$searchJournal authors=$authors dateFromMonth=$dateFromMonth dateFromDay=$dateFromDay dateFromYear=$dateFromYear dateToMonth=$dateToMonth dateToDay=$dateToDay dateToYear=$dateToYear}</div>
 			</div>
 		{/if}
 

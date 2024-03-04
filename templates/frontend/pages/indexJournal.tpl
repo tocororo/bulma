@@ -50,7 +50,7 @@
 					{/if}
 				{/foreach}
 			</div><!-- .more -->
-			<div class="divider"></div>
+			<div class="divider is-left"></div>
 		</section>
 	{/if}
 
@@ -63,13 +63,13 @@
 			<h2 class="title">
 				{translate key="journal.currentIssue"}
 			</h2>
-			<div class="subtitle current_issue_title">
-				{$issue->getIssueIdentification()|strip_unsafe_html}
-			</div>
+			
 			{include file="frontend/objects/issue_toc.tpl" heading="h3"}
 			<a href="{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive"}" class="read_more button is-primary">
 				{translate key="journal.viewAllIssues"}
 			</a>
+
+			<div class="divider is-left"></div>
 		</section>
 	{/if}
 

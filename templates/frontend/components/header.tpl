@@ -99,6 +99,8 @@
 							</div>
 
 							<div class="pkp_navigation_user_wrapper navbar-end" id="navigationUserWrapper">
+
+
 								{* Search form *}
 								{if $currentContext && $requestedPage !== 'search'}
 									{* <div class="pkp_navigation_search_wrapper navbar-item"> *}
@@ -109,7 +111,19 @@
 									</a>
 									{* </div> *}
 								{/if}
-								{load_menu name="user" id="navigationUser" isRightClass="is-right"  ulClass="pkp_navigation_user" liClass="profile navbar-item"}
+
+								{include file="frontend/components/langSwitcher.tpl"}
+
+								<div class="navbar-item has-dropdown is-hoverable">
+									<a class="navbar-link">
+										<span class="icon"><i class="fas fa-user" aria-hidden="true"></i></span>
+									</a>
+
+									<div class="navbar-dropdown">
+										{load_menu name="user" id="navigationUser" isRightClass="is-right"  ulClass="pkp_navigation_user" liClass="profile navbar-item"}
+									</div>
+								</div>
+
 
 								{* <div class="navbar-item has-dropdown is-active">
 									<a class="navbar-link">
@@ -168,6 +182,6 @@
 			{if $isFullWidth}
 				{assign var=hasSidebar value=0}
 			{/if}
-			<div class="tile is-ancestor pkp_structure_content{if $hasSidebar} has_sidebar{/if}">
-				<div class="pkp_structure_main tile is-8" role="main">
+			<div class="columns pkp_structure_content{if $hasSidebar} has_sidebar{/if}">
+				<div class="pkp_structure_main column" role="main">
 <a id="pkp_content_main"></a>

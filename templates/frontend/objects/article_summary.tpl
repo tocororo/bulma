@@ -28,18 +28,23 @@
 <div class="obj_article_summary">
 	{if $publication->getLocalizedData('coverImage')}
 		<div class="cover">
-			<a {if $journal}href="{url journal=$journal->getPath() page="article" op="view" path=$articlePath}"{else}href="{url page="article" op="view" path=$articlePath}"{/if} class="file">
+			<a {if $journal}href="{url journal=$journal->getPath() page="article" op="view" path=$articlePath}"
+				{else}href="
+					{url page="article" op="view" path=$articlePath}" 
+				{/if} class="file">
 				{assign var="coverImage" value=$publication->getLocalizedData('coverImage')}
-				<img
-					src="{$publication->getLocalizedCoverImageUrl($article->getData('contextId'))|escape}"
-					alt="{$coverImage.altText|escape|default:''}"
-				>
+				<img src="{$publication->getLocalizedCoverImageUrl($article->getData('contextId'))|escape}"
+					alt="{$coverImage.altText|escape|default:''}">
 			</a>
 		</div>
 	{/if}
 
 	<{$heading} class="title">
-		<a id="article-{$article->getId()}" {if $journal}href="{url journal=$journal->getPath() page="article" op="view" path=$articlePath}"{else}href="{url page="article" op="view" path=$articlePath}"{/if}>
+		<a id="article-{$article->getId()}"
+			{if $journal}href="{url journal=$journal->getPath() page="article" op="view" path=$articlePath}"
+			{else}href="
+				{url page="article" op="view" path=$articlePath}" 
+			{/if}>
 			{$article->getLocalizedTitle()|strip_unsafe_html}
 			{if $article->getLocalizedSubtitle()}
 				<span class="subtitle">
@@ -52,31 +57,32 @@
 	{assign var=submissionPages value=$publication->getData('pages')}
 	{assign var=submissionDatePublished value=$publication->getData('datePublished')}
 	{if $showAuthor || $submissionPages || ($submissionDatePublished && $showDatePublished)}
-	<div class="meta">
-		{if $showAuthor}
-		<div class="authors">
-			{$article->getAuthorString()|escape}
+		<div class="meta content ">
+			{if $showAuthor}
+				<div class="authors">
+					{$article->getAuthorString()|escape}
+				</div>
+			{/if}
+
+			{* Page numbers for this article *}
+			{if $submissionPages}
+				<div class="published tags has-addons">
+					<div class="tag">Pag.</div>
+					<div class="tag is-light is-primary" >{$submissionPages|escape}</div>
+				</div>
+			{/if}
+
+			{if $showDatePublished && $submissionDatePublished}
+				<div class="published">
+					{$submissionDatePublished|date_format:$dateFormatShort}
+				</div>
+			{/if}
+
 		</div>
-		{/if}
-
-		{* Page numbers for this article *}
-		{if $submissionPages}
-			<div class="pages">
-				{$submissionPages|escape}
-			</div>
-		{/if}
-
-		{if $showDatePublished && $submissionDatePublished}
-			<div class="published">
-				{$submissionDatePublished|date_format:$dateFormatShort}
-			</div>
-		{/if}
-
-	</div>
 	{/if}
 
 	{if !$hideGalleys}
-		<ul class="galleys_links">
+		<div class="galleys_links content field is-grouped">
 			{foreach from=$article->getGalleys() item=galley}
 				{if $primaryGenreIds}
 					{assign var="file" value=$galley->getFile()}
@@ -84,15 +90,17 @@
 						{continue}
 					{/if}
 				{/if}
-				<li>
+				<div class="control">
 					{assign var="hasArticleAccess" value=$hasAccess}
 					{if $currentContext->getSetting('publishingMode') == $smarty.const.PUBLISHING_MODE_OPEN || $publication->getData('accessStatus') == $smarty.const.ARTICLE_ACCESS_OPEN}
 						{assign var="hasArticleAccess" value=1}
 					{/if}
-					{include file="frontend/objects/galley_link.tpl" parent=$article publication=$publication labelledBy="article-{$article->getId()}" hasAccess=$hasArticleAccess purchaseFee=$currentJournal->getData('purchaseArticleFee') purchaseCurrency=$currentJournal->getData('currency')}
-				</li>
+					{include file="frontend/objects/galley_link.tpl" parent=$article publication=$publication labelledBy="article-{$article->getId()}"
+					hasAccess=$hasArticleAccess purchaseFee=$currentJournal->getData('purchaseArticleFee')
+					purchaseCurrency=$currentJournal->getData('currency')}
+				</div>
 			{/foreach}
-		</ul>
+		</div>
 	{/if}
 
 	{call_hook name="Templates::Issue::Issue::Article"}
