@@ -16,6 +16,99 @@
 .issue_archive .card-content {
   padding: 0.5rem; }
 
+.html-galley__header {
+  position: relative;
+  z-index: 2; }
+
+.html-galley__header {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  z-index: 3;
+  padding-top: 10px; }
+  .html-galley__header a {
+    font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    color: #2d2c71;
+    font-size: 18px; }
+    .html-galley__header a:hover {
+      text-decoration: none;
+      border-bottom: 1px dotted #2d2c71; }
+  .html-galley__header .article-page__alert {
+    border-color: #2d2c71;
+    padding: 0.375rem 0.75rem;
+    font-size: smaller; }
+    .html-galley__header .article-page__alert a {
+      text-decoration: underline;
+      color: #2d2c71;
+      font-size: 18px; }
+
+@media (min-width: 1200px) {
+  .without_own_css body {
+    padding-left: 15%;
+    padding-right: 15%; } }
+
+.galley_view {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: hidden;
+  padding-top: 30px; }
+  .galley_view iframe {
+    padding-top: 30px;
+    width: 100%;
+    height: 100%; }
+
+.pdf-galley__header {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  z-index: 3;
+  padding-top: 10px; }
+  .pdf-galley__header .article-page__alert {
+    border-color: #2d2c71;
+    padding: 0.375rem 0.75rem;
+    font-size: smaller; }
+    .pdf-galley__header .article-page__alert a {
+      text-decoration: underline; }
+
+.pdf-return-article {
+  max-width: 70%;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-top: 8px; }
+  .pdf-return-article a {
+    font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    color: #2d2c71;
+    font-size: 18px; }
+    .pdf-return-article a:hover {
+      text-decoration: none;
+      border-bottom: 1px dotted #2d2c71; }
+
+.pdf-download-button {
+  max-width: 30%; }
+
+.galley_view {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: hidden; }
+  .galley_view iframe {
+    width: 100%;
+    height: 100%;
+    padding-top: 30px;
+    border: none; }
+
+#pdfCanvasContainer {
+  top: 30px; }
+
+.pkp_structure_sidebar {
+  margin-top: 100px; }
+
 /*! bulma.io v0.9.4 | MIT License | github.com/jgthms/bulma */
 /* Bulma Utilities */
 .button, .block_make_submission_link, button, .input, input[type="text"],
@@ -24,7 +117,7 @@ input[type="email"],
 input[type="tel"], .textarea, textarea, .select select, select select, .file-cta,
 .file-name, .pagination-previous, .cmp_pagination .prev,
 .pagination-next, .cmp_pagination .next,
-.pagination-link,
+.pagination-link, .cmp_pagination div strong, .cmp_pagination div a,
 .pagination-ellipsis {
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -49,28 +142,28 @@ input[type="tel"], .textarea, textarea, .select select, select select, .file-cta
   input:focus[type="tel"], .textarea:focus, textarea:focus, .select select:focus, select select:focus, .file-cta:focus,
   .file-name:focus, .pagination-previous:focus, .cmp_pagination .prev:focus,
   .pagination-next:focus, .cmp_pagination .next:focus,
-  .pagination-link:focus,
+  .pagination-link:focus, .cmp_pagination div strong:focus, .cmp_pagination div a:focus,
   .pagination-ellipsis:focus, .is-focused.button, .is-focused.block_make_submission_link, button.is-focused, .is-focused.input, input.is-focused[type="text"],
   input.is-focused[type="password"],
   input.is-focused[type="email"],
   input.is-focused[type="tel"], .is-focused.textarea, textarea.is-focused, .select select.is-focused, select select.is-focused, .is-focused.file-cta,
   .is-focused.file-name, .is-focused.pagination-previous, .cmp_pagination .is-focused.prev,
   .is-focused.pagination-next, .cmp_pagination .is-focused.next,
-  .is-focused.pagination-link,
+  .is-focused.pagination-link, .cmp_pagination div strong.is-focused, .cmp_pagination div a.is-focused,
   .is-focused.pagination-ellipsis, .button:active, .block_make_submission_link:active, button:active, .input:active, input:active[type="text"],
   input:active[type="password"],
   input:active[type="email"],
   input:active[type="tel"], .textarea:active, textarea:active, .select select:active, select select:active, .file-cta:active,
   .file-name:active, .pagination-previous:active, .cmp_pagination .prev:active,
   .pagination-next:active, .cmp_pagination .next:active,
-  .pagination-link:active,
+  .pagination-link:active, .cmp_pagination div strong:active, .cmp_pagination div a:active,
   .pagination-ellipsis:active, .is-active.button, .is-active.block_make_submission_link, button.is-active, .is-active.input, input.is-active[type="text"],
   input.is-active[type="password"],
   input.is-active[type="email"],
   input.is-active[type="tel"], .is-active.textarea, textarea.is-active, .select select.is-active, select select.is-active, .is-active.file-cta,
   .is-active.file-name, .is-active.pagination-previous, .cmp_pagination .is-active.prev,
   .is-active.pagination-next, .cmp_pagination .is-active.next,
-  .is-active.pagination-link,
+  .is-active.pagination-link, .cmp_pagination div strong.is-active, .cmp_pagination div a.is-active,
   .is-active.pagination-ellipsis {
     outline: none; }
   .button[disabled], .block_make_submission_link[disabled], button[disabled], .input[disabled], input[disabled][type="text"],
@@ -79,7 +172,7 @@ input[type="tel"], .textarea, textarea, .select select, select select, .file-cta
   input[disabled][type="tel"], .textarea[disabled], textarea[disabled], .select select[disabled], select select[disabled], .file-cta[disabled],
   .file-name[disabled], .pagination-previous[disabled], .cmp_pagination .prev[disabled],
   .pagination-next[disabled], .cmp_pagination .next[disabled],
-  .pagination-link[disabled],
+  .pagination-link[disabled], .cmp_pagination div strong[disabled], .cmp_pagination div a[disabled],
   .pagination-ellipsis[disabled],
   fieldset[disabled] .button,
   fieldset[disabled] .block_make_submission_link,
@@ -104,12 +197,16 @@ input[type="tel"], .textarea, textarea, .select select, select select, .file-cta
   fieldset[disabled] .cmp_pagination .next,
   .cmp_pagination fieldset[disabled] .next,
   fieldset[disabled] .pagination-link,
+  fieldset[disabled] .cmp_pagination div strong,
+  .cmp_pagination div fieldset[disabled] strong,
+  fieldset[disabled] .cmp_pagination div a,
+  .cmp_pagination div fieldset[disabled] a,
   fieldset[disabled] .pagination-ellipsis {
     cursor: not-allowed; }
 
 .button, .block_make_submission_link, button, .file, .breadcrumb, .cmp_breadcrumbs, .pagination-previous, .cmp_pagination .prev,
 .pagination-next, .cmp_pagination .next,
-.pagination-link,
+.pagination-link, .cmp_pagination div strong, .cmp_pagination div a,
 .pagination-ellipsis, .tabs, .is-unselectable {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -134,8 +231,8 @@ input[type="tel"], .textarea, textarea, .select select, select select, .file-cta
   width: 0.625em; }
 
 .box:not(:last-child), .content:not(:last-child), .notification:not(:last-child), .progress:not(:last-child), .table:not(:last-child), .table-container:not(:last-child), .title:not(:last-child), h1:not(:last-child), h2:not(:last-child), h3:not(:last-child),
-.current_issue_title:not(:last-child), h4:not(:last-child), h5:not(:last-child), h6:not(:last-child),
-.subtitle:not(:last-child), .block:not(:last-child), .pkp_block:not(:last-child), .breadcrumb:not(:last-child), .cmp_breadcrumbs:not(:last-child), .level:not(:last-child), .message:not(:last-child), .pagination:not(:last-child), .cmp_pagination:not(:last-child), .tabs:not(:last-child) {
+.current_issue_title:not(:last-child), h4:not(:last-child), h5:not(:last-child), h6:not(:last-child), #articlesBySimilarityList h3:not(:last-child), .entry_details .label:not(:last-child), .entry_details label:not(:last-child),
+.subtitle:not(:last-child), .block:not(:last-child), .item:not(:last-child), .pkp_block:not(:last-child), .breadcrumb:not(:last-child), .cmp_breadcrumbs:not(:last-child), .level:not(:last-child), .message:not(:last-child), .pagination:not(:last-child), .cmp_pagination:not(:last-child), .tabs:not(:last-child) {
   margin-bottom: 1.5rem; }
 
 .delete, .modal-close {
@@ -1822,7 +1919,7 @@ div.icon-text {
     position: absolute;
     top: 0.5rem; }
   .notification .title, .notification h1, .notification h2, .notification h3,
-  .notification .current_issue_title, .notification h4, .notification h5, .notification h6,
+  .notification .current_issue_title, .notification h4, .notification h5, .notification h6, .notification #articlesBySimilarityList h3, #articlesBySimilarityList .notification h3, .notification .entry_details .label, .entry_details .notification .label, .notification .entry_details label, .entry_details .notification label,
   .notification .subtitle,
   .notification .content {
     color: currentColor; }
@@ -2288,10 +2385,10 @@ a.tag:hover, a.cmp_edit_link:hover, a.date:hover {
   text-decoration: underline; }
 
 .title, h1, h2, h3,
-.current_issue_title, h4, h5, h6,
+.current_issue_title, h4, h5, h6, #articlesBySimilarityList h3, .entry_details .label, .entry_details label,
 .subtitle {
   word-break: break-word; }
-  .title em, h1 em, h2 em, h3 em, .current_issue_title em, h4 em, h5 em, h6 em,
+  .title em, h1 em, h2 em, h3 em, .current_issue_title em, h4 em, h5 em, h6 em, #articlesBySimilarityList h3 em, .entry_details .label em, .entry_details label em,
   .title span,
   h1 span,
   h2 span,
@@ -2300,56 +2397,59 @@ a.tag:hover, a.cmp_edit_link:hover, a.date:hover {
   h4 span,
   h5 span,
   h6 span,
+  #articlesBySimilarityList h3 span,
+  .entry_details .label span,
+  .entry_details label span,
   .subtitle em,
   .subtitle span {
     font-weight: inherit; }
-  .title sub, h1 sub, h2 sub, h3 sub, .current_issue_title sub, h4 sub, h5 sub, h6 sub,
+  .title sub, h1 sub, h2 sub, h3 sub, .current_issue_title sub, h4 sub, h5 sub, h6 sub, #articlesBySimilarityList h3 sub, .entry_details .label sub, .entry_details label sub,
   .subtitle sub {
     font-size: 0.75em; }
-  .title sup, h1 sup, h2 sup, h3 sup, .current_issue_title sup, h4 sup, h5 sup, h6 sup,
+  .title sup, h1 sup, h2 sup, h3 sup, .current_issue_title sup, h4 sup, h5 sup, h6 sup, #articlesBySimilarityList h3 sup, .entry_details .label sup, .entry_details label sup,
   .subtitle sup {
     font-size: 0.75em; }
-  .title .tag, h1 .tag, h2 .tag, h3 .tag, .current_issue_title .tag, h4 .tag, h5 .tag, h6 .tag, .title .cmp_edit_link, h1 .cmp_edit_link, h2 .cmp_edit_link, h3 .cmp_edit_link, .current_issue_title .cmp_edit_link, h4 .cmp_edit_link, h5 .cmp_edit_link, h6 .cmp_edit_link, .title .date, h1 .date, h2 .date, h3 .date, .current_issue_title .date, h4 .date, h5 .date, h6 .date,
+  .title .tag, h1 .tag, h2 .tag, h3 .tag, .current_issue_title .tag, h4 .tag, h5 .tag, h6 .tag, #articlesBySimilarityList h3 .tag, .entry_details .label .tag, .entry_details label .tag, .title .cmp_edit_link, h1 .cmp_edit_link, h2 .cmp_edit_link, h3 .cmp_edit_link, .current_issue_title .cmp_edit_link, h4 .cmp_edit_link, h5 .cmp_edit_link, h6 .cmp_edit_link, #articlesBySimilarityList h3 .cmp_edit_link, .entry_details .label .cmp_edit_link, .entry_details label .cmp_edit_link, .title .date, h1 .date, h2 .date, h3 .date, .current_issue_title .date, h4 .date, h5 .date, h6 .date, #articlesBySimilarityList h3 .date, .entry_details .label .date, .entry_details label .date,
   .subtitle .tag,
   .subtitle .cmp_edit_link,
   .subtitle .date {
     vertical-align: middle; }
 
 .title, h1, h2, h3,
-.current_issue_title, h4, h5, h6 {
+.current_issue_title, h4, h5, h6, #articlesBySimilarityList h3, .entry_details .label, .entry_details label {
   color: #363636;
   font-size: 2rem;
   font-weight: 600;
   line-height: 1.125; }
-  .title strong, h1 strong, h2 strong, h3 strong, .current_issue_title strong, h4 strong, h5 strong, h6 strong {
+  .title strong, h1 strong, h2 strong, h3 strong, .current_issue_title strong, h4 strong, h5 strong, h6 strong, #articlesBySimilarityList h3 strong, .entry_details .label strong, .entry_details label strong {
     color: inherit;
     font-weight: inherit; }
-  .title:not(.is-spaced) + .subtitle, h1:not(.is-spaced) + .subtitle, h2:not(.is-spaced) + .subtitle, h3:not(.is-spaced) + .subtitle, .current_issue_title:not(.is-spaced) + .subtitle, h4:not(.is-spaced) + .subtitle, h5:not(.is-spaced) + .subtitle, h6:not(.is-spaced) + .subtitle {
+  .title:not(.is-spaced) + .subtitle, h1:not(.is-spaced) + .subtitle, h2:not(.is-spaced) + .subtitle, h3:not(.is-spaced) + .subtitle, .current_issue_title:not(.is-spaced) + .subtitle, h4:not(.is-spaced) + .subtitle, h5:not(.is-spaced) + .subtitle, h6:not(.is-spaced) + .subtitle, #articlesBySimilarityList h3:not(.is-spaced) + .subtitle, .entry_details .label:not(.is-spaced) + .subtitle, .entry_details label:not(.is-spaced) + .subtitle {
     margin-top: -1.25rem; }
   .title.is-1, h1.is-1, h2.is-1, h3.is-1,
-  .is-1.current_issue_title, h4.is-1, h5.is-1, h6.is-1 {
+  .is-1.current_issue_title, h4.is-1, h5.is-1, h6.is-1, #articlesBySimilarityList h3.is-1, .entry_details .is-1.label, .entry_details label.is-1 {
     font-size: 3rem; }
   .title.is-2, h1, h2.is-2, h3.is-2,
-  .is-2.current_issue_title, h1.current_issue_title, h4.is-2, h5.is-2, h6.is-2 {
+  .is-2.current_issue_title, h1.current_issue_title, h4.is-2, h5.is-2, h6.is-2, #articlesBySimilarityList h3.is-2, .entry_details .is-2.label, .entry_details h1.label, .entry_details label.is-2 {
     font-size: 2.5rem; }
   .title.is-3, h1.is-3, h2, h3.is-3,
-  .is-3.current_issue_title, h2.current_issue_title, h4.is-3, h5.is-3, h6.is-3 {
+  .is-3.current_issue_title, h2.current_issue_title, h4.is-3, h5.is-3, h6.is-3, #articlesBySimilarityList h3.is-3, .entry_details .is-3.label, .entry_details h2.label, .entry_details label.is-3 {
     font-size: 2rem; }
   .title.is-4, h1.is-4, h2.is-4, h3,
-  .current_issue_title, h4.is-4, h5.is-4, h6.is-4 {
+  .current_issue_title, h4.is-4, h5.is-4, h6.is-4, #articlesBySimilarityList h3, .entry_details .label, .entry_details label {
     font-size: 1.5rem; }
   .title.is-5, h1.is-5, h2.is-5, h3.is-5,
   .is-5.current_issue_title,
-  h4.current_issue_title, h4, h5.is-5, h6.is-5 {
+  h4.current_issue_title, h4, h5.is-5, h6.is-5, #articlesBySimilarityList h3.is-5, .entry_details .is-5.label, .entry_details h4.label, .entry_details label.is-5 {
     font-size: 1.25rem; }
   .title.is-6, h1.is-6, h2.is-6, h3.is-6,
   .is-6.current_issue_title,
   h5.current_issue_title,
-  h6.current_issue_title, h4.is-6, h5, h6 {
+  h6.current_issue_title, h4.is-6, h5, h6, #articlesBySimilarityList h3.is-6, .entry_details .is-6.label, .entry_details h5.label, .entry_details h6.label, .entry_details label.is-6 {
     font-size: 1rem; }
   .title.is-7, h1.is-7, h2.is-7, h3.is-7,
   .is-7.current_issue_title,
-  h5.current_issue_title, h4.is-7, h5, h6.is-7 {
+  h5.current_issue_title, h4.is-7, h5, h6.is-7, #articlesBySimilarityList h3.is-7, .entry_details .is-7.label, .entry_details h5.label, .entry_details label.is-7 {
     font-size: 0.75rem; }
 
 .subtitle {
@@ -2361,7 +2461,7 @@ a.tag:hover, a.cmp_edit_link:hover, a.date:hover {
     color: #363636;
     font-weight: 600; }
   .subtitle:not(.is-spaced) + .title, .subtitle:not(.is-spaced) + h1, .subtitle:not(.is-spaced) + h2, .subtitle:not(.is-spaced) + h3,
-  .subtitle:not(.is-spaced) + .current_issue_title, .subtitle:not(.is-spaced) + h4, .subtitle:not(.is-spaced) + h5, .subtitle:not(.is-spaced) + h6 {
+  .subtitle:not(.is-spaced) + .current_issue_title, .subtitle:not(.is-spaced) + h4, .subtitle:not(.is-spaced) + h5, .subtitle:not(.is-spaced) + h6, #articlesBySimilarityList .subtitle:not(.is-spaced) + h3, .entry_details .subtitle:not(.is-spaced) + .label, .entry_details .subtitle:not(.is-spaced) + label {
     margin-top: -1.25rem; }
   .subtitle.is-1 {
     font-size: 3rem; }
@@ -2370,7 +2470,7 @@ a.tag:hover, a.cmp_edit_link:hover, a.date:hover {
   .subtitle.is-3, h2.subtitle {
     font-size: 2rem; }
   .subtitle.is-4, h3.subtitle,
-  .subtitle.current_issue_title {
+  .subtitle.current_issue_title, #articlesBySimilarityList h3.subtitle, .entry_details .subtitle.label, .entry_details label.subtitle {
     font-size: 1.5rem; }
   .subtitle.is-5, h4.subtitle {
     font-size: 1.25rem; }
@@ -3971,7 +4071,7 @@ button.dropdown-item {
   flex-shrink: 0;
   justify-content: center; }
   .level-item .title, .level-item h1, .level-item h2, .level-item h3,
-  .level-item .current_issue_title, .level-item h4, .level-item h5, .level-item h6,
+  .level-item .current_issue_title, .level-item h4, .level-item h5, .level-item h6, .level-item #articlesBySimilarityList h3, #articlesBySimilarityList .level-item h3, .level-item .entry_details .label, .entry_details .level-item .label, .level-item .entry_details label, .entry_details .level-item label,
   .level-item .subtitle {
     margin-bottom: 0; }
   @media screen and (max-width: 768px) {
@@ -5204,7 +5304,7 @@ a.navbar-item,
     padding-left: 1em;
     padding-right: 1em;
     border-radius: 9999px; }
-  .pagination.is-rounded .pagination-link, .is-rounded.cmp_pagination .pagination-link {
+  .pagination.is-rounded .pagination-link, .is-rounded.cmp_pagination .pagination-link, .pagination.is-rounded .cmp_pagination div strong, .cmp_pagination div .pagination.is-rounded strong, .is-rounded.cmp_pagination div strong, .pagination.is-rounded .cmp_pagination div a, .cmp_pagination div .pagination.is-rounded a, .is-rounded.cmp_pagination div a {
     border-radius: 9999px; }
 
 .pagination, .cmp_pagination,
@@ -5219,6 +5319,8 @@ a.navbar-item,
 .pagination-next,
 .cmp_pagination .next,
 .pagination-link,
+.cmp_pagination div strong,
+.cmp_pagination div a,
 .pagination-ellipsis {
   font-size: 1em;
   justify-content: center;
@@ -5230,25 +5332,33 @@ a.navbar-item,
 .pagination-previous, .cmp_pagination .prev,
 .pagination-next,
 .cmp_pagination .next,
-.pagination-link {
+.pagination-link,
+.cmp_pagination div strong,
+.cmp_pagination div a {
   border-color: #dbdbdb;
   color: #363636;
   min-width: 2.5em; }
   .pagination-previous:hover, .cmp_pagination .prev:hover,
   .pagination-next:hover,
   .cmp_pagination .next:hover,
-  .pagination-link:hover {
+  .pagination-link:hover,
+  .cmp_pagination div strong:hover,
+  .cmp_pagination div a:hover {
     border-color: #b5b5b5;
     color: #363636; }
   .pagination-previous:focus, .cmp_pagination .prev:focus,
   .pagination-next:focus,
   .cmp_pagination .next:focus,
-  .pagination-link:focus {
+  .pagination-link:focus,
+  .cmp_pagination div strong:focus,
+  .cmp_pagination div a:focus {
     border-color: #2d2c71; }
   .pagination-previous:active, .cmp_pagination .prev:active,
   .pagination-next:active,
   .cmp_pagination .next:active,
-  .pagination-link:active {
+  .pagination-link:active,
+  .cmp_pagination div strong:active,
+  .cmp_pagination div a:active {
     box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.2); }
   .pagination-previous[disabled], .cmp_pagination .prev[disabled], .pagination-previous.is-disabled, .cmp_pagination .is-disabled.prev,
   .pagination-next[disabled],
@@ -5256,7 +5366,11 @@ a.navbar-item,
   .pagination-next.is-disabled,
   .cmp_pagination .is-disabled.next,
   .pagination-link[disabled],
-  .pagination-link.is-disabled {
+  .cmp_pagination div strong[disabled],
+  .cmp_pagination div a[disabled],
+  .pagination-link.is-disabled,
+  .cmp_pagination div strong.is-disabled,
+  .cmp_pagination div a.is-disabled {
     background-color: #dbdbdb;
     border-color: #dbdbdb;
     box-shadow: none;
@@ -5270,7 +5384,7 @@ a.navbar-item,
   padding-right: 0.75em;
   white-space: nowrap; }
 
-.pagination-link.is-current {
+.pagination-link.is-current, .cmp_pagination div strong, .cmp_pagination div a.is-current {
   background-color: #db8f36;
   border-color: #db8f36;
   color: #fff; }
@@ -5310,6 +5424,8 @@ a.navbar-item,
   .pagination-next,
   .cmp_pagination .next,
   .pagination-link,
+  .cmp_pagination div strong,
+  .cmp_pagination div a,
   .pagination-ellipsis {
     margin-bottom: 0;
     margin-top: 0; }
@@ -5680,7 +5796,7 @@ label.panel-block,
   .columns.is-mobile > .column.is-offset-3 {
     margin-left: 25%; }
   .columns.is-mobile > .column.is-4, .columns.is-mobile > h3.column,
-  .columns.is-mobile > .column.current_issue_title {
+  .columns.is-mobile > .column.current_issue_title, #articlesBySimilarityList .columns.is-mobile > h3.column, .entry_details .columns.is-mobile > .column.label, .entry_details .columns.is-mobile > label.column {
     flex: none;
     width: 33.33333%; }
   .columns.is-mobile > .column.is-offset-4 {
@@ -5915,7 +6031,7 @@ label.panel-block,
     .column.is-offset-3, .column.is-offset-3-tablet {
       margin-left: 25%; }
     .column.is-4, h3.column,
-    .column.current_issue_title, .column.is-4-tablet {
+    .column.current_issue_title, #articlesBySimilarityList h3.column, .entry_details .column.label, .entry_details label.column, .column.is-4-tablet {
       flex: none;
       width: 33.33333%; }
     .column.is-offset-4, .column.is-offset-4-tablet {
@@ -6587,7 +6703,7 @@ label.panel-block,
     .columns.is-variable.is-3-fullhd {
       --columnGap: 0.75rem; } }
   .columns.is-variable.is-4, h3.columns.is-variable,
-  .columns.is-variable.current_issue_title {
+  .columns.is-variable.current_issue_title, #articlesBySimilarityList h3.columns.is-variable, .entry_details .columns.is-variable.label, .entry_details label.columns.is-variable {
     --columnGap: 1rem; }
   @media screen and (max-width: 768px) {
     .columns.is-variable.is-4-mobile {
@@ -6769,7 +6885,7 @@ label.panel-block,
       flex: none;
       width: 25%; }
     .tile.is-4, h3.tile,
-    .tile.current_issue_title {
+    .tile.current_issue_title, #articlesBySimilarityList h3.tile, .entry_details .tile.label, .entry_details label.tile {
       flex: none;
       width: 33.33333%; }
     .tile.is-5, h4.tile {
@@ -8231,7 +8347,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
     .hero.is-white strong {
       color: inherit; }
     .hero.is-white .title, .hero.is-white h1, .hero.is-white h2, .hero.is-white h3,
-    .hero.is-white .current_issue_title, .hero.is-white h4, .hero.is-white h5, .hero.is-white h6 {
+    .hero.is-white .current_issue_title, .hero.is-white h4, .hero.is-white h5, .hero.is-white h6, .hero.is-white #articlesBySimilarityList h3, #articlesBySimilarityList .hero.is-white h3, .hero.is-white .entry_details .label, .entry_details .hero.is-white .label, .hero.is-white .entry_details label, .entry_details .hero.is-white label {
       color: #0a0a0a; }
     .hero.is-white .subtitle {
       color: rgba(10, 10, 10, 0.9); }
@@ -8277,7 +8393,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
     .hero.is-black strong {
       color: inherit; }
     .hero.is-black .title, .hero.is-black h1, .hero.is-black h2, .hero.is-black h3,
-    .hero.is-black .current_issue_title, .hero.is-black h4, .hero.is-black h5, .hero.is-black h6 {
+    .hero.is-black .current_issue_title, .hero.is-black h4, .hero.is-black h5, .hero.is-black h6, .hero.is-black #articlesBySimilarityList h3, #articlesBySimilarityList .hero.is-black h3, .hero.is-black .entry_details .label, .entry_details .hero.is-black .label, .hero.is-black .entry_details label, .entry_details .hero.is-black label {
       color: white; }
     .hero.is-black .subtitle {
       color: rgba(255, 255, 255, 0.9); }
@@ -8325,7 +8441,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
       color: inherit; }
     .hero.is-light .title, .hero.date .title, .hero.is-light h1, .hero.date h1, .hero.is-light h2, .hero.date h2, .hero.is-light h3, .hero.date h3,
     .hero.is-light .current_issue_title,
-    .hero.date .current_issue_title, .hero.is-light h4, .hero.date h4, .hero.is-light h5, .hero.date h5, .hero.is-light h6, .hero.date h6 {
+    .hero.date .current_issue_title, .hero.is-light h4, .hero.date h4, .hero.is-light h5, .hero.date h5, .hero.is-light h6, .hero.date h6, .hero.is-light #articlesBySimilarityList h3, #articlesBySimilarityList .hero.is-light h3, .hero.date #articlesBySimilarityList h3, #articlesBySimilarityList .hero.date h3, .hero.is-light .entry_details .label, .entry_details .hero.is-light .label, .hero.date .entry_details .label, .entry_details .hero.date .label, .hero.is-light .entry_details label, .entry_details .hero.is-light label, .hero.date .entry_details label, .entry_details .hero.date label {
       color: rgba(0, 0, 0, 0.7); }
     .hero.is-light .subtitle, .hero.date .subtitle {
       color: rgba(0, 0, 0, 0.9); }
@@ -8375,7 +8491,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
     .hero.is-dark strong {
       color: inherit; }
     .hero.is-dark .title, .hero.is-dark h1, .hero.is-dark h2, .hero.is-dark h3,
-    .hero.is-dark .current_issue_title, .hero.is-dark h4, .hero.is-dark h5, .hero.is-dark h6 {
+    .hero.is-dark .current_issue_title, .hero.is-dark h4, .hero.is-dark h5, .hero.is-dark h6, .hero.is-dark #articlesBySimilarityList h3, #articlesBySimilarityList .hero.is-dark h3, .hero.is-dark .entry_details .label, .entry_details .hero.is-dark .label, .hero.is-dark .entry_details label, .entry_details .hero.is-dark label {
       color: #fff; }
     .hero.is-dark .subtitle {
       color: rgba(255, 255, 255, 0.9); }
@@ -8425,7 +8541,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
     .hero.is-primary .title, .hero.is-notice .title, .hero.date .title, .hero.is-primary h1, .hero.is-notice h1, .hero.date h1, .hero.is-primary h2, .hero.is-notice h2, .hero.date h2, .hero.is-primary h3, .hero.is-notice h3, .hero.date h3,
     .hero.is-primary .current_issue_title,
     .hero.is-notice .current_issue_title,
-    .hero.date .current_issue_title, .hero.is-primary h4, .hero.is-notice h4, .hero.date h4, .hero.is-primary h5, .hero.is-notice h5, .hero.date h5, .hero.is-primary h6, .hero.is-notice h6, .hero.date h6 {
+    .hero.date .current_issue_title, .hero.is-primary h4, .hero.is-notice h4, .hero.date h4, .hero.is-primary h5, .hero.is-notice h5, .hero.date h5, .hero.is-primary h6, .hero.is-notice h6, .hero.date h6, .hero.is-primary #articlesBySimilarityList h3, #articlesBySimilarityList .hero.is-primary h3, .hero.is-notice #articlesBySimilarityList h3, #articlesBySimilarityList .hero.is-notice h3, .hero.date #articlesBySimilarityList h3, #articlesBySimilarityList .hero.date h3, .hero.is-primary .entry_details .label, .entry_details .hero.is-primary .label, .hero.is-notice .entry_details .label, .entry_details .hero.is-notice .label, .hero.date .entry_details .label, .entry_details .hero.date .label, .hero.is-primary .entry_details label, .entry_details .hero.is-primary label, .hero.is-notice .entry_details label, .entry_details .hero.is-notice label, .hero.date .entry_details label, .entry_details .hero.date label {
       color: #fff; }
     .hero.is-primary .subtitle, .hero.is-notice .subtitle, .hero.date .subtitle {
       color: rgba(255, 255, 255, 0.9); }
@@ -8483,7 +8599,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
     .hero.is-link .title, .hero.block_make_submission_link .title, .hero.cmp_edit_link .title, .hero.is-link h1, .hero.block_make_submission_link h1, .hero.cmp_edit_link h1, .hero.is-link h2, .hero.block_make_submission_link h2, .hero.cmp_edit_link h2, .hero.is-link h3, .hero.block_make_submission_link h3, .hero.cmp_edit_link h3,
     .hero.is-link .current_issue_title,
     .hero.block_make_submission_link .current_issue_title,
-    .hero.cmp_edit_link .current_issue_title, .hero.is-link h4, .hero.block_make_submission_link h4, .hero.cmp_edit_link h4, .hero.is-link h5, .hero.block_make_submission_link h5, .hero.cmp_edit_link h5, .hero.is-link h6, .hero.block_make_submission_link h6, .hero.cmp_edit_link h6 {
+    .hero.cmp_edit_link .current_issue_title, .hero.is-link h4, .hero.block_make_submission_link h4, .hero.cmp_edit_link h4, .hero.is-link h5, .hero.block_make_submission_link h5, .hero.cmp_edit_link h5, .hero.is-link h6, .hero.block_make_submission_link h6, .hero.cmp_edit_link h6, .hero.is-link #articlesBySimilarityList h3, #articlesBySimilarityList .hero.is-link h3, .hero.block_make_submission_link #articlesBySimilarityList h3, #articlesBySimilarityList .hero.block_make_submission_link h3, .hero.cmp_edit_link #articlesBySimilarityList h3, #articlesBySimilarityList .hero.cmp_edit_link h3, .hero.is-link .entry_details .label, .entry_details .hero.is-link .label, .hero.block_make_submission_link .entry_details .label, .entry_details .hero.block_make_submission_link .label, .hero.cmp_edit_link .entry_details .label, .entry_details .hero.cmp_edit_link .label, .hero.is-link .entry_details label, .entry_details .hero.is-link label, .hero.block_make_submission_link .entry_details label, .entry_details .hero.block_make_submission_link label, .hero.cmp_edit_link .entry_details label, .entry_details .hero.cmp_edit_link label {
       color: #fff; }
     .hero.is-link .subtitle, .hero.block_make_submission_link .subtitle, .hero.cmp_edit_link .subtitle {
       color: rgba(255, 255, 255, 0.9); }
@@ -8537,7 +8653,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
     .hero.is-info strong {
       color: inherit; }
     .hero.is-info .title, .hero.is-info h1, .hero.is-info h2, .hero.is-info h3,
-    .hero.is-info .current_issue_title, .hero.is-info h4, .hero.is-info h5, .hero.is-info h6 {
+    .hero.is-info .current_issue_title, .hero.is-info h4, .hero.is-info h5, .hero.is-info h6, .hero.is-info #articlesBySimilarityList h3, #articlesBySimilarityList .hero.is-info h3, .hero.is-info .entry_details .label, .entry_details .hero.is-info .label, .hero.is-info .entry_details label, .entry_details .hero.is-info label {
       color: #fff; }
     .hero.is-info .subtitle {
       color: rgba(255, 255, 255, 0.9); }
@@ -8583,7 +8699,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
     .hero.is-success strong {
       color: inherit; }
     .hero.is-success .title, .hero.is-success h1, .hero.is-success h2, .hero.is-success h3,
-    .hero.is-success .current_issue_title, .hero.is-success h4, .hero.is-success h5, .hero.is-success h6 {
+    .hero.is-success .current_issue_title, .hero.is-success h4, .hero.is-success h5, .hero.is-success h6, .hero.is-success #articlesBySimilarityList h3, #articlesBySimilarityList .hero.is-success h3, .hero.is-success .entry_details .label, .entry_details .hero.is-success .label, .hero.is-success .entry_details label, .entry_details .hero.is-success label {
       color: #fff; }
     .hero.is-success .subtitle {
       color: rgba(255, 255, 255, 0.9); }
@@ -8629,7 +8745,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
     .hero.is-warning strong {
       color: inherit; }
     .hero.is-warning .title, .hero.is-warning h1, .hero.is-warning h2, .hero.is-warning h3,
-    .hero.is-warning .current_issue_title, .hero.is-warning h4, .hero.is-warning h5, .hero.is-warning h6 {
+    .hero.is-warning .current_issue_title, .hero.is-warning h4, .hero.is-warning h5, .hero.is-warning h6, .hero.is-warning #articlesBySimilarityList h3, #articlesBySimilarityList .hero.is-warning h3, .hero.is-warning .entry_details .label, .entry_details .hero.is-warning .label, .hero.is-warning .entry_details label, .entry_details .hero.is-warning label {
       color: rgba(0, 0, 0, 0.7); }
     .hero.is-warning .subtitle {
       color: rgba(0, 0, 0, 0.9); }
@@ -8675,7 +8791,7 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
     .hero.is-danger strong {
       color: inherit; }
     .hero.is-danger .title, .hero.is-danger h1, .hero.is-danger h2, .hero.is-danger h3,
-    .hero.is-danger .current_issue_title, .hero.is-danger h4, .hero.is-danger h5, .hero.is-danger h6 {
+    .hero.is-danger .current_issue_title, .hero.is-danger h4, .hero.is-danger h5, .hero.is-danger h6, .hero.is-danger #articlesBySimilarityList h3, #articlesBySimilarityList .hero.is-danger h3, .hero.is-danger .entry_details .label, .entry_details .hero.is-danger .label, .hero.is-danger .entry_details label, .entry_details .hero.is-danger label {
       color: #fff; }
     .hero.is-danger .subtitle {
       color: rgba(255, 255, 255, 0.9); }

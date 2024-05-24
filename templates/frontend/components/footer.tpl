@@ -13,12 +13,14 @@
  *}
 
 	</div><!-- pkp_structure_main -->
+	</div><!-- pkp_structure_content -->
+
 	{* Sidebars *}
 	{if empty($isFullWidth)}
 		{capture assign="sidebarCode"}{call_hook name="Templates::Common::Sidebar"}{/capture}
 		{if $sidebarCode}
-			<div class="section   column is-12-mobile is-4-tablet is-4-desktop">
-			<div class="pkp_structure_sidebar left" role="complementary"
+			<div class="pkp_structure_sidebar tile is-parent">
+			<div class=" tile is-child block left" role="complementary"
 				aria-label="{translate|escape key="common.navigation.sidebar"}">
 				{$sidebarCode}
 			</div><!-- pkp_sidebar.left -->
@@ -27,8 +29,7 @@
 	{/if}
 
 
-</div><!-- pkp_structure_content -->
-
+</div> <!--tile -->
 <div class="pkp_structure_footer_wrapper footer" role="contentinfo">
 	<a id="pkp_content_footer"></a>
 

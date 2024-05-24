@@ -30,17 +30,17 @@
 
 			<p class="title is-5">
 				{* <a class="title" href="{url op="view" path=$issue->getBestIssueId()}"> *}
-				{if $issueTitle}
-					{$issueTitle|escape}
-				{else}
+				{if $issueSeries}
 					{$issueSeries|escape}
+				{else}
+					{$issueTitle|escape}
 				{/if}
 				{* </a> *}
 			</p>
 
 			{if $issueTitle && $issueSeries}
 				<p class="series subtitle is-6">
-					{$issueSeries|escape}
+					{$issueTitle|escape}
 				</p>
 			{/if}
 			<div class="description content">

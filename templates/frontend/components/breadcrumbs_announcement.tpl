@@ -25,9 +25,9 @@
 			</a>
 			<span class="separator">{translate key="navigation.breadcrumbSeparator"}</span>
 		</li>
-		<li class="current">
+		{* <li class="current">
 			<span aria-current="page">{$currentTitle|escape}</span>
-		</li>
+		</li> *}
 	</ol>
 </nav>
 

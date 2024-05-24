@@ -29,6 +29,7 @@
 	{* Show article overview *}
 	{include file="frontend/objects/article_details.tpl"}
 
+	<div class="divider is-right"></div>
 	{call_hook name="Templates::Article::Footer::PageFooter"}
 
 </div><!-- .page -->

@@ -17,7 +17,7 @@
  *}
 {assign var=articlePath value=$article->getBestId()}
 {if !$heading}
-	{assign var="heading" value="h2"}
+	{assign var="heading" value="h3"}
 {/if}
 
 {if (!$section.hideAuthor && $article->getHideAuthor() == $smarty.const.AUTHOR_TOC_DEFAULT) || $article->getHideAuthor() == $smarty.const.AUTHOR_TOC_SHOW}
@@ -39,7 +39,7 @@
 		</div>
 	{/if}
 
-	<{$heading} class="title">
+	<{$heading} class="title is-4">
 		<a id="article-{$article->getId()}"
 			{if $journal}href="{url journal=$journal->getPath() page="article" op="view" path=$articlePath}"
 			{else}href="
@@ -82,7 +82,7 @@
 	{/if}
 
 	{if !$hideGalleys}
-		<div class="galleys_links content field is-grouped">
+		<div class="galleys_links buttons">
 			{foreach from=$article->getGalleys() item=galley}
 				{if $primaryGenreIds}
 					{assign var="file" value=$galley->getFile()}
@@ -90,7 +90,6 @@
 						{continue}
 					{/if}
 				{/if}
-				<div class="control">
 					{assign var="hasArticleAccess" value=$hasAccess}
 					{if $currentContext->getSetting('publishingMode') == $smarty.const.PUBLISHING_MODE_OPEN || $publication->getData('accessStatus') == $smarty.const.ARTICLE_ACCESS_OPEN}
 						{assign var="hasArticleAccess" value=1}
@@ -98,10 +97,11 @@
 					{include file="frontend/objects/galley_link.tpl" parent=$article publication=$publication labelledBy="article-{$article->getId()}"
 					hasAccess=$hasArticleAccess purchaseFee=$currentJournal->getData('purchaseArticleFee')
 					purchaseCurrency=$currentJournal->getData('currency')}
-				</div>
 			{/foreach}
 		</div>
 	{/if}
 
 	{call_hook name="Templates::Issue::Issue::Article"}
+
+	
 </div>

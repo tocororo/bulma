@@ -24,7 +24,7 @@
 					<a class="navbar-link" href="#">
 						{$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
 					</a>
-					<div class="navbar-dropdown {$isRightClass|escape}">
+					<div class="navbar-dropdown {$ulClass|escape}">
 					{foreach key=childField item=childNavigationMenuItemAssignment from=$navigationMenuItemAssignment->children}
 						{if $childNavigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
 							{* <li class="{$liClass|escape} navbar-item"> *}

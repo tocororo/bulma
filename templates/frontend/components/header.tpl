@@ -119,8 +119,8 @@
 										<span class="icon"><i class="fas fa-user" aria-hidden="true"></i></span>
 									</a>
 
-									<div class="navbar-dropdown">
-										{load_menu name="user" id="navigationUser" isRightClass="is-right"  ulClass="pkp_navigation_user" liClass="profile navbar-item"}
+									<div class="navbar-dropdown is-right">
+										{load_menu name="user" id="navigationUser" isRightClass="is-right"  ulClass="is-right" liClass="profile navbar-item"}
 									</div>
 								</div>
 
@@ -182,6 +182,7 @@
 			{if $isFullWidth}
 				{assign var=hasSidebar value=0}
 			{/if}
-			<div class="columns pkp_structure_content{if $hasSidebar} has_sidebar{/if}">
-				<div class="pkp_structure_main column" role="main">
+			<div class="tile is ancestor">
+			<div class="tile is-parent is-8  pkp_structure_content{if $hasSidebar} has_sidebar{/if}">
+				<div class="pkp_structure_main tile is-child " role="main">
 <a id="pkp_content_main"></a>

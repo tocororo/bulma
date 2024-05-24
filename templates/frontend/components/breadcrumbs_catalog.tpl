@@ -31,7 +31,7 @@
 				<span class="separator">{translate key="navigation.breadcrumbSeparator"}</span>
 			</li>
 		{/if}
-		<li class="current" aria-current="page">
+		{* <li class="current" aria-current="page">
 			<span aria-current="page">
 				{if $currentTitleKey}
 					{translate key=$currentTitleKey}
@@ -39,6 +39,6 @@
 					{$currentTitle|escape}
 				{/if}
 			</span>
-		</li>
+		</li> *}
 	</ol>
 </nav>

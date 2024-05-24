@@ -32,22 +32,25 @@
 {assign var=issueTitle value=$issue->getLocalizedTitle()}
 {assign var=issueSeries value=$issue->getIssueSeries()}
 
+{if $showTitle}
 <{$heading} class="title">
 	{* <a class="title" href="{url op="view" path=$issue->getBestIssueId()}"> *}
-	{if $issueTitle}
-		{$issueTitle|escape}
-	{else}
+	{if $issueSeries}
 		{$issueSeries|escape}
+	{else}
+		{$issueTitle|escape}
 	{/if}
 	{* </a> *}
 
 
-{if $issueTitle && $issueSeries}
-	<p class="series subtitle is-5">
-		{$issueSeries|escape}
-	</p>
-{/if}
+	{if $issueTitle && $issueSeries}
+		<p class="series subtitle is-5">
+		{$issueTitle|escape}
+		</p>
+	{/if}
 </{$heading}>
+{/if}
+
 
 <div class="obj_issue_toc">
 	{* Indicate if this is only a preview *}
@@ -57,7 +60,9 @@
 
 	{* Issue introduction area above articles *}
 	<div class="columns">
+	<div class="column is-3">
 
+	</div>
 		<div class="column">
 			{* Issue cover image *}
 			{assign var=issueCover value=$issue->getLocalizedCoverImageUrl()}
@@ -82,8 +87,6 @@
 					</span>
 				</div>
 			{/if}
-		</div>
-		<div class="column">
 			{* Description *}
 			{if $issue->hasDescription()}
 				<div class="description content">
@@ -124,7 +127,7 @@
 				<div class="galleys content">
 					<p class="subtitle" id="issueTocGalleyLabel">
 						{translate key="issue.fullIssue"}
-					</{$heading}>
+						</{$heading}>
 					<div class="galleys_links field is-grouped">
 						{foreach from=$issueGalleys item=galley}
 							<div class="control">
@@ -136,6 +139,9 @@
 			{/if}
 
 		</div>
+		<div class="column is-3">
+
+		</div>
 	</div>
 
 	{* Articles *}
@@ -144,7 +150,7 @@
 			<div class="section">
 				{if $section.articles}
 					{if $section.title}
-						<{$heading}>
+						<{$heading} class="title is-3">
 							{$section.title|escape}
 						</{$heading}>
 					{/if}
@@ -152,8 +158,11 @@
 						{foreach from=$section.articles item=article}
 							<li>
 								{include file="frontend/objects/article_summary.tpl" heading=$articleHeading}
+								
 							</li>
+							<div class="divider is-right"></div>
 						{/foreach}
+
 					</ul>
 				{/if}
 			</div>

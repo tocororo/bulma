@@ -29,6 +29,11 @@ class BulmaThemePlugin extends ThemePlugin
 			'bulma', 'resources/main.css'
 		);
 
+
+		// Styles for HTML galleys
+		$this->addStyle('htmlGalley', 'templates/plugins/generic/htmlArticleGalley/css/default.css', array('contexts' => 'htmlGalley'));
+
+
 		$this->addMenuArea(array('primary', 'user'));
 
 		$this->addScript('menu', '/resources/js/all.js');
@@ -48,6 +53,10 @@ class BulmaThemePlugin extends ThemePlugin
 		]);
 
 		HookRegistry::register ('TemplateManager::display', array($this, 'loadAdditionalData'));
+
+
+		// Check if CSS embedded to the HTML galley
+		HookRegistry::register('TemplateManager::display', array($this, 'hasEmbeddedCSS'));
 		
 	}
 
@@ -91,5 +100,51 @@ class BulmaThemePlugin extends ThemePlugin
 	function getDescription()
 	{
 		return __('plugins.themes.bulma.description');
+	}
+
+
+	/**
+	 * @param $hookName string `TemplateManager::display`
+	 * @param $args array [
+	 *      @option TemplateManager
+	 *      @option string relative path to the template
+	 *  ]
+	 */
+	public function hasEmbeddedCSS($hookName, $args) {
+		$templateMgr = $args[0]; /* @var $templateMgr TemplateManager */
+		$template = $args[1];
+		$request = $this->getRequest();
+
+		// Return false if not a galley page
+		if ($template !== 'plugins/plugins/generic/htmlArticleGalley/generic/htmlArticleGalley:display.tpl') return false;
+
+		$articleArrays = $templateMgr->getTemplateVars('article');
+
+		// Deafult styling for HTML galley
+		$boolEmbeddedCss = false;
+		foreach ($articleArrays->getGalleys() as $galley) {
+			if ($galley->getFileType() === 'text/html') {
+				$submissionFile = $galley->getFile();
+
+				$submissionFileDao = DAORegistry::getDAO('SubmissionFileDAO');
+				import('lib.pkp.classes.submission.SubmissionFile'); // Constants
+				$embeddableFiles = array_merge(
+					$submissionFileDao->getLatestRevisions($submissionFile->getSubmissionId(), SUBMISSION_FILE_PROOF),
+					$submissionFileDao->getLatestRevisionsByAssocId(ASSOC_TYPE_SUBMISSION_FILE, $submissionFile->getFileId(), $submissionFile->getSubmissionId(), SUBMISSION_FILE_DEPENDENT)
+				);
+
+				foreach ($embeddableFiles as $embeddableFile) {
+					if ($embeddableFile->getFileType() == 'text/css') {
+						$boolEmbeddedCss = true;
+					}
+				}
+			}
+
+		}
+
+		$templateMgr->assign(array(
+			'boolEmbeddedCss' => $boolEmbeddedCss,
+			'themePath' => $request->getBaseUrl() . "/" . $this->getPluginPath(),
+		));
 	}
 }

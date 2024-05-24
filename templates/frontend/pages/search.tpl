@@ -58,7 +58,7 @@
 				</legend>
 				<a class="card-header-icon">
 					<span class="icon">
-						<i class="fas fa-angle-down" aria-hidden="true"></i>
+						<i class="fas fa-angle-up" aria-hidden="true"></i>
 					</span>
 				</a>
 			</div>
@@ -108,13 +108,13 @@
 		{/if}
 
 		{* Search results, finally! *}
-		<ul class="search_results">
+		<div class="search_results block">
 			{iterate from=results item=result}
-			<li>
+			<div class="box">
 				{include file="frontend/objects/article_summary.tpl" article=$result.publishedSubmission journal=$result.journal showDatePublished=true hideGalleys=true heading="h3"}
-			</li>
+			</div>
 			{/iterate}
-		</ul>
+		</div>
 
 		{* No results found *}
 		{if $results->wasEmpty()}
