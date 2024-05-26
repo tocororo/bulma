@@ -19,8 +19,8 @@
 	{if empty($isFullWidth)}
 		{capture assign="sidebarCode"}{call_hook name="Templates::Common::Sidebar"}{/capture}
 		{if $sidebarCode}
-			<div class="pkp_structure_sidebar tile is-parent">
-			<div class=" tile is-child block left" role="complementary"
+			<div class="column pkp_structure_sidebar">
+			<div class="block left" role="complementary"
 				aria-label="{translate|escape key="common.navigation.sidebar"}">
 				{$sidebarCode}
 			</div><!-- pkp_sidebar.left -->
@@ -29,17 +29,20 @@
 	{/if}
 
 
-</div> <!--tile -->
-<div class="pkp_structure_footer_wrapper footer" role="contentinfo">
+</div> 
+<div class=" pkp_structure_footer_wrapper footer" role="contentinfo">
 	<a id="pkp_content_footer"></a>
 
-	<div class="pkp_structure_footer">
+	<div class="container  pkp_structure_footer">
 
 		{if $pageFooter}
 			<div class="pkp_footer_content">
 				{$pageFooter}
 			</div>
 		{/if}
+
+
+		<div class="divider is-right"></div>
 
 		<div class="pkp_brand_footer" role="complementary">
 			<a href="{url page="about" op="aboutThisPublishingSystem"}">

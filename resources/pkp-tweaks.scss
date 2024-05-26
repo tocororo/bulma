@@ -2,11 +2,11 @@
   display: none;
 }
 
-section,
-.page,
-.additional_content {
-  @extend .section;
-}
+// section,
+// .page,
+// .additional_content {
+//   @extend .section;
+// }
 
 h1 {
   @extend .title;
@@ -68,10 +68,14 @@ h6 {
   @extend .block;
 }
 
+.block_author {
+  @extend .block;
+  width: 300px;
+}
+
 .pkp_block {
   @extend .panel;
-  @extend .block;
-
+  @extend .is-primary;
   h2 {
     @extend .panel-heading;
   }
@@ -304,3 +308,11 @@ fieldset {
     @extend .is-4;
   }
 }
+
+.long-text-link {
+  a { /* Style the link element */
+  flex: 1; /* Allow link to grow and shrink */
+  overflow: hidden; /* Hide overflow for link text */
+  text-overflow: ellipsis; /* Add ellipsis for overflow */
+  white-space: nowrap; /* Prevent text wrapping within link */
+}}

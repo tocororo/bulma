@@ -6,17 +6,12 @@
   "author": "Rafael Martinez Estevez <malayibiri@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "css-build": "node-sass --omit-source-map-url resources/main.scss resources/main.css",
-    "css-watch": "npm run css-build -- --watch",
-    "start": "npm run css-watch"
+    "build-bulma": "sass --load-path=node_modules  resources/main.scss resources/main.css",
+    "css-watch": "npm run build-bulma -- --watch",
+    "start": "npm run build-bulma -- --watch"
   },
   "devDependencies": {
     "@creativebulma/bulma-collapsible": "^1.0.4",
-    "bulma": "^0.9.4",
-    "node-sass": "^9.0.0"
-  },
-  "dependencies": {
-    "buefy": "^0.9.28",
-    "bulmaswatch": "^0.8.1"
+    "bulma": "^1.0.1"
   }
 }

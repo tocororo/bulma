@@ -1,11 +1,25 @@
-@charset "utf-8";
 
+$blue:         #2d2c71;
+$orange:       #db8f36;
+$brown: #757763;
+$beige-light: #d0d1cd;
+$beige-lighter: #eff0eb;
+
+@use "bulma/sass" with (
+  $family-primary: '"Nunito", sans-serif',
+  $grey-dark: $brown,
+  $grey-light: $beige-light,
+  $primary: $blue,
+  $link: $orange,
+  $control-border-width: 2px,
+  $input-shadow: none
+);
 
 @import "./variables.scss";
 
-@import "./pkp-tweaks.scss";
 
-@import "../node_modules/bulma/bulma.sass";
+
+@import "./pkp-tweaks.scss";
 
 @import './collapsable.scss';
 

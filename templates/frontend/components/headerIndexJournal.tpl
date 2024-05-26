@@ -30,7 +30,7 @@
 	<body
 		class="pkp_page_{$requestedPage|escape|default:"index"} pkp_op_{$requestedOp|escape|default:"index"}{if $showingLogo} has_site_logo{/if}"
 		dir="{$currentLocaleLangDir|escape|default:"ltr"}">
-
+<h1>NOOOOOOOOOOOOOOOOOOOOO MOSTRARRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR</h1>
 		<div class="pkp_structure_page">
 
 
@@ -173,6 +173,6 @@
 				{assign var=hasSidebar value=0}
 			{/if}
 
-			<div class="tile is-ancestor pkp_structure_content{if $hasSidebar} has_sidebar{/if}">
-				<div class="pkp_structure_main tile is-8" role="main">
+			<div class="pkp_structure_content{if $hasSidebar} has_sidebar{/if}">
+				<div class="pkp_structure_main cell is-8" role="main">
 <a id="pkp_content_main"></a>

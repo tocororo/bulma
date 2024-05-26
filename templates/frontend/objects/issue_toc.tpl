@@ -147,7 +147,7 @@
 	{* Articles *}
 	<div class="sections">
 		{foreach name=sections from=$publishedSubmissions item=section}
-			<div class="section">
+			<div class="">
 				{if $section.articles}
 					{if $section.title}
 						<{$heading} class="title is-3">

@@ -18,8 +18,8 @@
 		{assign var="showingLogo" value=false}
 	{/if}
 {/strip}
-<!DOCTYPE html>
-<html lang="{$currentLocale|replace:"_":"-"}" xml:lang="{$currentLocale|replace:"_":"-"}">
+<!doctype html>
+<html data-theme="ligth" lang="{$currentLocale|replace:"_":"-"}" xml:lang="{$currentLocale|replace:"_":"-"}">
 	{if !$pageTitleTranslated}
 		{capture assign="pageTitleTranslated"}
 			{translate key=$pageTitle}
@@ -79,6 +79,7 @@
 						</button> *}
 							<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
 								data-target="navbarOJS">
+								<span aria-hidden="true"></span>
 								<span aria-hidden="true"></span>
 								<span aria-hidden="true"></span>
 								<span aria-hidden="true"></span>
@@ -146,10 +147,10 @@
 			</header><!-- .pkp_structure_head -->
 			{if $requestedPage == 'index'  || $requestedPage == ''}
 
-				<section class="hero is-primary ">
+				<div class="hero is-primary">
 					{call_hook name="Templates::Index::journal"}
 
-					<div class="hero-body">
+					<div class="hero-body container  " >
 						{if !$activeTheme->getOption('useHomepageImageAsHeader') && $homepageImage}
 							<div class="homepage_image container has-text-centered">
 								<p class="title">
@@ -162,11 +163,11 @@
 
 						{* Journal Description *}
 						{if $activeTheme->getOption('showDescriptionInJournalIndex')}
-							<section class="section homepage_about">
+							<div class="homepage_about">
 								<a id="homepageAbout"></a>
 								{* <h2>{translate key="about.aboutContext"}</h2> *}
 								{$currentContext->getLocalizedData('description')}
-							</section>
+							</div>
 						{/if}
 					</div>
 
@@ -174,7 +175,7 @@
 
 					</div>
 
-				</section>
+				</div>
 
 
 			{{/if}}
@@ -182,7 +183,7 @@
 			{if $isFullWidth}
 				{assign var=hasSidebar value=0}
 			{/if}
-			<div class="tile is ancestor">
-			<div class="tile is-parent is-8  pkp_structure_content{if $hasSidebar} has_sidebar{/if}">
-				<div class="pkp_structure_main tile is-child " role="main">
+			<div class="columns container is ancestor">
+			<div class="column is-two-thirds pkp_structure_content{if $hasSidebar} has_sidebar{/if}">
+				<div class="pkp_structure_main " role="main">
 <a id="pkp_content_main"></a>

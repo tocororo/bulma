@@ -36,7 +36,16 @@ class BulmaThemePlugin extends ThemePlugin
 
 		$this->addMenuArea(array('primary', 'user'));
 
-		$this->addScript('menu', '/resources/js/all.js');
+		$request = Application::get()->getRequest();
+		$min = Config::getVar('general', 'enable_minified') ? '.min' : '';
+		$jquery = $request->getBaseUrl() . '/lib/pkp/lib/vendor/components/jquery/jquery' . $min . '.js';
+		$jqueryUI = $request->getBaseUrl() . '/lib/pkp/lib/vendor/components/jqueryui/jquery-ui' . $min . '.js';
+		// Use an empty `baseUrl` argument to prevent the theme from looking for
+		// the files within the theme directory
+		$this->addScript('jQuery', $jquery, array('baseUrl' => ''));
+		// $this->addScript('jQueryUI', $jqueryUI, array('baseUrl' => ''));
+
+		$this->addScript('menu', 'resources/js/all.js');
 		// $this->addScript('collapsable', '/resources/js/collapsable.js');
 		// $this->addScript('search', '/resources/js/search.js');
 		// $this->addScript('collapsible', '/resources/collapsible/bulma-collapsible.min.js');
