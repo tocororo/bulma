@@ -60,6 +60,16 @@ class BulmaThemePlugin extends ThemePlugin
 			],
 			'default' => false,
 		]);
+		$this->addOption('useHomepageImageAsHeader', 'FieldOptions', [
+			'label' => __('manager.setup.contextSummary'),
+				'options' => [
+				[
+					'value' => true,
+					'label' => __('plugins.themes.default.option.useHomepageImageAsHeader.option'),
+				],
+			],
+			'default' => false,
+		]);
 
 		HookRegistry::register ('TemplateManager::display', array($this, 'loadAdditionalData'));
 

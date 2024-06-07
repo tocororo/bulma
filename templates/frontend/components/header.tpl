@@ -151,15 +151,15 @@
 					{call_hook name="Templates::Index::journal"}
 
 					<div class="hero-body container  " >
-						{if !$activeTheme->getOption('useHomepageImageAsHeader') && $homepageImage}
-							<div class="homepage_image container has-text-centered">
+						{* if !$activeTheme->getOption('useHomepageImageAsHeader') && $homepageImage *}
+							<div class="homepage_image p-3 has-text-centered">
 								<p class="title">
 									{$displayPageHeaderTitle|escape}</a>
 								</p>
 								{* <img src="{$publicFilesDir}/{$homepageImage.uploadName|escape:"url"}" {if $homepageImage.altText}
 					alt="{$homepageImage.altText|escape}" {/if}> *}
 							</div>
-						{/if}
+						{* /if* }
 
 						{* Journal Description *}
 						{if $activeTheme->getOption('showDescriptionInJournalIndex')}
