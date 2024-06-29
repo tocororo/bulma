@@ -25,50 +25,62 @@
 {/if}
 
 {assign var=publication value=$article->getCurrentPublication()}
+
 <div class="obj_article_summary">
-	{if $publication->getLocalizedData('coverImage')}
-		<div class="cover">
-			<a {if $journal}href="{url journal=$journal->getPath() page="article" op="view" path=$articlePath}"
-				{else}href="
-					{url page="article" op="view" path=$articlePath}" 
-				{/if} class="file">
-				{assign var="coverImage" value=$publication->getLocalizedData('coverImage')}
-				<img src="{$publication->getLocalizedCoverImageUrl($article->getData('contextId'))|escape}"
-					alt="{$coverImage.altText|escape|default:''}">
-			</a>
-		</div>
-	{/if}
+	<div class="columns">
 
-	<{$heading} class="title is-4">
-		<a id="article-{$article->getId()}"
-			{if $journal}href="{url journal=$journal->getPath() page="article" op="view" path=$articlePath}"
-			{else}href="
-				{url page="article" op="view" path=$articlePath}" 
-			{/if}>
-			{$article->getLocalizedTitle()|strip_unsafe_html}
-			{if $article->getLocalizedSubtitle()}
-				<span class="subtitle">
-					{$article->getLocalizedSubtitle()|escape}
-				</span>
-			{/if}
-		</a>
-	</{$heading}>
+		{if $publication->getLocalizedData('coverImage')}
+			<div class="column is-two-fifths">
+				<div class="cover">
+					<a {if $journal}href="{url journal=$journal->getPath() page="article" op="view" path=$articlePath}"
+						{else}href="
 
-	{assign var=submissionPages value=$publication->getData('pages')}
-	{assign var=submissionDatePublished value=$publication->getData('datePublished')}
-	{if $showAuthor || $submissionPages || ($submissionDatePublished && $showDatePublished)}
-		<div class="meta content ">
+
+							{url page="article" op="view" path=$articlePath}" 
+						{/if} class="file">
+						{assign var="coverImage" value=$publication->getLocalizedData('coverImage')}
+						<img src="{$publication->getLocalizedCoverImageUrl($article->getData('contextId'))|escape}"
+							alt="{$coverImage.altText|escape|default:''}">
+					</a>
+				</div>
+			</div>
+		{/if}
+
+		<div class="column">
+			<{$heading}>
+				<a id="article-{$article->getId()}"
+					{if $journal}href="{url journal=$journal->getPath() page="article" op="view" path=$articlePath}"
+					{else}href="
+
+
+						{url page="article" op="view" path=$articlePath}" 
+					{/if}>
+					{$article->getLocalizedTitle()|strip_unsafe_html}
+					{if $article->getLocalizedSubtitle()}
+						<span class="subtitle">
+							{$article->getLocalizedSubtitle()|escape}
+						</span>
+					{/if}
+				</a>
+			</{$heading}>
 			{if $showAuthor}
 				<div class="authors">
 					{$article->getAuthorString()|escape}
 				</div>
 			{/if}
 
+		</div>
+	</div>
+
+	{assign var=submissionPages value=$publication->getData('pages')}
+	{assign var=submissionDatePublished value=$publication->getData('datePublished')}
+	{if $showAuthor || $submissionPages || ($submissionDatePublished && $showDatePublished)}
+		<div class="meta content mb-3">
 			{* Page numbers for this article *}
 			{if $submissionPages}
 				<div class="published tags has-addons">
 					<div class="tag">Pag.</div>
-					<div class="tag is-light is-primary" >{$submissionPages|escape}</div>
+					<div class="tag is-light is-primary">{$submissionPages|escape}</div>
 				</div>
 			{/if}
 
@@ -90,18 +102,18 @@
 						{continue}
 					{/if}
 				{/if}
-					{assign var="hasArticleAccess" value=$hasAccess}
-					{if $currentContext->getSetting('publishingMode') == $smarty.const.PUBLISHING_MODE_OPEN || $publication->getData('accessStatus') == $smarty.const.ARTICLE_ACCESS_OPEN}
-						{assign var="hasArticleAccess" value=1}
-					{/if}
-					{include file="frontend/objects/galley_link.tpl" parent=$article publication=$publication labelledBy="article-{$article->getId()}"
-					hasAccess=$hasArticleAccess purchaseFee=$currentJournal->getData('purchaseArticleFee')
-					purchaseCurrency=$currentJournal->getData('currency')}
+				{assign var="hasArticleAccess" value=$hasAccess}
+				{if $currentContext->getSetting('publishingMode') == $smarty.const.PUBLISHING_MODE_OPEN || $publication->getData('accessStatus') == $smarty.const.ARTICLE_ACCESS_OPEN}
+					{assign var="hasArticleAccess" value=1}
+				{/if}
+				{include file="frontend/objects/galley_link.tpl" parent=$article publication=$publication labelledBy="article-{$article->getId()}"
+				hasAccess=$hasArticleAccess purchaseFee=$currentJournal->getData('purchaseArticleFee')
+				purchaseCurrency=$currentJournal->getData('currency')}
 			{/foreach}
 		</div>
 	{/if}
 
 	{call_hook name="Templates::Issue::Issue::Article"}
 
-	
+
 </div>

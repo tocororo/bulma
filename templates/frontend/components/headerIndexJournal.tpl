@@ -140,9 +140,9 @@
 				<div class="hero-body">
 					{if !$activeTheme->getOption('useHomepageImageAsHeader') && $homepageImage}
 						<div class="homepage_image container has-text-centered">
-						<p class="title">
-						{$displayPageHeaderTitle|escape}</a>
-						</p>
+						<h1>
+						{$displayPageHeaderTitle|escape}
+						</h1>
 							{* <img src="{$publicFilesDir}/{$homepageImage.uploadName|escape:"url"}" {if $homepageImage.altText}
 								alt="{$homepageImage.altText|escape}" {/if}> *}
 						</div>

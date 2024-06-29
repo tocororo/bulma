@@ -37,3 +37,24 @@ msgstr "Contenido principal del artículo"
 
 msgid "plugins.themes.bulma.article.details"
 msgstr "Detalles del artículo"
+
+msgid "plugins.themes.bulma.statistics.types"
+msgstr "Gráfico"
+
+msgid "plugins.themes.bulma.statistics.year"
+msgstr "Año"
+
+msgid "plugins.themes.bulma.link.facebook"
+msgstr "Facebook"
+
+msgid "plugins.themes.bulma.link.twitter"
+msgstr "Twitter"
+
+msgid "plugins.themes.bulma.link.linkedin"
+msgstr "LinkedIn"
+
+msgid "plugins.themes.bulma.link.instagram"
+msgstr "Instagram"
+
+msgid "plugins.themes.bulma.link.youtube"
+msgstr "Youtube"

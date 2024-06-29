@@ -15,5 +15,6 @@
 		<li>
 			{include file="frontend/objects/announcement_summary.tpl"}
 		</li>
+		<div class="divider is-right"></div>
 	{/foreach}
 </ul>

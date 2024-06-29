@@ -29,10 +29,10 @@
 	{* Display an issue with the Table of Contents *}
 	{else}
 		{include file="frontend/components/breadcrumbs_issue.tpl" currentTitle=$issueIdentification}
-		<h1>
+		{* <h1>
 			{$issueIdentification|escape}
-		</h1>
-		{include file="frontend/objects/issue_toc.tpl"}
+		</h1> *}
+		{include file="frontend/objects/issue_toc.tpl"  heading="h1" showTitle="true"}
 	{/if}
 </div>
 

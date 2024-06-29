@@ -18,6 +18,9 @@
 		{assign var="showingLogo" value=false}
 	{/if}
 {/strip}
+
+{assign var="thumb" value=$currentJournal->getLocalizedData('journalThumbnail')}
+
 <!doctype html>
 <html data-theme="ligth" lang="{$currentLocale|replace:"_":"-"}" xml:lang="{$currentLocale|replace:"_":"-"}">
 	{if !$pageTitleTranslated}
@@ -52,28 +55,26 @@
 				<nav class="pkp_head_wrapper navbar is-primary" role="navigation" aria-label="main navigation">
 					<div class="container">
 						<div class="pkp_site_name_wrapper navbar-brand">
-							<div class="pkp_site_name navbar-item">
-								{capture assign="homeUrl"}
-									{url page="index" router=$smarty.const.ROUTE_PAGE}
-								{/capture}
-								{if $displayPageHeaderLogo}
-									<a href="{$homeUrl}" class="is_img">
-										<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}"
-											width="{$displayPageHeaderLogo.width|escape}"
-											height="{$displayPageHeaderLogo.height|escape}"
-											{if $displayPageHeaderLogo.altText != ''}alt="{$displayPageHeaderLogo.altText|escape}"
-											{/if} />
-									</a>
-								{elseif $displayPageHeaderTitle}
-									<a href="{$homeUrl}" class="is_text">{$displayPageHeaderTitle|escape}</a>
-								{else}
-									<a href="{$homeUrl}" class="is_img">
-										<img src="{$baseUrl}/templates/images/structure/logo.png"
-											alt="{$applicationName|escape}" title="{$applicationName|escape}" width="180"
-											height="90" />
-									</a>
-								{/if}
-							</div>
+							{* <div class="pkp_site_name navbar-item"> *}
+							{capture assign="homeUrl"}
+								{url page="index" router=$smarty.const.ROUTE_PAGE}
+							{/capture}
+							{if $displayPageHeaderLogo}
+								<a href="{$homeUrl}" class="navbar-item is_img">
+									<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}"
+										{if $displayPageHeaderLogo.altText != ''}alt="{$displayPageHeaderLogo.altText|escape}"
+										{/if} />
+								</a>
+							{elseif $displayPageHeaderTitle}
+								<a href="{$homeUrl}" class="is_text">{$displayPageHeaderTitle|escape}</a>
+							{else}
+								<a href="{$homeUrl}" class="is_img">
+									<img src="{$baseUrl}/templates/images/structure/logo.png"
+										alt="{$applicationName|escape}" title="{$applicationName|escape}" width="180"
+										height="90" />
+								</a>
+							{/if}
+							{* </div> *}
 							{* <button class="pkp_site_nav_toggle">
 							<span>Open Menu</span>
 						</button> *}
@@ -147,19 +148,38 @@
 			</header><!-- .pkp_structure_head -->
 			{if $requestedPage == 'index'  || $requestedPage == ''}
 
-				<div class="hero is-primary">
+				<div id="journal-home-hero" class="hero is-primary"
+					{* style="background-image: url({$publicFilesDir}/{$homepageImage.uploadName|escape:'url'}); background-position: center top; background-size: cover; opacity:0.5;" *}>
+
+					<img id="journal-home-hero-bg" class="hero-bg"
+						src="{$publicFilesDir}/{$homepageImage.uploadName|escape:'url'}" alt="">
+					{* <div
+					class="hero-bg"
+					style="background-image: url({$publicFilesDir}/{$homepageImage.uploadName|escape:'url'}); background-position: center top; background-size: cover; opacity:0.5;"
+				></div>  *}
 					{call_hook name="Templates::Index::journal"}
 
-					<div class="hero-body container  " >
-						{* if !$activeTheme->getOption('useHomepageImageAsHeader') && $homepageImage *}
-							<div class="homepage_image p-3 has-text-centered">
-								<p class="title">
-									{$displayPageHeaderTitle|escape}</a>
-								</p>
-								{* <img src="{$publicFilesDir}/{$homepageImage.uploadName|escape:"url"}" {if $homepageImage.altText}
-					alt="{$homepageImage.altText|escape}" {/if}> *}
+					<div class="hero-body has-text-justified container">
+						<div class="homepage_image p-3 ">
+							{if $thumb}
+							<div class="columns is-desktop">
+								<div class="column is-6 is-offset-3">
+
+									<figure class="image">
+									<img src="{$publicFilesDir}/{$thumb.uploadName|escape:"url"}" {if $thumb.altText}
+									alt="{$thumb.altText|escape}" {/if}>
+									</figure>
+								</div>
 							</div>
-						{* /if* }
+							{else}
+							<h1 class="{if !$activeTheme->getOption('showTitleInJournalIndex')}is-hidden{/if}">
+								{$displayPageHeaderTitle|escape}</a>
+							</h1>
+							{/if}
+							{*if $activeTheme->getOption('useHomepageImageAsHeader') && $homepageImage *}
+
+							{*/if*}
+						</div>
 
 						{* Journal Description *}
 						{if $activeTheme->getOption('showDescriptionInJournalIndex')}
@@ -171,9 +191,9 @@
 						{/if}
 					</div>
 
-					<div class="hero-foot">
+					{* <div class="hero-foot">
 
-					</div>
+					</div> *}
 
 				</div>
 
@@ -183,7 +203,7 @@
 			{if $isFullWidth}
 				{assign var=hasSidebar value=0}
 			{/if}
-			<div class="columns container is ancestor">
-			<div class="column is-two-thirds pkp_structure_content{if $hasSidebar} has_sidebar{/if}">
-				<div class="pkp_structure_main " role="main">
+			<div class="columns  is-desktop container">
+				<div class="column is-two-thirds-desktop pkp_structure_content{if $hasSidebar} has_sidebar{/if}">
+					<div class="pkp_structure_main " role="main">
 <a id="pkp_content_main"></a>

@@ -18,14 +18,19 @@
  * @uses $heading string HTML heading element, default: h2
  *}
 {if !$heading}
-	{assign var="heading" value="h2"}
+	{assign var="heading" value="h1"}
 {/if}
-{assign var="articleHeading" value="h3"}
-{if $heading == "h3"}
-	{assign var="articleHeading" value="h4"}
-{elseif $heading == "h4"}
+{assign var="sectionHeading" value="h3"}
+{assign var="articleHeading" value="h4"}
+
+{if $heading == "h2"}
+	{assign var="sectionHeading" value="h4"}
 	{assign var="articleHeading" value="h5"}
-{elseif $heading == "h5"}
+{elseif $heading == "h3"}
+	{assign var="sectionHeading" value="h5"}
+	{assign var="articleHeading" value="h6"}
+{elseif $heading == "h4"}
+	{assign var="sectionHeading" value="h5"}
 	{assign var="articleHeading" value="h6"}
 {/if}
 
@@ -33,22 +38,22 @@
 {assign var=issueSeries value=$issue->getIssueSeries()}
 
 {if $showTitle}
-<{$heading} class="title">
-	{* <a class="title" href="{url op="view" path=$issue->getBestIssueId()}"> *}
-	{if $issueSeries}
-		{$issueSeries|escape}
-	{else}
-		{$issueTitle|escape}
-	{/if}
-	{* </a> *}
+	<{$heading} >
+		{* <a class="title" href="{url op="view" path=$issue->getBestIssueId()}"> *}
+		{if $issueSeries}
+			{$issueSeries|escape}
+		{else}
+			{$issueTitle|escape}
+		{/if}
+		{* </a> *}
 
-
-	{if $issueTitle && $issueSeries}
-		<p class="series subtitle is-5">
-		{$issueTitle|escape}
-		</p>
-	{/if}
 </{$heading}>
+		{if $issueTitle && $issueSeries}
+			<{$articleHeading} class="series subtitle">
+				{$issueTitle|escape}
+			</{$articleHeading}>
+		{/if}
+	
 {/if}
 
 
@@ -60,9 +65,9 @@
 
 	{* Issue introduction area above articles *}
 	<div class="columns">
-	<div class="column is-3">
+		<div class="column is-3">
 
-	</div>
+		</div>
 		<div class="column">
 			{* Issue cover image *}
 			{assign var=issueCover value=$issue->getLocalizedCoverImageUrl()}
@@ -150,20 +155,20 @@
 			<div class="">
 				{if $section.articles}
 					{if $section.title}
-						<{$heading} class="title is-3">
+						<{$sectionHeading}>
 							{$section.title|escape}
-						</{$heading}>
+						</{$sectionHeading}>
 					{/if}
 					<ul class="cmp_article_list articles">
 						{foreach from=$section.articles item=article}
-							<li>
+							<li class="mb-6 mt-6 pb-3">
 								{include file="frontend/objects/article_summary.tpl" heading=$articleHeading}
-								
 							</li>
-							<div class="divider is-right"></div>
+							
 						{/foreach}
 
 					</ul>
+					<div class="divider is-right"></div>
 				{/if}
 			</div>
 		{/foreach}

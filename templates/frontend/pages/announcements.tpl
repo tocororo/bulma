@@ -18,7 +18,7 @@
 	</h1>
 	{include file="frontend/components/editLink.tpl" page="management" op="settings" path="announcements" anchor="announcements" sectionTitleKey="announcement.announcements"}
 
-	{$announcementsIntroduction}
+	{* {$announcementsIntroduction} *}
 
 	{include file="frontend/components/announcements.tpl"}
 </div><!-- .page -->

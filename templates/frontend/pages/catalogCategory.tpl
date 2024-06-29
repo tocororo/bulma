@@ -63,7 +63,7 @@
 	</nav>
 	{/if}
 
-	<h2 class="title">
+	<h2 >
 		{translate key="catalog.category.heading"}
 	</h2>
 

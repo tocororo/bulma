@@ -1,7 +1,7 @@
 
-$blue:         #2d2c71;
-$orange:       #db8f36;
-$brown: #757763;
+$blue:         rgb(45, 44, 113);
+$orange:       rgb(219, 143, 54);
+$brown: #414239;
 $beige-light: #d0d1cd;
 $beige-lighter: #eff0eb;
 
@@ -12,8 +12,16 @@ $beige-lighter: #eff0eb;
   $primary: $blue,
   $link: $orange,
   $control-border-width: 2px,
-  $input-shadow: none
+  $input-shadow: none,
+  $dropdown-content-radius:0em,
+  $panel-radius: 0em,
+  $panel-heading-radius: 0em,
+  $tag-radius: 0em,
+  $card-radius: 0em,
+  $box-radius: 0em,
 );
+
+@use "bulma/sass/utilities/mixins";
 
 @import "./variables.scss";
 
@@ -24,6 +32,6 @@ $beige-lighter: #eff0eb;
 @import './collapsable.scss';
 
 @import './bulma-divider.min.css';
-@import './bulma-tooltip.min.css';
+// @import './bulma-tooltip.min.css';
 
 @import './fa/css/all.min.css';

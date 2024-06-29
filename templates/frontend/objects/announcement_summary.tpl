@@ -25,13 +25,13 @@
 	</div>
 	<div class="summary">
 		{$announcement->getLocalizedDescriptionShort()|strip_unsafe_html}
-		<a href="{url router=$smarty.const.ROUTE_PAGE page="announcement" op="view" path=$announcement->getId()}" class="read_more">
-			<span aria-hidden="true" role="presentation">
+	</div>
+	<a href="{url router=$smarty.const.ROUTE_PAGE page="announcement" op="view" path=$announcement->getId()}" class="read_more">
+			<span class="tag" aria-hidden="true" role="presentation">
 				{translate key="common.readMore"}
 			</span>
 			<span class="pkp_screen_reader">
 				{translate key="common.readMoreWithTitle" title=$announcement->getLocalizedTitle()|escape}
 			</span>
 		</a>
-	</div>
 </article><!-- .obj_announcement_summary -->

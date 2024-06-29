@@ -71,6 +71,12 @@
 		</span>
 	{/if}
 
+	{if $type=="pdf"}
+	<span class="icon is-small mr-2">
+      <i class="fas fa-file-pdf"></i>
+    </span>
+	{/if}
+
 	{$galley->getGalleyLabel()|escape}
 
 	{if $restricted && $purchaseFee && $purchaseCurrency}

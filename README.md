@@ -1,6 +1,8 @@
 # Bulma Theme
 
-A Bulma theme for [OJS 3.3.0.*](https://pkp.sfu.ca/ojs/) 
+A Bulma theme for [OJS 3.3.0.*](https://pkp.sfu.ca/ojs/)
+
+Using (GlideJS) [https://glidejs.com/]
 
 [Repo](https://github.com/tocororo/bulma)
 

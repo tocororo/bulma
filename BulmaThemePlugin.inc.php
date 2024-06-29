@@ -25,13 +25,22 @@ class BulmaThemePlugin extends ThemePlugin
 	 */
 	public function init()
 	{
+		$primaryColor = 'rgb(45, 44, 113)';
+		$linkColor = 'rgb(219, 143, 54)';
+
 		$this->addStyle(
-			'bulma', 'resources/main.css'
+			'bulma',
+			'resources/main.css'
 		);
 
 
 		// Styles for HTML galleys
 		$this->addStyle('htmlGalley', 'templates/plugins/generic/htmlArticleGalley/css/default.css', array('contexts' => 'htmlGalley'));
+
+		$this->addStyle(
+			'glide',
+			'resources/glidejs/glide.core.min.css'
+		);
 
 
 		$this->addMenuArea(array('primary', 'user'));
@@ -42,44 +51,43 @@ class BulmaThemePlugin extends ThemePlugin
 		$jqueryUI = $request->getBaseUrl() . '/lib/pkp/lib/vendor/components/jqueryui/jquery-ui' . $min . '.js';
 		// Use an empty `baseUrl` argument to prevent the theme from looking for
 		// the files within the theme directory
-		$this->addScript('jQuery', $jquery, array('baseUrl' => ''));
+		
 		// $this->addScript('jQueryUI', $jqueryUI, array('baseUrl' => ''));
 
-		$this->addScript('menu', 'resources/js/all.js');
+		$colors_vars = 'var primaryColor = "' . $primaryColor. '";';
+		$colors_vars .= 'var linkColor = "' . $linkColor. '";';
+		$this->addScript('themecolors', $colors_vars, array(
+			'inline' => true,
+		));
+		$this->addScript('initialfix', 'resources/js/initial.js');
+
+		$this->addScript('glidejs', 'resources/glidejs/glide.min.js');
+		$this->addScript('jQuery', $jquery, array('baseUrl' => ''));
+		
+
+		$this->addScript(
+			'endfix',
+			'resources/js/end.js',
+			array(
+				'priority' => 1000,
+			)
+		);
+
 		// $this->addScript('collapsable', '/resources/js/collapsable.js');
 		// $this->addScript('search', '/resources/js/search.js');
 		// $this->addScript('collapsible', '/resources/collapsible/bulma-collapsible.min.js');
 
-		$this->addOption('showDescriptionInJournalIndex', 'FieldOptions', [
-			'label' => __('manager.setup.contextSummary'),
-				'options' => [
-				[
-					'value' => true,
-					'label' => __('plugins.themes.default.option.showDescriptionInJournalIndex.option'),
-				],
-			],
-			'default' => false,
-		]);
-		$this->addOption('useHomepageImageAsHeader', 'FieldOptions', [
-			'label' => __('manager.setup.contextSummary'),
-				'options' => [
-				[
-					'value' => true,
-					'label' => __('plugins.themes.default.option.useHomepageImageAsHeader.option'),
-				],
-			],
-			'default' => false,
-		]);
+		$this->addThemeOptions();
 
-		HookRegistry::register ('TemplateManager::display', array($this, 'loadAdditionalData'));
+		HookRegistry::register('TemplateManager::display', array($this, 'loadAdditionalData'));
 
 
 		// Check if CSS embedded to the HTML galley
 		HookRegistry::register('TemplateManager::display', array($this, 'hasEmbeddedCSS'));
-		
 	}
 
-	public function loadAdditionalData($hookName, $args) {
+	public function loadAdditionalData($hookName, $args)
+	{
 		$smarty = $args[0];
 
 		$request = $this->getRequest();
@@ -129,7 +137,8 @@ class BulmaThemePlugin extends ThemePlugin
 	 *      @option string relative path to the template
 	 *  ]
 	 */
-	public function hasEmbeddedCSS($hookName, $args) {
+	public function hasEmbeddedCSS($hookName, $args)
+	{
 		$templateMgr = $args[0]; /* @var $templateMgr TemplateManager */
 		$template = $args[1];
 		$request = $this->getRequest();
@@ -158,12 +167,68 @@ class BulmaThemePlugin extends ThemePlugin
 					}
 				}
 			}
-
 		}
 
 		$templateMgr->assign(array(
 			'boolEmbeddedCss' => $boolEmbeddedCss,
 			'themePath' => $request->getBaseUrl() . "/" . $this->getPluginPath(),
 		));
+	}
+
+	function addThemeOptions(){
+
+
+		$this->addOption('showTitleInJournalIndex', 'FieldOptions', [
+			'label' => __('plugins.themes.default.option.showTitleInJournalIndex.option'),
+			'options' => [
+				[
+					'value' => true,
+					'label' => __('plugins.themes.default.option.showTitleInJournalIndex.option'),
+				],
+			],
+			'default' => false,
+		]);
+
+		$this->addOption('showDescriptionInJournalIndex', 'FieldOptions', [
+			'label' => __('plugins.themes.default.option.showDescriptionInJournalIndex.option'),
+			'options' => [
+				[
+					'value' => true,
+					'label' => __('plugins.themes.default.option.showDescriptionInJournalIndex.option'),
+				],
+			],
+			'default' => false,
+		]);
+		$this->addOption('useHomepageImageAsHeader', 'FieldOptions', [
+			'label' => __('plugins.themes.default.option.useHomepageImageAsHeader.option'),
+			'options' => [
+				[
+					'value' => true,
+					'label' => __('plugins.themes.default.option.useHomepageImageAsHeader.option'),
+				],
+			],
+			'default' => false,
+		]);
+
+		$this->addOption('facebookLink', 'FieldText', [
+			'label' => __('plugins.themes.bulma.link.facebook'),
+			'default' => null,
+		]);
+		$this->addOption('twitterLink', 'FieldText', [
+			'label' => __('plugins.themes.bulma.link.twitter'),
+			'default' => null,
+		]);
+		$this->addOption('linkedinLink', 'FieldText', [
+			'label' => __('plugins.themes.bulma.link.linkedin'),
+			'default' => null,
+		]);
+		$this->addOption('instagramLink', 'FieldText', [
+			'label' => __('plugins.themes.bulma.link.instagram'),
+			'default' => null,
+		]);
+		$this->addOption('youtubeLink', 'FieldText', [
+			'label' => __('plugins.themes.bulma.link.youtube'),
+			'default' => null,
+		]);
 	}
 }

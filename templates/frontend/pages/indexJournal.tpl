@@ -25,46 +25,79 @@
 
 		<section class="section cmp_announcements highlight_first">
 			<a id="homepageAnnouncements"></a>
-			<h2>
+			{* <h2>
 				{translate key="announcement.announcements"}
-			</h2>
-			{foreach name=announcements from=$announcements item=announcement}
-				{if $smarty.foreach.announcements.iteration > $numAnnouncementsHomepage}
-					{break}
-				{/if}
-				{if $smarty.foreach.announcements.iteration == 1}
-					{include file="frontend/objects/announcement_summary.tpl" heading="h3"}
-					<div class="more">
-					{else}
-						<article class="obj_announcement_summary">
-							<h4>
-								<a
-									href="{url router=$smarty.const.ROUTE_PAGE page="announcement" op="view" path=$announcement->getId()}">
-									{$announcement->getLocalizedTitle()|escape}
-								</a>
-							</h4>
-							<div class="date">
-								{$announcement->getDatePosted()|date_format:$dateFormatShort}
-							</div>
-						</article>
-					{/if}
-				{/foreach}
-			</div><!-- .more -->
-			<div class="divider is-left"></div>
+			</h2> *}
+			<div class="glide" id="glide-announcements">
+				<div class="glide__track mb-3" data-glide-el="track">
+					<ul class="glide__slides">
+						{foreach name=announcements from=$announcements item=announcement}
+							{if $smarty.foreach.announcements.iteration > $numAnnouncementsHomepage}
+								{break}
+							{/if}
+							<li class="glide__slide">
+								<article class="obj_announcement_summary">
+									<h4>
+										<a
+											href="{url router=$smarty.const.ROUTE_PAGE page="announcement" op="view" path=$announcement->getId()}">
+											{$announcement->getLocalizedTitle()|escape}
+										</a>
+									</h4>
+									<div class="date">
+										{$announcement->getDatePosted()|date_format:$dateFormatShort}
+									</div>
+									<div class="summary has-text-justified">
+										{$announcement->getLocalizedDescriptionShort()|strip_unsafe_html}
+									</div>
+									<a href="{url router=$smarty.const.ROUTE_PAGE page="announcement" op="view" path=$announcement->getId()}"
+											class="read_more">
+											<span class="tag" aria-hidden="true" role="presentation">
+												{translate key="common.readMore"}
+											</span>
+											<span class="pkp_screen_reader">
+												{translate key="common.readMoreWithTitle" title=$announcement->getLocalizedTitle()|escape}
+											</span>
+										</a>
+								</article>
+							</li>
+						{/foreach}
+					</ul>
+				</div>
+				{* <div class="glide__arrows" data-glide-el="controls">
+					<button class="glide__arrow glide__arrow--left" data-glide-dir="<">
+						<span class="icon">
+							<i class="fas fa-arrow-left"></i>
+						</span>
+					</button>
+					<button class="glide__arrow glide__arrow--right" data-glide-dir=">"><span class="icon">
+							<i class="fas fa-arrow-right"></i>
+						</span></button>
+				</div> *}
+				<div class="glide__bullets slider__bullets buttons is-centered" data-glide-el="controls[nav]">
+					{foreach name=announcements from=$announcements item=announcement}
+						<button class="slider__bullet glide__bullet"
+							data-glide-dir="={$smarty.foreach.announcements.iteration - 1}">
+							{* <span class="icon">
+							<i class="fas fa-envelope-square"></i>
+						</span> *}
+						</button>
+					{/foreach}
+				</div>
+			</div>
 		</section>
 	{/if}
 
-	
+
 
 	{* Latest issue *}
 	{if $issue}
 		<section class="section current_issue">
 			<a id="homepageIssue"></a>
-			<h2 class="title">
+			<h1>
 				{translate key="journal.currentIssue"}
-			</h2>
-			
-			{include file="frontend/objects/issue_toc.tpl" heading="h3" showTitle="true"}
+			</h1>
+
+			{include file="frontend/objects/issue_toc.tpl" heading="h2" showTitle="true"}
 			<a href="{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive"}" class="read_more button is-primary">
 				{translate key="journal.viewAllIssues"}
 			</a>

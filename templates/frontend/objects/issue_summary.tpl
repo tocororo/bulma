@@ -28,7 +28,7 @@
 	<div class="card-content">
 		<a href="{url op="view" path=$issue->getBestIssueId()}">
 
-			<p class="title is-5">
+			<h5>
 				{* <a class="title" href="{url op="view" path=$issue->getBestIssueId()}"> *}
 				{if $issueSeries}
 					{$issueSeries|escape}
@@ -36,7 +36,7 @@
 					{$issueTitle|escape}
 				{/if}
 				{* </a> *}
-			</p>
+			</h5>
 
 			{if $issueTitle && $issueSeries}
 				<p class="series subtitle is-6">

@@ -50,7 +50,7 @@
 				{/if}
 
 				{if $contactTitle}
-				<div class="title">
+				<div>
 					{$contactTitle|escape}
 				</div>
 				{/if}
