@@ -11,8 +11,6 @@
  *
  */
 
-require_once('BulmaThemePlugin.inc.php');
+ namespace APP\plugins\themes\bulma;
 
 return new BulmaThemePlugin();
-
-?>

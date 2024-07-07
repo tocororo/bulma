@@ -12,10 +12,17 @@
  * @brief Default theme
  */
 
-import('lib.pkp.classes.plugins.ThemePlugin');
 
+ namespace APP\plugins\themes\bulma;
 
-class BulmaThemePlugin extends ThemePlugin
+ use APP\core\Application;
+ use APP\file\PublicFileManager;
+ use PKP\config\Config;
+ use PKP\session\SessionManager;
+ use PKP\plugins\Hook;
+ use PKP\db\DAORegistry;
+
+class BulmaThemePlugin extends \PKP\plugins\ThemePlugin
 {
 	/**
 	 * Initialize the theme's styles, scripts and hooks. This is only run for
@@ -79,11 +86,11 @@ class BulmaThemePlugin extends ThemePlugin
 
 		$this->addThemeOptions();
 
-		HookRegistry::register('TemplateManager::display', array($this, 'loadAdditionalData'));
+		Hook::add('TemplateManager::display', array($this, 'loadAdditionalData'));
 
 
 		// Check if CSS embedded to the HTML galley
-		HookRegistry::register('TemplateManager::display', array($this, 'hasEmbeddedCSS'));
+		Hook::add('TemplateManager::display', array($this, 'hasEmbeddedCSS'));
 	}
 
 	public function loadAdditionalData($hookName, $args)
