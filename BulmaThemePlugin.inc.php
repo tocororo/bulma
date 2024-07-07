@@ -177,6 +177,10 @@ class BulmaThemePlugin extends ThemePlugin
 
 	function addThemeOptions(){
 
+		$this->addOption('issnCode', 'FieldText', [
+			'label' => __('plugins.themes.bulma.issncode'),
+			'default' => null,
+		]);
 
 		$this->addOption('showTitleInJournalIndex', 'FieldOptions', [
 			'label' => __('plugins.themes.default.option.showTitleInJournalIndex.option'),

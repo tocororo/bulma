@@ -51,7 +51,7 @@
 						{/if}
 					</h1>
 				{/if}
-
+				
 				<nav class="pkp_head_wrapper navbar is-primary" role="navigation" aria-label="main navigation">
 					<div class="container">
 						<div class="pkp_site_name_wrapper navbar-brand">
@@ -85,7 +85,7 @@
 								<span aria-hidden="true"></span>
 								<span aria-hidden="true"></span>
 							</a>
-
+							
 						</div>
 
 						{capture assign="primaryMenu"}
