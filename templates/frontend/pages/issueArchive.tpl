@@ -33,7 +33,7 @@
 	{if empty($issues)}
 		<p>{translate key="current.noCurrentIssueDesc"}</p>
 
-		{* List issues *}
+	{* List issues *}
 	{else}
 		<div class="issues_archive columns is-multiline">
 			{foreach from=$issues item="issue"}
@@ -46,21 +46,21 @@
 
 		{* Pagination *}
 		{if $prevPage > 1}
-			{capture assign=prevUrl}{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive" path=$prevPage}{/capture}
+			{capture assign=prevUrl}{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="issue" op="archive" path=$prevPage}{/capture}
 		{elseif $prevPage === 1}
-			{capture assign=prevUrl}{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive"}{/capture}
+			{capture assign=prevUrl}{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="issue" op="archive"}{/capture}
 		{/if}
 		{if $nextPage}
-			{capture assign=nextUrl}{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive" path=$nextPage}{/capture}
+			{capture assign=nextUrl}{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="issue" op="archive" path=$nextPage}{/capture}
 		{/if}
 		{include
-				file="frontend/components/pagination.tpl"
-				prevUrl=$prevUrl
-				nextUrl=$nextUrl
-				showingStart=$showingStart
-				showingEnd=$showingEnd
-				total=$total
-			}
+			file="frontend/components/pagination.tpl"
+			prevUrl=$prevUrl
+			nextUrl=$nextUrl
+			showingStart=$showingStart
+			showingEnd=$showingEnd
+			total=$total
+		}
 	{/if}
 </div>
 

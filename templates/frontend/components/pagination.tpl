@@ -13,16 +13,6 @@
  * @uses $showingEnd int The number of the last item shown on this page
  * @uses $total int The total number of items available
  *}
-{* 
-
-	<div class="cmp_pagination  is-centered" aria-label="{translate|escape key="common.pagination.label"}">
-			<a class="prev" href="#">{translate key="help.previous"}</a>
-		<span class="current">
-			{translate key="common.pagination" start=$showingStart end=$showingEnd total=$total}
-		</span>
-			<a class="next" href="#">{translate key="help.next"}</a>
-	</div> *}
-
 
 {if $prevUrl || $nextUrl}
 	<div class="cmp_pagination" aria-label="{translate|escape key="common.pagination.label"}">

@@ -39,9 +39,9 @@
 		{* Primary contact *}
 		{if $contactTitle || $contactName || $contactAffiliation || $contactPhone || $contactEmail}
 			<div class="contact primary">
-				<h3>
+				<h2>
 					{translate key="about.contact.principalContact"}
-				</h3>
+				</h2>
 
 				{if $contactName}
 				<div class="name">
@@ -50,7 +50,7 @@
 				{/if}
 
 				{if $contactTitle}
-				<div>
+				<div class="title">
 					{$contactTitle|escape}
 				</div>
 				{/if}
@@ -83,9 +83,9 @@
 		{* Technical contact *}
 		{if $supportName || $supportPhone || $supportEmail}
 			<div class="contact support">
-				<h3>
+				<h2>
 					{translate key="about.contact.supportContact"}
-				</h3>
+				</h2>
 
 				{if $supportName}
 				<div class="name">

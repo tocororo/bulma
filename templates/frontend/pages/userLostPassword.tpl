@@ -18,7 +18,7 @@
 
 	<p>{translate key="user.login.resetPasswordInstructions"}</p>
 
-	<form class="cmp_form lost_password" id="lostPasswordForm" action="{url page="login" op="requestResetPassword"}" method="post">
+	<form class="cmp_form lost_password" id="lostPasswordForm" action="{url page="login" op="requestResetPassword"}" method="post" role="form">
 		{csrf}
 		{if $error}
 			<div class="pkp_form_error">
@@ -36,7 +36,7 @@
 							{translate key="common.required"}
 						</span>
 					</span>
-					<input type="email" name="email" id="email" value="{$email|escape}" required aria-required="true">
+					<input type="email" name="email" id="email" value="{$email|escape}" required aria-required="true" autocomplete="email">
 				</label>
 			</div>
 			<div class="buttons">

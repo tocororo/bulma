@@ -5,7 +5,7 @@
  * Copyright (c) 2003-2021 John Willinsky
  * Distributed under the GNU GPL v3. For full terms see the file docs/COPYING.
  *
- * @brief Primary navigation menu list for OJS
+ * @brief Primary navigation menu list for the application
  *
  * @uses navigationMenu array Hierarchical array of navigation menu item assignments
  * @uses id string Element ID to assign the outer <ul>
@@ -22,18 +22,18 @@
 			{if $navigationMenuItemAssignment->navigationMenuItem->getIsChildVisible()}
 				<div class="{$liClass|escape} navbar-item has-dropdown is-hoverable">
 					<a class="navbar-link" href="#">
-						{$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
-					</a>
+					{$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
+				</a>
 					<div class="navbar-dropdown {$ulClass|escape}">
-					{foreach key=childField item=childNavigationMenuItemAssignment from=$navigationMenuItemAssignment->children}
-						{if $childNavigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
+						{foreach key=childField item=childNavigationMenuItemAssignment from=$navigationMenuItemAssignment->children}
+							{if $childNavigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
 							{* <li class="{$liClass|escape} navbar-item"> *}
 								<a class="navbar-item" href="{$childNavigationMenuItemAssignment->navigationMenuItem->getUrl()}">
-									{$childNavigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
-								</a>
+										{$childNavigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
+									</a>
 							{* </li> *}
-						{/if}
-					{/foreach}
+							{/if}
+						{/foreach}
 					</div>
 				</div>
 			{else}
@@ -42,8 +42,7 @@
 						{$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
 					</a>
 				{* </li> *}
-			{/if}
-				
+{/if}
 			{/foreach}
 		{* </ul> *}
 	{/if}

@@ -12,22 +12,20 @@
  *       sidebars have been configured for thesite.
  *}
 
-</div><!-- pkp_structure_main -->
+	</div><!-- pkp_structure_main -->
 </div><!-- pkp_structure_content -->
 
-{* Sidebars *}
-{* {assign var="thumb" value=$currentJournal->getLocalizedData('journalThumbnail')} *}
-
-{if empty($isFullWidth)}
-	{capture assign="sidebarCode"}{call_hook name="Templates::Common::Sidebar"}{/capture}
-	{if $sidebarCode}
+	{* Sidebars *}
+	{if empty($isFullWidth)}
+		{capture assign="sidebarCode"}{call_hook name="Templates::Common::Sidebar"}{/capture}
+		{if $sidebarCode}
 		<div class="column is-one-third-desktop pkp_structure_sidebar">
 			<div class="block left" role="complementary" aria-label="{translate|escape key="common.navigation.sidebar"}">
 				{$sidebarCode}
 			</div><!-- pkp_sidebar.left -->
 		</div>
+		{/if}
 	{/if}
-{/if}
 
 
 </div>
@@ -110,5 +108,4 @@
 
 {call_hook name="Templates::Common::Footer::PageFooter"}
 </body>
-
 </html>

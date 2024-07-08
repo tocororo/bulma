@@ -39,7 +39,7 @@
 								<article class="obj_announcement_summary">
 									<h4>
 										<a
-											href="{url router=$smarty.const.ROUTE_PAGE page="announcement" op="view" path=$announcement->getId()}">
+											href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="announcement" op="view" path=$announcement->getId()}">
 											{$announcement->getLocalizedTitle()|escape}
 										</a>
 									</h4>
@@ -49,7 +49,7 @@
 									<div class="summary has-text-justified">
 										{$announcement->getLocalizedDescriptionShort()|strip_unsafe_html}
 									</div>
-									<a href="{url router=$smarty.const.ROUTE_PAGE page="announcement" op="view" path=$announcement->getId()}"
+									<a href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="announcement" op="view" path=$announcement->getId()}"
 											class="read_more">
 											<span class="tag" aria-hidden="true" role="presentation">
 												{translate key="common.readMore"}
@@ -98,7 +98,7 @@
 			</h1>
 
 			{include file="frontend/objects/issue_toc.tpl" heading="h2" showTitle="true"}
-			<a href="{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive"}" class="read_more button is-primary">
+			<a href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="issue" op="archive"}" class="read_more button is-primary">
 				{translate key="journal.viewAllIssues"}
 			</a>
 

@@ -28,7 +28,7 @@
 		</p>
 	{/if}
 
-	<form class="cmp_form cmp_form login" id="login" method="post" action="{$loginUrl}">
+	<form class="cmp_form cmp_form login" id="login" method="post" action="{$loginUrl}" role="form">
 		{csrf}
 
 		{if $error}
@@ -44,13 +44,13 @@
 			<div class="username">
 				<label>
 					<span class="label">
-						{translate key="user.username"}
+						{translate key="user.usernameOrEmail"}
 						<span class="required" aria-hidden="true">*</span>
 						<span class="pkp_screen_reader">
 							{translate key="common.required"}
 						</span>
 					</span>
-					<input type="text" name="username" id="username" value="{$username|default:""|escape}" maxlength="32" required aria-required="true">
+					<input type="text" name="username" id="username" value="{$username|default:""|escape}" required aria-required="true" autocomplete="username">
 				</label>
 			</div>
 			<div class="password">
@@ -62,7 +62,7 @@
 							{translate key="common.required"}
 						</span>
 					</span>
-					<input type="password" name="password" id="password" value="{$password|default:""|escape}" password="true" maxlength="32" required aria-required="true">
+					<input type="password" name="password" id="password" value="{$password|default:""|escape}" password="true" maxlength="32" required aria-required="true" autocomplete="current-password">
 					<a href="{url page="login" op="lostPassword"}">
 						{translate key="user.login.forgotPassword"}
 					</a>
@@ -76,6 +76,19 @@
 					</span>
 				</label>
 			</div>
+
+			{* recaptcha spam blocker *}
+			{if $recaptchaPublicKey}
+				<fieldset class="recaptcha_wrapper">
+					<div class="fields">
+						<div class="recaptcha">
+							<div class="g-recaptcha" data-sitekey="{$recaptchaPublicKey|escape}">
+							</div><label for="g-recaptcha-response" style="display:none;" hidden>Recaptcha response</label>
+						</div>
+					</div>
+				</fieldset>
+			{/if}
+
 			<div class="buttons">
 				<button class="submit" type="submit">
 					{translate key="user.login"}

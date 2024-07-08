@@ -21,7 +21,7 @@
 		{translate key="common.requiredField"}
 	</p>
 
-	<form class="cmp_form register" id="register" method="post" action="{url op="register"}">
+	<form class="cmp_form register" id="register" method="post" action="{url op="register"}" role="form">
 		{csrf}
 
 		{if $source}
@@ -43,7 +43,7 @@
 						<div class="optin optin-privacy">
 							<label>
 								<input type="checkbox" name="privacyConsent" value="1"{if $privacyConsent} checked="checked"{/if}>
-								{capture assign="privacyUrl"}{url router=$smarty.const.ROUTE_PAGE page="about" op="privacy"}{/capture}
+								{capture assign="privacyUrl"}{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="about" op="privacy"}{/capture}
 								{translate key="user.register.form.privacyConsent" privacyUrl=$privacyUrl}
 							</label>
 						</div>
@@ -124,8 +124,8 @@
 				<div class="fields">
 					<div class="optin optin-privacy">
 						<label>
-							<input type="checkbox" name="privacyConsent[{$smarty.const.CONTEXT_ID_NONE}]" id="privacyConsent[{$smarty.const.CONTEXT_ID_NONE}]" value="1"{if $privacyConsent[$smarty.const.CONTEXT_ID_NONE]} checked="checked"{/if}>
-							{capture assign="privacyUrl"}{url router=$smarty.const.ROUTE_PAGE page="about" op="privacy"}{/capture}
+							<input type="checkbox" name="privacyConsent[{\PKP\core\PKPApplication::CONTEXT_ID_NONE}]" id="privacyConsent[{\PKP\core\PKPApplication::CONTEXT_ID_NONE}]" value="1"{if $privacyConsent[\PKP\core\PKPApplication::CONTEXT_ID_NONE]} checked="checked"{/if}>
+							{capture assign="privacyUrl"}{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="about" op="privacy"}{/capture}
 							{translate key="user.register.form.privacyConsent" privacyUrl=$privacyUrl}
 						</label>
 					</div>
@@ -144,11 +144,12 @@
 		{/if}
 
 		{* recaptcha spam blocker *}
-		{if $reCaptchaHtml}
+		{if $recaptchaPublicKey}
 			<fieldset class="recaptcha_wrapper">
 				<div class="fields">
 					<div class="recaptcha">
-						{$reCaptchaHtml}
+						<div class="g-recaptcha" data-sitekey="{$recaptchaPublicKey|escape}">
+						</div><label for="g-recaptcha-response" style="display:none;" hidden>Recaptcha response</label>
 					</div>
 				</div>
 			</fieldset>

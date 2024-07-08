@@ -18,6 +18,8 @@
 		</div>
 	{/if}
 
+	{include file="frontend/objects/announcements_list.tpl" numAnnouncements=$numAnnouncementsHomepage}
+
 	<div class="journals">
 		<h2>
 			{translate key="context.contexts"}
@@ -33,7 +35,7 @@
 					<li{if $thumb} class="has_thumb"{/if}>
 						{if $thumb}
 							<div class="thumb">
-								<a href="{$url|escape}">
+								<a href="{$url}">
 									<img src="{$journalFilesPath}{$journal->getId()}/{$thumb.uploadName|escape:"url"}"{if $thumb.altText} alt="{$thumb.altText|escape|default:''}"{/if}>
 								</a>
 							</div>
@@ -41,7 +43,7 @@
 
 						<div class="body">
 							<h3>
-								<a href="{$url|escape}" rel="bookmark">
+								<a href="{$url}" rel="bookmark">
 									{$journal->getLocalizedName()|escape}
 								</a>
 							</h3>
@@ -52,12 +54,12 @@
 							{/if}
 							<ul class="links">
 								<li class="view">
-									<a href="{$url|escape}">
+									<a href="{$url}">
 										{translate key="site.journalView"}
 									</a>
 								</li>
 								<li class="current">
-									<a href="{url|escape journal=$journal->getPath() page="issue" op="current"}">
+									<a href="{url journal=$journal->getPath() page="issue" op="current"}">
 										{translate key="site.journalCurrent"}
 									</a>
 								</li>

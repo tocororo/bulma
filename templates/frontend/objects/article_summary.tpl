@@ -8,6 +8,7 @@
  * @brief View of an Article summary which is shown within a list of articles.
  *
  * @uses $article Article The article
+ * @uses $authorUserGroups Traversible The set of author user groups
  * @uses $hasAccess bool Can this user access galleys for this context? The
  *       context may be an issue or an article
  * @uses $showDatePublished bool Show the date this article was published?
@@ -15,12 +16,14 @@
  * @uses $primaryGenreIds array List of file genre ids for primary file types
  * @uses $heading string HTML heading element, default: h2
  *}
-{assign var=articlePath value=$article->getBestId()}
+{assign var=publication value=$article->getCurrentPublication()}
+
+{assign var=articlePath value=$publication->getData('urlPath')|default:$article->getId()}
 {if !$heading}
 	{assign var="heading" value="h3"}
 {/if}
 
-{if (!$section.hideAuthor && $article->getHideAuthor() == $smarty.const.AUTHOR_TOC_DEFAULT) || $article->getHideAuthor() == $smarty.const.AUTHOR_TOC_SHOW}
+{if (!$section.hideAuthor && $publication->getData('hideAuthor') == \APP\submission\Submission::AUTHOR_TOC_DEFAULT) || $publication->getData('hideAuthor') == \APP\submission\Submission::AUTHOR_TOC_SHOW}
 	{assign var="showAuthor" value=true}
 {/if}
 
@@ -29,40 +32,40 @@
 <div class="obj_article_summary">
 	<div class="columns">
 
-		{if $publication->getLocalizedData('coverImage')}
+	{if $publication->getLocalizedData('coverImage')}
 			<div class="column is-two-fifths">
-				<div class="cover">
+		<div class="cover">
 					<a {if $journal}href="{url journal=$journal->getPath() page="article" op="view" path=$articlePath}"
 						{else}href="
 
 
 							{url page="article" op="view" path=$articlePath}" 
 						{/if} class="file">
-						{assign var="coverImage" value=$publication->getLocalizedData('coverImage')}
+				{assign var="coverImage" value=$publication->getLocalizedData('coverImage')}
 						<img src="{$publication->getLocalizedCoverImageUrl($article->getData('contextId'))|escape}"
 							alt="{$coverImage.altText|escape|default:''}">
-					</a>
+			</a>
 				</div>
-			</div>
-		{/if}
+		</div>
+	{/if}
 
-		<div class="column">
-			<{$heading}>
-				<a id="article-{$article->getId()}"
-					{if $journal}href="{url journal=$journal->getPath() page="article" op="view" path=$articlePath}"
-					{else}href="
-
-
-						{url page="article" op="view" path=$articlePath}" 
-					{/if}>
-					{$article->getLocalizedTitle()|strip_unsafe_html}
-					{if $article->getLocalizedSubtitle()}
-						<span class="subtitle">
-							{$article->getLocalizedSubtitle()|escape}
-						</span>
-					{/if}
-				</a>
-			</{$heading}>
+	<div class="column">
+	<{$heading}>
+		<a id="article-{$article->getId()}" {if $journal}href="{url journal=$journal->getPath() page="article" op="view" path=$articlePath}"{else}href="{url page="article" op="view" path=$articlePath}"{/if}>
+			{if $currentContext}
+				{$publication->getLocalizedTitle(null, 'html')|strip_unsafe_html}
+				{assign var=localizedSubtitle value=$publication->getLocalizedSubtitle(null, 'html')|strip_unsafe_html}
+				{if $localizedSubtitle}
+					<span class="subtitle">{$localizedSubtitle}</span>
+				{/if}
+			{else}
+				{$publication->getLocalizedFullTitle(null, 'html')|strip_unsafe_html}
+				<span class="subtitle">
+					{$journal->getLocalizedName()|escape}
+				</span>
+			{/if}
+		</a>
+	</{$heading}>
 			{if $showAuthor}
 				<div class="authors">
 					{$article->getAuthorString()|escape}
@@ -81,16 +84,16 @@
 				<div class="published tags has-addons">
 					<div class="tag">Pag.</div>
 					<div class="tag is-light is-primary">{$submissionPages|escape}</div>
-				</div>
-			{/if}
-
-			{if $showDatePublished && $submissionDatePublished}
-				<div class="published">
-					{$submissionDatePublished|date_format:$dateFormatShort}
-				</div>
-			{/if}
-
 		</div>
+		{/if}
+
+		{if $showDatePublished && $submissionDatePublished}
+			<div class="published">
+				{$submissionDatePublished|date_format:$dateFormatShort}
+			</div>
+		{/if}
+
+	</div>
 	{/if}
 
 	{if !$hideGalleys}
@@ -102,18 +105,16 @@
 						{continue}
 					{/if}
 				{/if}
-				{assign var="hasArticleAccess" value=$hasAccess}
-				{if $currentContext->getSetting('publishingMode') == $smarty.const.PUBLISHING_MODE_OPEN || $publication->getData('accessStatus') == $smarty.const.ARTICLE_ACCESS_OPEN}
-					{assign var="hasArticleAccess" value=1}
-				{/if}
-				{include file="frontend/objects/galley_link.tpl" parent=$article publication=$publication labelledBy="article-{$article->getId()}"
-				hasAccess=$hasArticleAccess purchaseFee=$currentJournal->getData('purchaseArticleFee')
-				purchaseCurrency=$currentJournal->getData('currency')}
+					{assign var="hasArticleAccess" value=$hasAccess}
+					{if $currentContext->getSetting('publishingMode') == \APP\journal\Journal::PUBLISHING_MODE_OPEN || $publication->getData('accessStatus') == \APP\submission\Submission::ARTICLE_ACCESS_OPEN}
+						{assign var="hasArticleAccess" value=1}
+					{/if}
+					{assign var="id" value="article-{$article->getId()}-galley-{$galley->getId()}"}
+					{include file="frontend/objects/galley_link.tpl" parent=$article publication=$publication id=$id labelledBy="{$id} article-{$article->getId()}" hasAccess=$hasArticleAccess purchaseFee=$currentJournal->getData('purchaseArticleFee') purchaseCurrency=$currentJournal->getData('currency')}
+				</li>
 			{/foreach}
 		</div>
 	{/if}
 
 	{call_hook name="Templates::Issue::Issue::Article"}
-
-
 </div>

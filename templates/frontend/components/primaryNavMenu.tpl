@@ -7,11 +7,11 @@
  *
  * Primary navigation menu list for OJS
  *}
- <ul id="navigationPrimary" class="pkp_navigation_primary pkp_nav_list ">
+<ul id="navigationPrimary" class="pkp_navigation_primary pkp_nav_list">
 
 	{if $enableAnnouncements}
 		<li class="navbar-item">
-			<a class="navbar-link" href="{url router=$smarty.const.ROUTE_PAGE page="announcement"}">
+			<a class="navbar-link" href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="announcement"}">
 				{translate key="announcement.announcements"}
 			</a>
 		</li>
@@ -19,44 +19,44 @@
 
 	{if $currentJournal}
 
-		{if $currentJournal->getData('publishingMode') != $smarty.const.PUBLISHING_MODE_NONE}
+		{if $currentJournal->getData('publishingMode') != \APP\journal\Journal::PUBLISHING_MODE_NONE}
 			<li class="navbar-item">
-				<a class="navbar-link" href="{url router=$smarty.const.ROUTE_PAGE page="issue" op="current"}">
+				<a class="navbar-link" href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="issue" op="current"}">
 					{translate key="navigation.current"}
 				</a>
 			</li>
 			<li class="navbar-item">
-				<a class="navbar-link" href="{url router=$smarty.const.ROUTE_PAGE page="issue" op="archive"}">
+				<a class="navbar-link" href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="issue" op="archive"}">
 					{translate key="navigation.archives"}
 				</a>
 			</li>
 		{/if}
 
-		<li class="navbar-item has-dropdown is-hoverable">
-			<a class="navbar-link" href="{url router=$smarty.const.ROUTE_PAGE page="about"}">
+		<li class="navbar-item">
+			<a class="navbar-link" href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="about"}">
 				{translate key="navigation.about"}
 			</a>
 			<ul class="navbar-dropdown">
 				<li class="navbar-item">
-					<a class="navbar-link" href="{url router=$smarty.const.ROUTE_PAGE page="about"}">
+					<a class="navbar-link" href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="about"}">
 						{translate key="about.aboutContext"}
 					</a>
 				</li>
 				{if $currentJournal->getLocalizedData('editorialTeam')}
 					<li class="navbar-item">
-						<a class="navbar-link" href="{url router=$smarty.const.ROUTE_PAGE page="about" op="editorialTeam"}">
+						<a class="navbar-link" href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="about" op="editorialTeam"}">
 							{translate key="about.editorialTeam"}
 						</a>
 					</li>
 				{/if}
 				<li class="navbar-item">
-					<a class="navbar-link" href="{url router=$smarty.const.ROUTE_PAGE page="about" op="submissions"}">
+					<a class="navbar-link" href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="about" op="submissions"}">
 						{translate key="about.submissions"}
 					</a>
 				</li>
 				{if $currentJournal->getData('mailingAddress') || $currentJournal->getData('contactName')}
 					<li class="navbar-item">
-						<a class="navbar-link" href="{url router=$smarty.const.ROUTE_PAGE page="about" op="contact"}">
+						<a class="navbar-link"href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="about" op="contact"}">
 							{translate key="about.contact"}
 						</a>
 					</li>
