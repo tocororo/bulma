@@ -68,7 +68,7 @@
 	</{$heading}>
 			{if $showAuthor}
 				<div class="authors">
-					{$article->getAuthorString()|escape}
+					{$publication->getAuthorString($authorUserGroups)|escape}
 				</div>
 			{/if}
 
@@ -111,7 +111,7 @@
 					{/if}
 					{assign var="id" value="article-{$article->getId()}-galley-{$galley->getId()}"}
 					{include file="frontend/objects/galley_link.tpl" parent=$article publication=$publication id=$id labelledBy="{$id} article-{$article->getId()}" hasAccess=$hasArticleAccess purchaseFee=$currentJournal->getData('purchaseArticleFee') purchaseCurrency=$currentJournal->getData('currency')}
-				</li>
+				
 			{/foreach}
 		</div>
 	{/if}

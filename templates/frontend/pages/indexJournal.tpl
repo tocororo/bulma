@@ -50,14 +50,14 @@
 										{$announcement->getLocalizedDescriptionShort()|strip_unsafe_html}
 									</div>
 									<a href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="announcement" op="view" path=$announcement->getId()}"
-											class="read_more">
-											<span class="tag" aria-hidden="true" role="presentation">
-												{translate key="common.readMore"}
-											</span>
-											<span class="pkp_screen_reader">
-												{translate key="common.readMoreWithTitle" title=$announcement->getLocalizedTitle()|escape}
-											</span>
-										</a>
+										class="read_more">
+										<span class="tag" aria-hidden="true" role="presentation">
+											{translate key="common.readMore"}
+										</span>
+										<span class="pkp_screen_reader">
+											{translate key="common.readMoreWithTitle" title=$announcement->getLocalizedTitle()|escape}
+										</span>
+									</a>
 								</article>
 							</li>
 						{/foreach}
@@ -98,7 +98,8 @@
 			</h1>
 
 			{include file="frontend/objects/issue_toc.tpl" heading="h2" showTitle="true"}
-			<a href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="issue" op="archive"}" class="read_more button is-primary">
+			<a href="{url router=\PKP\core\PKPApplication::ROUTE_PAGE page="issue" op="archive"}"
+				class="read_more button is-primary">
 				{translate key="journal.viewAllIssues"}
 			</a>
 

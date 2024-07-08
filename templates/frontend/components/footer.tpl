@@ -28,7 +28,8 @@
 	{/if}
 
 
-</div>
+</div><!-- columns -->
+
 <footer class=" pkp_structure_footer_wrapper footer has-background-primary has-text-white" role="contentinfo">
 	<a id="pkp_content_footer"></a>
 

@@ -28,48 +28,51 @@
 			{translate key=$pageTitle}
 		{/capture}
 	{/if}
-{include file="frontend/components/headerHead.tpl"}
-<body class="pkp_page_{$requestedPage|escape|default:"index"} pkp_op_{$requestedOp|escape|default:"index"}{if $showingLogo} has_site_logo{/if}" dir="{$currentLocaleLangDir|escape|default:"ltr"}">
+	{include file="frontend/components/headerHead.tpl"}
 
-	<div class="pkp_structure_page">
+	<body
+		class="pkp_page_{$requestedPage|escape|default:"index"} pkp_op_{$requestedOp|escape|default:"index"}{if $showingLogo} has_site_logo{/if}"
+		dir="{$currentLocaleLangDir|escape|default:"ltr"}">
 
-		{* Header *}
-		<header class="pkp_structure_head" id="headerNavigationContainer" role="banner">
-			{* Skip to content nav links *}
-			{include file="frontend/components/skipLinks.tpl"}
+		<div class="pkp_structure_page">
 
-					{if !$requestedPage || $requestedPage === 'index'}
-						<h1 class="pkp_screen_reader">
-							{if $currentContext}
-								{$displayPageHeaderTitle|escape}
-							{else}
-								{$siteTitle|escape}
-							{/if}
-						</h1>
-					{/if}
-				
+			{* Header *}
+			<header class="pkp_structure_head" id="headerNavigationContainer" role="banner">
+				{* Skip to content nav links *}
+				{include file="frontend/components/skipLinks.tpl"}
+
+				{if !$requestedPage || $requestedPage === 'index'}
+					<h1 class="pkp_screen_reader">
+						{if $currentContext}
+							{$displayPageHeaderTitle|escape}
+						{else}
+							{$siteTitle|escape}
+						{/if}
+					</h1>
+				{/if}
+
 				<nav class="pkp_head_wrapper navbar is-primary" role="navigation" aria-label="main navigation">
 					<div class="container">
 						<div class="pkp_site_name_wrapper navbar-brand">
 							{* <div class="pkp_site_name navbar-item"> *}
-					{capture assign="homeUrl"}
-						{url page="index" router=\PKP\core\PKPApplication::ROUTE_PAGE}
-					{/capture}
-					{if $displayPageHeaderLogo}
+							{capture assign="homeUrl"}
+								{url page="index" router=\PKP\core\PKPApplication::ROUTE_PAGE}
+							{/capture}
+							{if $displayPageHeaderLogo}
 								<a href="{$homeUrl}" class="navbar-item is_img">
 									<img src="{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}"
 										{if $displayPageHeaderLogo.altText != ''}alt="{$displayPageHeaderLogo.altText|escape}"
 										{/if} />
-						</a>
-					{elseif $displayPageHeaderTitle}
-						<a href="{$homeUrl}" class="is_text">{$displayPageHeaderTitle|escape}</a>
-					{else}
-						<a href="{$homeUrl}" class="is_img">
+								</a>
+							{elseif $displayPageHeaderTitle}
+								<a href="{$homeUrl}" class="is_text">{$displayPageHeaderTitle|escape}</a>
+							{else}
+								<a href="{$homeUrl}" class="is_img">
 									<img src="{$baseUrl}/templates/images/structure/logo.png"
 										alt="{$applicationName|escape}" title="{$applicationName|escape}" width="180"
 										height="90" />
-						</a>
-					{/if}
+								</a>
+							{/if}
 							{* </div> *}
 							{* <button class="pkp_site_nav_toggle">
 							<span>Open Menu</span>
@@ -81,26 +84,26 @@
 								<span aria-hidden="true"></span>
 								<span aria-hidden="true"></span>
 							</a>
-							
-				</div>
 
-				{capture assign="primaryMenu"}
-					{load_menu name="primary" id="navigationPrimary" ulClass="pkp_navigation_primary"}
-				{/capture}
+						</div>
+
+						{capture assign="primaryMenu"}
+							{load_menu name="primary" id="navigationPrimary" ulClass="pkp_navigation_primary"}
+						{/capture}
 
 						<div id="navbarOJS" class="pkp_site_nav_menu navbar-menu"
 							aria-label="{translate|escape key="common.navigation.site"}">
-					<a id="siteNav"></a>
+							<a id="siteNav"></a>
 							<div class="pkp_navigation_primary_row navbar-start">
-							{* Primary navigation menu for current application *}
-							{$primaryMenu}
+								{* Primary navigation menu for current application *}
+								{$primaryMenu}
 							</div>
 
 							<div class="pkp_navigation_user_wrapper navbar-end" id="navigationUserWrapper">
 
 
-							{* Search form *}
-							{if $currentContext && $requestedPage !== 'search'}
+								{* Search form *}
+								{if $currentContext && $requestedPage !== 'search'}
 									{* <div class="pkp_navigation_search_wrapper navbar-item"> *}
 									<a href="{url page="search"}"
 										class="navbar-item icon-text pkp_search pkp_search_desktop">
@@ -145,7 +148,8 @@
 			{if $requestedPage == 'index'  || $requestedPage == ''}
 
 				<div id="journal-home-hero" class="hero is-primary"
-					{* style="background-image: url({$publicFilesDir}/{$homepageImage.uploadName|escape:'url'}); background-position: center top; background-size: cover; opacity:0.5;" *}>
+					{* style="background-image: url({$publicFilesDir}/{$homepageImage.uploadName|escape:'url'}); background-position: center top; background-size: cover; opacity:0.5;" *}
+					>
 
 					<img id="journal-home-hero-bg" class="hero-bg"
 						src="{$publicFilesDir}/{$homepageImage.uploadName|escape:'url'}" alt="">
@@ -158,19 +162,19 @@
 					<div class="hero-body has-text-justified container">
 						<div class="homepage_image p-3 ">
 							{if $thumb}
-							<div class="columns is-desktop">
-								<div class="column is-6 is-offset-3">
+								<div class="columns is-desktop">
+									<div class="column is-6 is-offset-3">
 
-									<figure class="image">
-									<img src="{$publicFilesDir}/{$thumb.uploadName|escape:"url"}" {if $thumb.altText}
-									alt="{$thumb.altText|escape}" {/if}>
-									</figure>
+										<figure class="image">
+											<img src="{$publicFilesDir}/{$thumb.uploadName|escape:"url"}" {if $thumb.altText}
+												alt="{$thumb.altText|escape}" {/if}>
+										</figure>
+									</div>
 								</div>
-							</div>
 							{else}
-							<h1 class="{if !$activeTheme->getOption('showTitleInJournalIndex')}is-hidden{/if}">
-								{$displayPageHeaderTitle|escape}</a>
-							</h1>
+								<h1 class="{if !$activeTheme->getOption('showTitleInJournalIndex')}is-hidden{/if}">
+									{$displayPageHeaderTitle|escape}</a>
+								</h1>
 							{/if}
 							{*if $activeTheme->getOption('useHomepageImageAsHeader') && $homepageImage *}
 
@@ -183,7 +187,7 @@
 								<a id="homepageAbout"></a>
 								{* <h2>{translate key="about.aboutContext"}</h2> *}
 								{$currentContext->getLocalizedData('description')}
-					</div>
+							</div>
 						{/if}
 					</div>
 
@@ -195,11 +199,11 @@
 
 
 			{{/if}}
-		{* Wrapper for page content and sidebars *}
-		{if $isFullWidth}
-			{assign var=hasSidebar value=0}
-		{/if}
+			{* Wrapper for page content and sidebars *}
+			{if $isFullWidth}
+				{assign var=hasSidebar value=0}
+			{/if}
 			<div class="columns  is-desktop container">
 				<div class="column is-two-thirds-desktop pkp_structure_content{if $hasSidebar} has_sidebar{/if}">
 					<div class="pkp_structure_main " role="main">
-				<a id="pkp_content_main"></a>
+<a id="pkp_content_main"></a>
