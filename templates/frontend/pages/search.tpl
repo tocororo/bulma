@@ -30,131 +30,133 @@
 	</h1>
 
 	<div class="notification  is-warning is-light" style="word-wrap: anywhere;">
-	{capture name="searchFormUrl"}{url escape=false}{/capture}
-	{assign var=formUrlParameters value=[]}{* Prevent Smarty warning *}
-	{$smarty.capture.searchFormUrl|parse_url:$smarty.const.PHP_URL_QUERY|default:""|parse_str:$formUrlParameters}
-	<form class="cmp_form" method="get" action="{$smarty.capture.searchFormUrl|strtok:"?"|escape}" role="form">
-		{foreach from=$formUrlParameters key=paramKey item=paramValue}
-			<input type="hidden" name="{$paramKey|escape}" value="{$paramValue|escape}"/>
-		{/foreach}
+		{capture name="searchFormUrl"}{url escape=false}{/capture}
+		{assign var=formUrlParameters value=[]}{* Prevent Smarty warning *}
+		{$smarty.capture.searchFormUrl|parse_url:$smarty.const.PHP_URL_QUERY|default:""|parse_str:$formUrlParameters}
+		<form class="cmp_form" method="get" action="{$smarty.capture.searchFormUrl|strtok:"?"|escape}" role="form">
+			{foreach from=$formUrlParameters key=paramKey item=paramValue}
+				<input type="hidden" name="{$paramKey|escape}" value="{$paramValue|escape}" />
+			{/foreach}
 
-		{* Repeat the label text just so that screen readers have a clear
+			{* Repeat the label text just so that screen readers have a clear
 		   label/input relationship *}
-		<div class="search_input block">
-			<label class="pkp_screen_reader" for="query">
-				{translate key="search.searchFor"}
-			</label>
-			{block name=searchQuery}
-				<input type="text" id="query" name="query" value="{$query|escape}" class="input query"
-					placeholder="{translate|escape key="common.search"}">
-			{/block}
-		</div>
-
-		<fieldset class="search_advanced card is-collapsed">
-			<div class="card-header">
-				<legend class="card-header-title">
-				{translate key="search.advancedFilters"}
-			</legend>
-				<a class="card-header-icon">
-					<span class="icon">
-						<i class="fas fa-angle-up" aria-hidden="true"></i>
-					</span>
-				</a>
-			</div>
-			<div class="card-content">
-				<div class="date_range columns">
-					<div class="from column">
-					{capture assign="dateFromLegend"}{translate key="search.dateFrom"}{/capture}
-					{html_select_date_a11y legend=$dateFromLegend prefix="dateFrom" time=$dateFrom start_year=$yearStart end_year=$yearEnd}
-				</div>
-					<div class="to column">
-					{capture assign="dateFromTo"}{translate key="search.dateTo"}{/capture}
-					{html_select_date_a11y legend=$dateFromTo prefix="dateTo" time=$dateTo start_year=$yearStart end_year=$yearEnd}
-				</div>
-			</div>
-			<div class="author">
-				<label class="label" for="authors">
-					{translate key="search.author"}
+			<div class="search_input block">
+				<label class="pkp_screen_reader" for="query">
+					{translate key="search.searchFor"}
 				</label>
-				{block name=searchAuthors}
-					<input type="text" id="authors" name="authors" value="{$authors|escape}">
+				{block name=searchQuery}
+					<input type="text" id="query" name="query" value="{$query|escape}" class="input query"
+						placeholder="{translate|escape key="common.search"}">
 				{/block}
-				</div>
-
-
-				{if $searchableContexts}
-					<label class="label label_contexts" for="searchJournal">
-						{translate key="context.context"}
-					</label>
-					<select name="searchJournal" id="searchJournal">
-						<option></option>
-						{foreach from=$searchableContexts item="searchableContext"}
-							<option value="{$searchableContext->id}" {if $searchJournal == $searchableContext->id}selected{/if}>
-								{$searchableContext->name|escape}
-							</option>
-						{/foreach}
-					</select>
-				{/if}
 			</div>
-			{call_hook name="Templates::Search::SearchResults::AdditionalFilters"}
-		</fieldset>
 
-		<div class="submit">
-			<button class="submit" type="submit">{translate key="common.search"}</button>
-		</div>
-	</form>
-
-	<div class="content">
-	{call_hook name="Templates::Search::SearchResults::PreResults"}
-
-	<h2 class="pkp_screen_reader">{translate key="search.searchResults"}</h2>
-
-	{* Results pagination *}
-	{if !$results->wasEmpty()}
-		{assign var="count" value=$results->count}
-		<div class="pkp_screen_reader" role="status">
-			{if $results->count > 1}
-				{translate key="search.searchResults.foundPlural" count=$results->count}
-			{else}
-				{translate key="search.searchResults.foundSingle"}
-			{/if}
-		</div>
-	{/if}
-
-	{* Search results, finally! *}
-		<div class="search_results block">
-		{iterate from=results item=result}
-			<div class="box">
-				{include file="frontend/objects/article_summary.tpl" article=$result.publishedSubmission journal=$result.journal showDatePublished=true hideGalleys=true heading="h3"}
-			</div>
-		{/iterate}
-		</div>
-
-	{* No results found *}
-	{if $results->wasEmpty()}
-		<span role="status">
-			{if $error}
-				{include file="frontend/components/notification.tpl" type="error" message=$error|escape}
-			{else}
-				{include file="frontend/components/notification.tpl" type="notice" messageKey="search.noResults"}
-			{/if}
-		</span>
-
-	{* Results pagination *}
-	{else}
-		<div class="cmp_pagination">
-				<div class="tag is-primary is-light is-medium">
-			{page_info iterator=$results}
+			<fieldset class="search_advanced card is-collapsed">
+				<div class="card-header">
+					<legend class="card-header-title">
+						{translate key="search.advancedFilters"}
+					</legend>
+					<a class="card-header-icon">
+						<span class="icon">
+							<i class="fas fa-angle-up" aria-hidden="true"></i>
+						</span>
+					</a>
 				</div>
+				<div class="card-content">
+					<div class="date_range columns">
+						<div class="from column">
+							{capture assign="dateFromLegend"}{translate key="search.dateFrom"}{/capture}
+							{html_select_date_a11y legend=$dateFromLegend prefix="dateFrom" time=$dateFrom start_year=$yearStart end_year=$yearEnd}
+						</div>
+						<div class="to column">
+							{capture assign="dateFromTo"}{translate key="search.dateTo"}{/capture}
+							{html_select_date_a11y legend=$dateFromTo prefix="dateTo" time=$dateTo start_year=$yearStart end_year=$yearEnd}
+						</div>
+					</div>
+					<div class="author">
+						<label class="label" for="authors">
+							{translate key="search.author"}
+						</label>
+						{block name=searchAuthors}
+							<input type="text" id="authors" name="authors" value="{$authors|escape}">
+						{/block}
+					</div>
 
-				<div>
-				{page_links anchor="results" iterator=$results name="search" query=$query searchJournal=$searchJournal authors=$authors dateFromMonth=$dateFromMonth dateFromDay=$dateFromDay dateFromYear=$dateFromYear dateToMonth=$dateToMonth dateToDay=$dateToDay dateToYear=$dateToYear}</div>
+
+					{if $searchableContexts}
+						<label class="label label_contexts" for="searchJournal">
+							{translate key="context.context"}
+						</label>
+						<select name="searchJournal" id="searchJournal">
+							<option></option>
+							{foreach from=$searchableContexts item="searchableContext"}
+								<option value="{$searchableContext->id}"
+									{if $searchJournal == $searchableContext->id}selected{/if}>
+									{$searchableContext->name|escape}
+								</option>
+							{/foreach}
+						</select>
+					{/if}
+				</div>
+				{call_hook name="Templates::Search::SearchResults::AdditionalFilters"}
+			</fieldset>
+
+			<div class="submit">
+				<button class="submit" type="submit">{translate key="common.search"}</button>
+			</div>
+		</form>
+
+		<div class="content">
+			{call_hook name="Templates::Search::SearchResults::PreResults"}
+
+			<h2 class="pkp_screen_reader">{translate key="search.searchResults"}</h2>
+
+			{* Results pagination *}
+			{if !$results->wasEmpty()}
+				{assign var="count" value=$results->count}
+				<div class="pkp_screen_reader" role="status">
+					{if $results->count > 1}
+						{translate key="search.searchResults.foundPlural" count=$results->count}
+					{else}
+						{translate key="search.searchResults.foundSingle"}
+					{/if}
+				</div>
+			{/if}
+
+			{* Search results, finally! *}
+			<div class="search_results block">
+				{iterate from=results item=result}
+				<div class="box">
+					{include file="frontend/objects/article_summary.tpl" article=$result.publishedSubmission journal=$result.journal showDatePublished=true hideGalleys=true heading="h3"}
+				</div>
+				{/iterate}
+			</div>
+
+			{* No results found *}
+			{if $results->wasEmpty()}
+				<span role="status">
+					{if $error}
+						{include file="frontend/components/notification.tpl" type="error" message=$error|escape}
+					{else}
+						{include file="frontend/components/notification.tpl" type="notice" messageKey="search.noResults"}
+					{/if}
+				</span>
+
+				{* Results pagination *}
+			{else}
+				<div class="cmp_pagination">
+					<div class="tag is-primary is-light is-medium">
+						{page_info iterator=$results}
+					</div>
+
+					<div>
+						{page_links anchor="results" iterator=$results name="search" query=$query searchJournal=$searchJournal authors=$authors dateFromMonth=$dateFromMonth dateFromDay=$dateFromDay dateFromYear=$dateFromYear dateToMonth=$dateToMonth dateToDay=$dateToDay dateToYear=$dateToYear}
+					</div>
+				</div>
+			{/if}
+
+			{* Search Syntax Instructions *}
+			{block name=searchSyntaxInstructions}{/block}
 		</div>
-	{/if}
-
-	{* Search Syntax Instructions *}
-	{block name=searchSyntaxInstructions}{/block}
-	</div>
-</div><!-- .page -->
-
+	</div><!-- .page -->
+</div>
 {include file="frontend/components/footer.tpl"}

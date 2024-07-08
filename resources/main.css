@@ -3128,7 +3128,7 @@ table th {
 
 .skeleton-block:not(:last-child), .media:not(:last-child), .level:not(:last-child), .fixed-grid:not(:last-child), .grid:not(:last-child), .tabs:not(:last-child), .pagination:not(:last-child), .cmp_pagination:not(:last-child), .message:not(:last-child), .card:not(:last-child), .breadcrumb:not(:last-child), .cmp_breadcrumbs:not(:last-child), .field:not(:last-child), fieldset:not(:last-child), .file:not(:last-child), .title:not(:last-child),
 .subtitle:not(:last-child), h1:not(:last-child), h2:not(:last-child), h3:not(:last-child),
-.current_issue_title:not(:last-child), h4:not(:last-child), h5:not(:last-child), h6:not(:last-child), #articlesBySimilarityList h3:not(:last-child), .entry_details .label:not(:last-child), .entry_details label:not(:last-child), .tags:not(:last-child), .table:not(:last-child), .table-container:not(:last-child), .progress:not(:last-child), .notification:not(:last-child), .content:not(:last-child), .buttons:not(:last-child), .box:not(:last-child), .block:not(:last-child), .item:not(:last-child), .block_author:not(:last-child) {
+.current_issue_title:not(:last-child), h4:not(:last-child), h5:not(:last-child), h6:not(:last-child), #articlesBySimilarityList h3:not(:last-child), .entry_details .label:not(:last-child), .entry_details label:not(:last-child), .tags:not(:last-child), .table:not(:last-child), .table-container:not(:last-child), .progress:not(:last-child), .notification:not(:last-child), .content:not(:last-child), .buttons:not(:last-child), .box:not(:last-child), .cmp_notification:not(:last-child), .block:not(:last-child), .item:not(:last-child), .block_author:not(:last-child) {
   margin-bottom: var(--bulma-block-spacing);
 }
 
@@ -3361,7 +3361,7 @@ fieldset[disabled] input[type=tel], fieldset[disabled] textarea, fieldset[disabl
   user-select: none;
 }
 
-.box {
+.box, .cmp_notification {
   --bulma-box-background-color: var(--bulma-scheme-main);
   --bulma-box-color: var(--bulma-text);
   --bulma-box-radius: 0em;
@@ -3371,7 +3371,7 @@ fieldset[disabled] input[type=tel], fieldset[disabled] textarea, fieldset[disabl
   --bulma-box-link-active-shadow: inset 0 1px 2px hsla(var(--bulma-scheme-h), var(--bulma-scheme-s), var(--bulma-scheme-invert-l), 0.2), 0 0 0 1px var(--bulma-link);
 }
 
-.box {
+.box, .cmp_notification {
   background-color: var(--bulma-box-background-color);
   border-radius: var(--bulma-box-radius);
   box-shadow: var(--bulma-box-shadow);
@@ -3380,10 +3380,10 @@ fieldset[disabled] input[type=tel], fieldset[disabled] textarea, fieldset[disabl
   padding: var(--bulma-box-padding);
 }
 
-a.box:hover, a.box:focus {
+a.box:hover, a.cmp_notification:hover, a.box:focus, a.cmp_notification:focus {
   box-shadow: var(--bulma-box-link-hover-shadow);
 }
-a.box:active {
+a.box:active, a.cmp_notification:active {
   box-shadow: var(--bulma-box-link-active-shadow);
 }
 
@@ -3646,7 +3646,7 @@ a.box:active {
   border-color: var(--bulma-text);
   box-shadow: none;
 }
-.button.is-primary, .is-primary.block_make_submission_link, button.is-primary, .button.pkp_block, .block_make_submission_link.pkp_block, button.pkp_block, .button.is-notice, .block_make_submission_link.is-notice, button.is-notice, .button.date, .block_make_submission_link.date, button.date {
+.button.is-primary, .is-primary.block_make_submission_link, button.is-primary, .button.pkp_block, .block_make_submission_link.pkp_block, button.pkp_block, .button.is-notice, .block_make_submission_link.is-notice, button.is-notice, .button.date, .block_make_submission_link.date, button.date, .button.task_count, .block_make_submission_link.task_count, button.task_count {
   --bulma-button-h: var(--bulma-primary-h);
   --bulma-button-s: var(--bulma-primary-s);
   --bulma-button-l: var(--bulma-primary-l);
@@ -3656,31 +3656,31 @@ a.box:active {
   --bulma-button-color-l: var(--bulma-primary-invert-l);
   --bulma-button-outer-shadow-a: 0;
 }
-.button.is-primary:focus-visible, .is-primary.block_make_submission_link:focus-visible, button.is-primary:focus-visible, .button.pkp_block:focus-visible, .block_make_submission_link.pkp_block:focus-visible, button.pkp_block:focus-visible, .button.is-notice:focus-visible, .block_make_submission_link.is-notice:focus-visible, button.is-notice:focus-visible, .button.date:focus-visible, .block_make_submission_link.date:focus-visible, button.date:focus-visible, .button.is-primary.is-focused, .is-primary.is-focused.block_make_submission_link, button.is-primary.is-focused, .button.is-focused.pkp_block, .is-focused.block_make_submission_link.pkp_block, button.is-focused.pkp_block, .button.is-focused.is-notice, .is-focused.block_make_submission_link.is-notice, button.is-focused.is-notice, .button.is-focused.date, .is-focused.block_make_submission_link.date, button.is-focused.date {
+.button.is-primary:focus-visible, .is-primary.block_make_submission_link:focus-visible, button.is-primary:focus-visible, .button.pkp_block:focus-visible, .block_make_submission_link.pkp_block:focus-visible, button.pkp_block:focus-visible, .button.is-notice:focus-visible, .block_make_submission_link.is-notice:focus-visible, button.is-notice:focus-visible, .button.date:focus-visible, .block_make_submission_link.date:focus-visible, button.date:focus-visible, .button.task_count:focus-visible, .block_make_submission_link.task_count:focus-visible, button.task_count:focus-visible, .button.is-primary.is-focused, .is-primary.is-focused.block_make_submission_link, button.is-primary.is-focused, .button.is-focused.pkp_block, .is-focused.block_make_submission_link.pkp_block, button.is-focused.pkp_block, .button.is-focused.is-notice, .is-focused.block_make_submission_link.is-notice, button.is-focused.is-notice, .button.is-focused.date, .is-focused.block_make_submission_link.date, button.is-focused.date, .button.is-focused.task_count, .is-focused.block_make_submission_link.task_count, button.is-focused.task_count {
   --bulma-button-border-width: 1px;
 }
-.button.is-primary.is-light, .is-primary.is-light.block_make_submission_link, button.is-primary.is-light, .button.is-light.pkp_block, .is-light.block_make_submission_link.pkp_block, button.is-light.pkp_block, .button.is-light.is-notice, .is-light.block_make_submission_link.is-notice, button.is-light.is-notice, .button.date, .block_make_submission_link.date, button.date {
+.button.is-primary.is-light, .is-primary.is-light.block_make_submission_link, button.is-primary.is-light, .button.is-light.pkp_block, .is-light.block_make_submission_link.pkp_block, button.is-light.pkp_block, .button.is-light.is-notice, .is-light.block_make_submission_link.is-notice, button.is-light.is-notice, .button.is-light.task_count, .is-light.block_make_submission_link.task_count, button.is-light.task_count, .button.date, .block_make_submission_link.date, button.date {
   --bulma-button-background-l: var(--bulma-light-l);
   --bulma-button-color-l: var(--bulma-primary-light-invert-l);
 }
-.button.is-primary.is-dark, .is-primary.is-dark.block_make_submission_link, button.is-primary.is-dark, .button.is-dark.pkp_block, .is-dark.block_make_submission_link.pkp_block, button.is-dark.pkp_block, .button.is-dark.is-notice, .is-dark.block_make_submission_link.is-notice, button.is-dark.is-notice, .button.is-dark.date, .is-dark.block_make_submission_link.date, button.is-dark.date {
+.button.is-primary.is-dark, .is-primary.is-dark.block_make_submission_link, button.is-primary.is-dark, .button.is-dark.pkp_block, .is-dark.block_make_submission_link.pkp_block, button.is-dark.pkp_block, .button.is-dark.is-notice, .is-dark.block_make_submission_link.is-notice, button.is-dark.is-notice, .button.is-dark.date, .is-dark.block_make_submission_link.date, button.is-dark.date, .button.is-dark.task_count, .is-dark.block_make_submission_link.task_count, button.is-dark.task_count {
   --bulma-button-background-l: var(--bulma-dark-l);
   --bulma-button-color-l: var(--bulma-primary-dark-invert-l);
 }
-.button.is-primary.is-soft, .is-primary.is-soft.block_make_submission_link, button.is-primary.is-soft, .button.is-soft.pkp_block, .is-soft.block_make_submission_link.pkp_block, button.is-soft.pkp_block, .button.is-soft.is-notice, .is-soft.block_make_submission_link.is-notice, button.is-soft.is-notice, .button.is-soft.date, .is-soft.block_make_submission_link.date, button.is-soft.date {
+.button.is-primary.is-soft, .is-primary.is-soft.block_make_submission_link, button.is-primary.is-soft, .button.is-soft.pkp_block, .is-soft.block_make_submission_link.pkp_block, button.is-soft.pkp_block, .button.is-soft.is-notice, .is-soft.block_make_submission_link.is-notice, button.is-soft.is-notice, .button.is-soft.date, .is-soft.block_make_submission_link.date, button.is-soft.date, .button.is-soft.task_count, .is-soft.block_make_submission_link.task_count, button.is-soft.task_count {
   --bulma-button-background-l: var(--bulma-soft-l);
   --bulma-button-color-l: var(--bulma-soft-invert-l);
 }
-.button.is-primary.is-bold, .is-primary.is-bold.block_make_submission_link, button.is-primary.is-bold, .button.is-bold.pkp_block, .is-bold.block_make_submission_link.pkp_block, button.is-bold.pkp_block, .button.is-bold.is-notice, .is-bold.block_make_submission_link.is-notice, button.is-bold.is-notice, .button.is-bold.date, .is-bold.block_make_submission_link.date, button.is-bold.date {
+.button.is-primary.is-bold, .is-primary.is-bold.block_make_submission_link, button.is-primary.is-bold, .button.is-bold.pkp_block, .is-bold.block_make_submission_link.pkp_block, button.is-bold.pkp_block, .button.is-bold.is-notice, .is-bold.block_make_submission_link.is-notice, button.is-bold.is-notice, .button.is-bold.date, .is-bold.block_make_submission_link.date, button.is-bold.date, .button.is-bold.task_count, .is-bold.block_make_submission_link.task_count, button.is-bold.task_count {
   --bulma-button-background-l: var(--bulma-bold-l);
   --bulma-button-color-l: var(--bulma-bold-invert-l);
 }
-.button.is-primary[disabled], .is-primary[disabled].block_make_submission_link, button.is-primary[disabled], .button[disabled].pkp_block, [disabled].block_make_submission_link.pkp_block, button[disabled].pkp_block, .button[disabled].is-notice, [disabled].block_make_submission_link.is-notice, button[disabled].is-notice, .button[disabled].date, [disabled].block_make_submission_link.date, button[disabled].date, fieldset[disabled] .button.is-primary, fieldset[disabled] .is-primary.block_make_submission_link, fieldset[disabled] button.is-primary, fieldset[disabled] .button.pkp_block, fieldset[disabled] .block_make_submission_link.pkp_block, fieldset[disabled] button.pkp_block, fieldset[disabled] .button.is-notice, fieldset[disabled] .block_make_submission_link.is-notice, fieldset[disabled] button.is-notice, fieldset[disabled] .button.date, fieldset[disabled] .block_make_submission_link.date, fieldset[disabled] button.date {
+.button.is-primary[disabled], .is-primary[disabled].block_make_submission_link, button.is-primary[disabled], .button[disabled].pkp_block, [disabled].block_make_submission_link.pkp_block, button[disabled].pkp_block, .button[disabled].is-notice, [disabled].block_make_submission_link.is-notice, button[disabled].is-notice, .button[disabled].date, [disabled].block_make_submission_link.date, button[disabled].date, .button[disabled].task_count, [disabled].block_make_submission_link.task_count, button[disabled].task_count, fieldset[disabled] .button.is-primary, fieldset[disabled] .is-primary.block_make_submission_link, fieldset[disabled] button.is-primary, fieldset[disabled] .button.pkp_block, fieldset[disabled] .block_make_submission_link.pkp_block, fieldset[disabled] button.pkp_block, fieldset[disabled] .button.is-notice, fieldset[disabled] .block_make_submission_link.is-notice, fieldset[disabled] button.is-notice, fieldset[disabled] .button.date, fieldset[disabled] .block_make_submission_link.date, fieldset[disabled] button.date, fieldset[disabled] .button.task_count, fieldset[disabled] .block_make_submission_link.task_count, fieldset[disabled] button.task_count {
   background-color: var(--bulma-primary);
   border-color: var(--bulma-primary);
   box-shadow: none;
 }
-.button.is-link, button.is-link, .block_make_submission_link, .button.cmp_edit_link, button.cmp_edit_link {
+.button.is-link, button.is-link, .block_make_submission_link, .button.cmp_edit_link, button.cmp_edit_link, .cmp_notification a.button, .cmp_notification a.block_make_submission_link {
   --bulma-button-h: var(--bulma-link-h);
   --bulma-button-s: var(--bulma-link-s);
   --bulma-button-l: var(--bulma-link-l);
@@ -3690,26 +3690,26 @@ a.box:active {
   --bulma-button-color-l: var(--bulma-link-invert-l);
   --bulma-button-outer-shadow-a: 0;
 }
-.button.is-link:focus-visible, button.is-link:focus-visible, .block_make_submission_link:focus-visible, .button.cmp_edit_link:focus-visible, button.cmp_edit_link:focus-visible, .button.is-link.is-focused, button.is-link.is-focused, .is-focused.block_make_submission_link, .button.is-focused.cmp_edit_link, button.is-focused.cmp_edit_link {
+.button.is-link:focus-visible, button.is-link:focus-visible, .block_make_submission_link:focus-visible, .button.cmp_edit_link:focus-visible, button.cmp_edit_link:focus-visible, .cmp_notification a.button:focus-visible, .button.is-link.is-focused, button.is-link.is-focused, .is-focused.block_make_submission_link, .button.is-focused.cmp_edit_link, button.is-focused.cmp_edit_link, .cmp_notification a.button.is-focused {
   --bulma-button-border-width: 1px;
 }
-.button.is-link.is-light, button.is-link.is-light, .is-light.block_make_submission_link, .button.is-light.cmp_edit_link, button.is-light.cmp_edit_link, .button.is-link.date, button.is-link.date, .block_make_submission_link.date, .button.cmp_edit_link.date, button.cmp_edit_link.date {
+.button.is-link.is-light, button.is-link.is-light, .is-light.block_make_submission_link, .button.is-light.cmp_edit_link, button.is-light.cmp_edit_link, .cmp_notification a.button.is-light, .button.is-link.date, button.is-link.date, .block_make_submission_link.date, .button.cmp_edit_link.date, button.cmp_edit_link.date, .cmp_notification a.button.date {
   --bulma-button-background-l: var(--bulma-light-l);
   --bulma-button-color-l: var(--bulma-link-light-invert-l);
 }
-.button.is-link.is-dark, button.is-link.is-dark, .is-dark.block_make_submission_link, .button.is-dark.cmp_edit_link, button.is-dark.cmp_edit_link {
+.button.is-link.is-dark, button.is-link.is-dark, .is-dark.block_make_submission_link, .button.is-dark.cmp_edit_link, button.is-dark.cmp_edit_link, .cmp_notification a.button.is-dark {
   --bulma-button-background-l: var(--bulma-dark-l);
   --bulma-button-color-l: var(--bulma-link-dark-invert-l);
 }
-.button.is-link.is-soft, button.is-link.is-soft, .is-soft.block_make_submission_link, .button.is-soft.cmp_edit_link, button.is-soft.cmp_edit_link {
+.button.is-link.is-soft, button.is-link.is-soft, .is-soft.block_make_submission_link, .button.is-soft.cmp_edit_link, button.is-soft.cmp_edit_link, .cmp_notification a.button.is-soft {
   --bulma-button-background-l: var(--bulma-soft-l);
   --bulma-button-color-l: var(--bulma-soft-invert-l);
 }
-.button.is-link.is-bold, button.is-link.is-bold, .is-bold.block_make_submission_link, .button.is-bold.cmp_edit_link, button.is-bold.cmp_edit_link {
+.button.is-link.is-bold, button.is-link.is-bold, .is-bold.block_make_submission_link, .button.is-bold.cmp_edit_link, button.is-bold.cmp_edit_link, .cmp_notification a.button.is-bold {
   --bulma-button-background-l: var(--bulma-bold-l);
   --bulma-button-color-l: var(--bulma-bold-invert-l);
 }
-.button.is-link[disabled], button.is-link[disabled], [disabled].block_make_submission_link, .button[disabled].cmp_edit_link, button[disabled].cmp_edit_link, fieldset[disabled] .button.is-link, fieldset[disabled] button.is-link, fieldset[disabled] .block_make_submission_link, fieldset[disabled] .button.cmp_edit_link, fieldset[disabled] button.cmp_edit_link {
+.button.is-link[disabled], button.is-link[disabled], [disabled].block_make_submission_link, .button[disabled].cmp_edit_link, button[disabled].cmp_edit_link, .cmp_notification a.button[disabled], fieldset[disabled] .button.is-link, fieldset[disabled] button.is-link, fieldset[disabled] .block_make_submission_link, fieldset[disabled] .button.cmp_edit_link, fieldset[disabled] button.cmp_edit_link, fieldset[disabled] .cmp_notification a.button, .cmp_notification fieldset[disabled] a.button {
   background-color: var(--bulma-link);
   border-color: var(--bulma-link);
   box-shadow: none;
@@ -3931,7 +3931,7 @@ a.box:active {
   box-shadow: none;
   pointer-events: none;
 }
-.button.is-rounded, .is-rounded.block_make_submission_link, button.is-rounded {
+.button.is-rounded, .is-rounded.block_make_submission_link, button.is-rounded, .button.task_count, .block_make_submission_link.task_count, button.task_count {
   border-radius: var(--bulma-radius-rounded);
   padding-left: calc(
       var(--bulma-button-padding-horizontal) + 0.25em -
@@ -4329,7 +4329,7 @@ div.icon-text {
   height: auto;
   width: 100%;
 }
-.image img.is-rounded {
+.image img.is-rounded, .image img.task_count {
   border-radius: var(--bulma-radius-rounded);
 }
 .image.is-fullwidth {
@@ -4697,31 +4697,31 @@ div.icon-text {
   --bulma-notification-background-l: 20%;
   --bulma-notification-color-l: var(--bulma-text-dark-invert-l);
 }
-.notification.is-primary, .notification.pkp_block, .notification.is-notice, .notification.date {
+.notification.is-primary, .notification.pkp_block, .notification.is-notice, .notification.date, .notification.task_count {
   --bulma-notification-h: var(--bulma-primary-h);
   --bulma-notification-s: var(--bulma-primary-s);
   --bulma-notification-background-l: var(--bulma-primary-l);
   --bulma-notification-color-l: var(--bulma-primary-invert-l);
 }
-.notification.is-primary.is-light, .notification.is-light.pkp_block, .notification.is-light.is-notice, .notification.date {
+.notification.is-primary.is-light, .notification.is-light.pkp_block, .notification.is-light.is-notice, .notification.is-light.task_count, .notification.date {
   --bulma-notification-background-l: 90%;
   --bulma-notification-color-l: var(--bulma-primary-light-invert-l);
 }
-.notification.is-primary.is-dark, .notification.is-dark.pkp_block, .notification.is-dark.is-notice, .notification.is-dark.date {
+.notification.is-primary.is-dark, .notification.is-dark.pkp_block, .notification.is-dark.is-notice, .notification.is-dark.date, .notification.is-dark.task_count {
   --bulma-notification-background-l: 20%;
   --bulma-notification-color-l: var(--bulma-primary-dark-invert-l);
 }
-.notification.is-link, .notification.block_make_submission_link, .notification.cmp_edit_link {
+.notification.is-link, .notification.block_make_submission_link, .notification.cmp_edit_link, .cmp_notification a.notification {
   --bulma-notification-h: var(--bulma-link-h);
   --bulma-notification-s: var(--bulma-link-s);
   --bulma-notification-background-l: var(--bulma-link-l);
   --bulma-notification-color-l: var(--bulma-link-invert-l);
 }
-.notification.is-link.is-light, .notification.is-light.block_make_submission_link, .notification.is-light.cmp_edit_link, .notification.is-link.date, .notification.block_make_submission_link.date, .notification.cmp_edit_link.date {
+.notification.is-link.is-light, .notification.is-light.block_make_submission_link, .notification.is-light.cmp_edit_link, .cmp_notification a.notification.is-light, .notification.is-link.date, .notification.block_make_submission_link.date, .notification.cmp_edit_link.date, .cmp_notification a.notification.date {
   --bulma-notification-background-l: 90%;
   --bulma-notification-color-l: var(--bulma-link-light-invert-l);
 }
-.notification.is-link.is-dark, .notification.is-dark.block_make_submission_link, .notification.is-dark.cmp_edit_link {
+.notification.is-link.is-dark, .notification.is-dark.block_make_submission_link, .notification.is-dark.cmp_edit_link, .cmp_notification a.notification.is-dark {
   --bulma-notification-background-l: 20%;
   --bulma-notification-color-l: var(--bulma-link-dark-invert-l);
 }
@@ -4827,10 +4827,10 @@ div.icon-text {
 .progress.is-text {
   --bulma-progress-value-background-color: var(--bulma-text);
 }
-.progress.is-primary, .progress.pkp_block, .progress.is-notice, .progress.date {
+.progress.is-primary, .progress.pkp_block, .progress.is-notice, .progress.date, .progress.task_count {
   --bulma-progress-value-background-color: var(--bulma-primary);
 }
-.progress.is-link, .progress.block_make_submission_link, .progress.cmp_edit_link {
+.progress.is-link, .progress.block_make_submission_link, .progress.cmp_edit_link, .cmp_notification a.progress {
   --bulma-progress-value-background-color: var(--bulma-link);
 }
 .progress.is-info {
@@ -4956,11 +4956,12 @@ div.icon-text {
   --bulma-table-cell-background-color: var(--bulma-text);
   --bulma-table-cell-border-color: var(--bulma-text);
 }
-.table td.is-primary, .table td.pkp_block, .table td.is-notice, .table td.date,
+.table td.is-primary, .table td.pkp_block, .table td.is-notice, .table td.date, .table td.task_count,
 .table th.is-primary,
 .table th.pkp_block,
 .table th.is-notice,
-.table th.date {
+.table th.date,
+.table th.task_count {
   --bulma-table-color: var(--bulma-primary-invert);
   --bulma-table-cell-heading-color: var(--bulma-primary-invert);
   --bulma-table-cell-background-color: var(--bulma-primary);
@@ -5072,7 +5073,7 @@ div.icon-text {
   --bulma-table-cell-background-color: var(--bulma-text);
   --bulma-table-cell-border-color: var(--bulma-text);
 }
-.table tr.is-primary, .table tr.pkp_block, .table tr.is-notice, .table tr.date {
+.table tr.is-primary, .table tr.pkp_block, .table tr.is-notice, .table tr.date, .table tr.task_count {
   --bulma-table-color: var(--bulma-primary-invert);
   --bulma-table-cell-heading-color: var(--bulma-primary-invert);
   --bulma-table-cell-background-color: var(--bulma-primary);
@@ -5174,10 +5175,10 @@ div.icon-text {
   gap: 0.5rem;
   justify-content: flex-start;
 }
-.tags.are-medium .tag:not(.is-normal):not(.is-large), .tags.are-medium .cmp_edit_link:not(.is-normal):not(.is-large), .tags.are-medium .date:not(.is-normal):not(.is-large) {
+.tags.are-medium .tag:not(.is-normal):not(.is-large), .tags.are-medium .cmp_edit_link:not(.is-normal):not(.is-large), .tags.are-medium .date:not(.is-normal):not(.is-large), .tags.are-medium .cmp_notification a:not(.is-normal):not(.is-large), .cmp_notification .tags.are-medium a:not(.is-normal):not(.is-large), .tags.are-medium .task_count:not(.is-normal):not(.is-large) {
   font-size: var(--bulma-size-normal);
 }
-.tags.are-large .tag:not(.is-normal):not(.is-medium):not(.cmp_breadcrumbs), .tags.are-large .cmp_edit_link:not(.is-normal):not(.is-medium):not(.cmp_breadcrumbs), .tags.are-large .date:not(.is-normal):not(.is-medium):not(.cmp_breadcrumbs) {
+.tags.are-large .tag:not(.is-normal):not(.is-medium):not(.cmp_breadcrumbs), .tags.are-large .cmp_edit_link:not(.is-normal):not(.is-medium):not(.cmp_breadcrumbs), .tags.are-large .date:not(.is-normal):not(.is-medium):not(.cmp_breadcrumbs), .tags.are-large .cmp_notification a:not(.is-normal):not(.is-medium):not(.cmp_breadcrumbs), .cmp_notification .tags.are-large a:not(.is-normal):not(.is-medium):not(.cmp_breadcrumbs), .tags.are-large .task_count:not(.is-normal):not(.is-medium):not(.cmp_breadcrumbs) {
   font-size: var(--bulma-size-medium);
 }
 .tags.is-centered {
@@ -5190,16 +5191,16 @@ div.icon-text {
 .tags.has-addons {
   gap: 0;
 }
-.tags.has-addons .tag:not(:first-child), .tags.has-addons .cmp_edit_link:not(:first-child), .tags.has-addons .date:not(:first-child) {
+.tags.has-addons .tag:not(:first-child), .tags.has-addons .cmp_edit_link:not(:first-child), .tags.has-addons .date:not(:first-child), .tags.has-addons .cmp_notification a:not(:first-child), .cmp_notification .tags.has-addons a:not(:first-child), .tags.has-addons .task_count:not(:first-child) {
   border-start-start-radius: 0;
   border-end-start-radius: 0;
 }
-.tags.has-addons .tag:not(:last-child), .tags.has-addons .cmp_edit_link:not(:last-child), .tags.has-addons .date:not(:last-child) {
+.tags.has-addons .tag:not(:last-child), .tags.has-addons .cmp_edit_link:not(:last-child), .tags.has-addons .date:not(:last-child), .tags.has-addons .cmp_notification a:not(:last-child), .cmp_notification .tags.has-addons a:not(:last-child), .tags.has-addons .task_count:not(:last-child) {
   border-start-end-radius: 0;
   border-end-end-radius: 0;
 }
 
-.tag, .cmp_edit_link, .date {
+.tag, .cmp_edit_link, .date, .cmp_notification a, .task_count {
   --bulma-tag-h: var(--bulma-scheme-h);
   --bulma-tag-s: var(--bulma-scheme-s);
   --bulma-tag-background-l: var(--bulma-background-l);
@@ -5222,148 +5223,148 @@ div.icon-text {
   padding-right: 0.75em;
   white-space: nowrap;
 }
-.tag .delete, .cmp_edit_link .delete, .date .delete {
+.tag .delete, .cmp_edit_link .delete, .date .delete, .cmp_notification a .delete, .task_count .delete {
   margin-inline-start: 0.25rem;
   margin-inline-end: -0.375rem;
 }
-.tag.is-white, .is-white.cmp_edit_link, .is-white.date {
+.tag.is-white, .is-white.cmp_edit_link, .is-white.date, .cmp_notification a.is-white, .is-white.task_count {
   --bulma-tag-h: var(--bulma-white-h);
   --bulma-tag-s: var(--bulma-white-s);
   --bulma-tag-background-l: var(--bulma-white-l);
   --bulma-tag-color-l: var(--bulma-white-invert-l);
 }
-.tag.is-white.is-light, .is-white.is-light.cmp_edit_link, .is-white.date {
+.tag.is-white.is-light, .is-white.is-light.cmp_edit_link, .cmp_notification a.is-white.is-light, .is-white.is-light.task_count, .is-white.date {
   --bulma-tag-background-l: var(--bulma-light-l);
   --bulma-tag-color-l: var(--bulma-white-light-invert-l);
 }
-.tag.is-black, .is-black.cmp_edit_link, .is-black.date {
+.tag.is-black, .is-black.cmp_edit_link, .is-black.date, .cmp_notification a.is-black, .is-black.task_count {
   --bulma-tag-h: var(--bulma-black-h);
   --bulma-tag-s: var(--bulma-black-s);
   --bulma-tag-background-l: var(--bulma-black-l);
   --bulma-tag-color-l: var(--bulma-black-invert-l);
 }
-.tag.is-black.is-light, .is-black.is-light.cmp_edit_link, .is-black.date {
+.tag.is-black.is-light, .is-black.is-light.cmp_edit_link, .cmp_notification a.is-black.is-light, .is-black.is-light.task_count, .is-black.date {
   --bulma-tag-background-l: var(--bulma-light-l);
   --bulma-tag-color-l: var(--bulma-black-light-invert-l);
 }
-.tag.is-light, .is-light.cmp_edit_link, .date {
+.tag.is-light, .is-light.cmp_edit_link, .cmp_notification a.is-light, .is-light.task_count, .date, .cmp_notification a.date {
   --bulma-tag-h: var(--bulma-light-h);
   --bulma-tag-s: var(--bulma-light-s);
   --bulma-tag-background-l: var(--bulma-light-l);
   --bulma-tag-color-l: var(--bulma-light-invert-l);
 }
-.tag.is-light.is-light, .is-light.is-light.cmp_edit_link, .date {
+.tag.is-light.is-light, .is-light.is-light.cmp_edit_link, .cmp_notification a.is-light.is-light, .is-light.is-light.task_count, .date, .cmp_notification a.date {
   --bulma-tag-background-l: var(--bulma-light-l);
   --bulma-tag-color-l: var(--bulma-light-light-invert-l);
 }
-.tag.is-dark, .is-dark.cmp_edit_link, .is-dark.date {
+.tag.is-dark, .is-dark.cmp_edit_link, .is-dark.date, .cmp_notification a.is-dark, .is-dark.task_count {
   --bulma-tag-h: var(--bulma-dark-h);
   --bulma-tag-s: var(--bulma-dark-s);
   --bulma-tag-background-l: var(--bulma-dark-l);
   --bulma-tag-color-l: var(--bulma-dark-invert-l);
 }
-.tag.is-dark.is-light, .is-dark.is-light.cmp_edit_link, .is-dark.date {
+.tag.is-dark.is-light, .is-dark.is-light.cmp_edit_link, .cmp_notification a.is-dark.is-light, .is-dark.is-light.task_count, .is-dark.date {
   --bulma-tag-background-l: var(--bulma-light-l);
   --bulma-tag-color-l: var(--bulma-dark-light-invert-l);
 }
-.tag.is-text, .is-text.cmp_edit_link, .is-text.date {
+.tag.is-text, .is-text.cmp_edit_link, .is-text.date, .cmp_notification a.is-text, .is-text.task_count {
   --bulma-tag-h: var(--bulma-text-h);
   --bulma-tag-s: var(--bulma-text-s);
   --bulma-tag-background-l: var(--bulma-text-l);
   --bulma-tag-color-l: var(--bulma-text-invert-l);
 }
-.tag.is-text.is-light, .is-text.is-light.cmp_edit_link, .is-text.date {
+.tag.is-text.is-light, .is-text.is-light.cmp_edit_link, .cmp_notification a.is-text.is-light, .is-text.is-light.task_count, .is-text.date {
   --bulma-tag-background-l: var(--bulma-light-l);
   --bulma-tag-color-l: var(--bulma-text-light-invert-l);
 }
-.tag.is-primary, .is-primary.cmp_edit_link, .tag.pkp_block, .cmp_edit_link.pkp_block, .tag.is-notice, .cmp_edit_link.is-notice, .date {
+.tag.is-primary, .is-primary.cmp_edit_link, .cmp_notification a.is-primary, .tag.pkp_block, .cmp_edit_link.pkp_block, .cmp_notification a.pkp_block, .tag.is-notice, .cmp_edit_link.is-notice, .cmp_notification a.is-notice, .date, .cmp_notification a.date, .cmp_notification a.task_count, .task_count {
   --bulma-tag-h: var(--bulma-primary-h);
   --bulma-tag-s: var(--bulma-primary-s);
   --bulma-tag-background-l: var(--bulma-primary-l);
   --bulma-tag-color-l: var(--bulma-primary-invert-l);
 }
-.tag.is-primary.is-light, .is-primary.is-light.cmp_edit_link, .tag.is-light.pkp_block, .is-light.cmp_edit_link.pkp_block, .tag.is-light.is-notice, .is-light.cmp_edit_link.is-notice, .date {
+.tag.is-primary.is-light, .is-primary.is-light.cmp_edit_link, .cmp_notification a.is-primary.is-light, .tag.is-light.pkp_block, .is-light.cmp_edit_link.pkp_block, .cmp_notification a.is-light.pkp_block, .tag.is-light.is-notice, .is-light.cmp_edit_link.is-notice, .cmp_notification a.is-light.is-notice, .is-light.task_count, .date, .cmp_notification a.date {
   --bulma-tag-background-l: var(--bulma-light-l);
   --bulma-tag-color-l: var(--bulma-primary-light-invert-l);
 }
-.tag.is-link, .is-link.date, .tag.block_make_submission_link, .date.block_make_submission_link, .cmp_edit_link {
+.tag.is-link, .is-link.date, .is-link.task_count, .tag.block_make_submission_link, .date.block_make_submission_link, .task_count.block_make_submission_link, .cmp_edit_link, .cmp_notification a {
   --bulma-tag-h: var(--bulma-link-h);
   --bulma-tag-s: var(--bulma-link-s);
   --bulma-tag-background-l: var(--bulma-link-l);
   --bulma-tag-color-l: var(--bulma-link-invert-l);
 }
-.tag.is-link.is-light, .tag.is-light.block_make_submission_link, .is-light.cmp_edit_link, .is-link.date, .date.block_make_submission_link, .cmp_edit_link.date {
+.tag.is-link.is-light, .is-link.is-light.task_count, .tag.is-light.block_make_submission_link, .is-light.task_count.block_make_submission_link, .is-light.cmp_edit_link, .cmp_notification a.is-light, .is-link.date, .date.block_make_submission_link, .cmp_edit_link.date, .cmp_notification a.date {
   --bulma-tag-background-l: var(--bulma-light-l);
   --bulma-tag-color-l: var(--bulma-link-light-invert-l);
 }
-.tag.is-info, .is-info.cmp_edit_link, .is-info.date {
+.tag.is-info, .is-info.cmp_edit_link, .is-info.date, .cmp_notification a.is-info, .is-info.task_count {
   --bulma-tag-h: var(--bulma-info-h);
   --bulma-tag-s: var(--bulma-info-s);
   --bulma-tag-background-l: var(--bulma-info-l);
   --bulma-tag-color-l: var(--bulma-info-invert-l);
 }
-.tag.is-info.is-light, .is-info.is-light.cmp_edit_link, .is-info.date {
+.tag.is-info.is-light, .is-info.is-light.cmp_edit_link, .cmp_notification a.is-info.is-light, .is-info.is-light.task_count, .is-info.date {
   --bulma-tag-background-l: var(--bulma-light-l);
   --bulma-tag-color-l: var(--bulma-info-light-invert-l);
 }
-.tag.is-success, .is-success.cmp_edit_link, .is-success.date {
+.tag.is-success, .is-success.cmp_edit_link, .is-success.date, .cmp_notification a.is-success, .is-success.task_count {
   --bulma-tag-h: var(--bulma-success-h);
   --bulma-tag-s: var(--bulma-success-s);
   --bulma-tag-background-l: var(--bulma-success-l);
   --bulma-tag-color-l: var(--bulma-success-invert-l);
 }
-.tag.is-success.is-light, .is-success.is-light.cmp_edit_link, .is-success.date {
+.tag.is-success.is-light, .is-success.is-light.cmp_edit_link, .cmp_notification a.is-success.is-light, .is-success.is-light.task_count, .is-success.date {
   --bulma-tag-background-l: var(--bulma-light-l);
   --bulma-tag-color-l: var(--bulma-success-light-invert-l);
 }
-.tag.is-warning, .is-warning.cmp_edit_link, .is-warning.date {
+.tag.is-warning, .is-warning.cmp_edit_link, .is-warning.date, .cmp_notification a.is-warning, .is-warning.task_count {
   --bulma-tag-h: var(--bulma-warning-h);
   --bulma-tag-s: var(--bulma-warning-s);
   --bulma-tag-background-l: var(--bulma-warning-l);
   --bulma-tag-color-l: var(--bulma-warning-invert-l);
 }
-.tag.is-warning.is-light, .is-warning.is-light.cmp_edit_link, .is-warning.date {
+.tag.is-warning.is-light, .is-warning.is-light.cmp_edit_link, .cmp_notification a.is-warning.is-light, .is-warning.is-light.task_count, .is-warning.date {
   --bulma-tag-background-l: var(--bulma-light-l);
   --bulma-tag-color-l: var(--bulma-warning-light-invert-l);
 }
-.tag.is-danger, .is-danger.cmp_edit_link, .is-danger.date {
+.tag.is-danger, .is-danger.cmp_edit_link, .is-danger.date, .cmp_notification a.is-danger, .is-danger.task_count {
   --bulma-tag-h: var(--bulma-danger-h);
   --bulma-tag-s: var(--bulma-danger-s);
   --bulma-tag-background-l: var(--bulma-danger-l);
   --bulma-tag-color-l: var(--bulma-danger-invert-l);
 }
-.tag.is-danger.is-light, .is-danger.is-light.cmp_edit_link, .is-danger.date {
+.tag.is-danger.is-light, .is-danger.is-light.cmp_edit_link, .cmp_notification a.is-danger.is-light, .is-danger.is-light.task_count, .is-danger.date {
   --bulma-tag-background-l: var(--bulma-light-l);
   --bulma-tag-color-l: var(--bulma-danger-light-invert-l);
 }
-.tag.is-normal, .is-normal.cmp_edit_link, .is-normal.date {
+.tag.is-normal, .is-normal.cmp_edit_link, .is-normal.date, .cmp_notification a.is-normal, .is-normal.task_count {
   font-size: var(--bulma-size-small);
 }
-.tag.is-medium, .is-medium.cmp_edit_link, .is-medium.date, .tag.cmp_breadcrumbs, .cmp_edit_link.cmp_breadcrumbs, .date.cmp_breadcrumbs {
+.tag.is-medium, .is-medium.cmp_edit_link, .is-medium.date, .cmp_notification a.is-medium, .is-medium.task_count, .tag.cmp_breadcrumbs, .cmp_edit_link.cmp_breadcrumbs, .date.cmp_breadcrumbs, .cmp_notification a.cmp_breadcrumbs, .task_count.cmp_breadcrumbs {
   font-size: var(--bulma-size-normal);
 }
-.tag.is-large, .is-large.cmp_edit_link, .is-large.date {
+.tag.is-large, .is-large.cmp_edit_link, .is-large.date, .cmp_notification a.is-large, .is-large.task_count {
   font-size: var(--bulma-size-medium);
 }
-.tag .icon:first-child:not(:last-child), .cmp_edit_link .icon:first-child:not(:last-child), .date .icon:first-child:not(:last-child) {
+.tag .icon:first-child:not(:last-child), .cmp_edit_link .icon:first-child:not(:last-child), .date .icon:first-child:not(:last-child), .cmp_notification a .icon:first-child:not(:last-child), .task_count .icon:first-child:not(:last-child) {
   margin-inline-start: -0.375em;
   margin-inline-end: 0.1875em;
 }
-.tag .icon:last-child:not(:first-child), .cmp_edit_link .icon:last-child:not(:first-child), .date .icon:last-child:not(:first-child) {
+.tag .icon:last-child:not(:first-child), .cmp_edit_link .icon:last-child:not(:first-child), .date .icon:last-child:not(:first-child), .cmp_notification a .icon:last-child:not(:first-child), .task_count .icon:last-child:not(:first-child) {
   margin-inline-start: 0.1875em;
   margin-inline-end: -0.375em;
 }
-.tag .icon:first-child:last-child, .cmp_edit_link .icon:first-child:last-child, .date .icon:first-child:last-child {
+.tag .icon:first-child:last-child, .cmp_edit_link .icon:first-child:last-child, .date .icon:first-child:last-child, .cmp_notification a .icon:first-child:last-child, .task_count .icon:first-child:last-child {
   margin-inline-start: -0.375em;
   margin-inline-end: -0.375em;
 }
-.tag.is-delete, .is-delete.cmp_edit_link, .is-delete.date {
+.tag.is-delete, .is-delete.cmp_edit_link, .is-delete.date, .cmp_notification a.is-delete, .is-delete.task_count {
   margin-inline-start: var(--bulma-tag-delete-margin);
   padding: 0;
   position: relative;
   width: 2em;
 }
-.tag.is-delete::before, .is-delete.cmp_edit_link::before, .is-delete.date::before, .tag.is-delete::after, .is-delete.cmp_edit_link::after, .is-delete.date::after {
+.tag.is-delete::before, .is-delete.cmp_edit_link::before, .is-delete.date::before, .cmp_notification a.is-delete::before, .is-delete.task_count::before, .tag.is-delete::after, .is-delete.cmp_edit_link::after, .is-delete.date::after, .cmp_notification a.is-delete::after, .is-delete.task_count::after {
   background-color: currentColor;
   content: "";
   display: block;
@@ -5373,43 +5374,49 @@ div.icon-text {
   transform: translateX(-50%) translateY(-50%) rotate(45deg);
   transform-origin: center center;
 }
-.tag.is-delete::before, .is-delete.cmp_edit_link::before, .is-delete.date::before {
+.tag.is-delete::before, .is-delete.cmp_edit_link::before, .is-delete.date::before, .cmp_notification a.is-delete::before, .is-delete.task_count::before {
   height: 1px;
   width: 50%;
 }
-.tag.is-delete::after, .is-delete.cmp_edit_link::after, .is-delete.date::after {
+.tag.is-delete::after, .is-delete.cmp_edit_link::after, .is-delete.date::after, .cmp_notification a.is-delete::after, .is-delete.task_count::after {
   height: 50%;
   width: 1px;
 }
-.tag.is-rounded, .is-rounded.cmp_edit_link, .is-rounded.date {
+.tag.is-rounded, .is-rounded.cmp_edit_link, .is-rounded.date, .cmp_notification a.is-rounded, .cmp_notification a.task_count, .task_count {
   border-radius: var(--bulma-radius-rounded);
 }
 
-a.tag, a.cmp_edit_link, a.date,
+a.tag, a.cmp_edit_link, a.date, .cmp_notification a, a.task_count,
 button.tag,
 button.cmp_edit_link,
 button.date,
+button.task_count,
 .tag.is-hoverable,
 .is-hoverable.cmp_edit_link,
-.is-hoverable.date {
+.is-hoverable.date,
+.is-hoverable.task_count {
   cursor: pointer;
 }
-a.tag:hover, a.cmp_edit_link:hover, a.date:hover,
+a.tag:hover, a.cmp_edit_link:hover, a.date:hover, .cmp_notification a:hover, a.task_count:hover,
 button.tag:hover,
 button.cmp_edit_link:hover,
 button.date:hover,
+button.task_count:hover,
 .tag.is-hoverable:hover,
 .is-hoverable.cmp_edit_link:hover,
-.is-hoverable.date:hover {
+.is-hoverable.date:hover,
+.is-hoverable.task_count:hover {
   --bulma-tag-background-l-delta: var(--bulma-tag-hover-background-l-delta);
 }
-a.tag:active, a.cmp_edit_link:active, a.date:active,
+a.tag:active, a.cmp_edit_link:active, a.date:active, .cmp_notification a:active, a.task_count:active,
 button.tag:active,
 button.cmp_edit_link:active,
 button.date:active,
+button.task_count:active,
 .tag.is-hoverable:active,
 .is-hoverable.cmp_edit_link:active,
-.is-hoverable.date:active {
+.is-hoverable.date:active,
+.is-hoverable.task_count:active {
   --bulma-tag-background-l-delta: var(--bulma-tag-active-background-l-delta);
 }
 
@@ -5469,10 +5476,16 @@ h6 span,
 .title .tag, h1 .tag, h2 .tag, h3 .tag,
 .current_issue_title .tag, h4 .tag, h5 .tag, h6 .tag, #articlesBySimilarityList h3 .tag, .entry_details .label .tag, .entry_details label .tag, .title .cmp_edit_link, h1 .cmp_edit_link, h2 .cmp_edit_link, h3 .cmp_edit_link,
 .current_issue_title .cmp_edit_link, h4 .cmp_edit_link, h5 .cmp_edit_link, h6 .cmp_edit_link, #articlesBySimilarityList h3 .cmp_edit_link, .entry_details .label .cmp_edit_link, .entry_details label .cmp_edit_link, .title .date, h1 .date, h2 .date, h3 .date,
-.current_issue_title .date, h4 .date, h5 .date, h6 .date, #articlesBySimilarityList h3 .date, .entry_details .label .date, .entry_details label .date,
+.current_issue_title .date, h4 .date, h5 .date, h6 .date, #articlesBySimilarityList h3 .date, .entry_details .label .date, .entry_details label .date, .title .cmp_notification a, .cmp_notification .title a, h1 .cmp_notification a, .cmp_notification h1 a, h2 .cmp_notification a, .cmp_notification h2 a, h3 .cmp_notification a, .cmp_notification h3 a,
+.current_issue_title .cmp_notification a,
+.cmp_notification .current_issue_title a, h4 .cmp_notification a, .cmp_notification h4 a, h5 .cmp_notification a, .cmp_notification h5 a, h6 .cmp_notification a, .cmp_notification h6 a, #articlesBySimilarityList h3 .cmp_notification a, .cmp_notification #articlesBySimilarityList h3 a, .entry_details .label .cmp_notification a, .cmp_notification .entry_details .label a, .entry_details label .cmp_notification a, .cmp_notification .entry_details label a, .title .task_count, h1 .task_count, h2 .task_count, h3 .task_count,
+.current_issue_title .task_count, h4 .task_count, h5 .task_count, h6 .task_count, #articlesBySimilarityList h3 .task_count, .entry_details .label .task_count, .entry_details label .task_count,
 .subtitle .tag,
 .subtitle .cmp_edit_link,
-.subtitle .date {
+.subtitle .date,
+.subtitle .cmp_notification a,
+.cmp_notification .subtitle a,
+.subtitle .task_count {
   vertical-align: middle;
 }
 
@@ -5802,19 +5815,22 @@ input.is-text[type=tel] {
   --bulma-input-focus-l: var(--bulma-text-l);
   --bulma-input-border-l: var(--bulma-text-l);
 }
-.is-primary.textarea, .textarea.pkp_block, .textarea.is-notice, .textarea.date, textarea.is-primary, textarea.pkp_block, textarea.is-notice, textarea.date, .is-primary.input, .input.pkp_block, .input.is-notice, .input.date, input.is-primary[type=text], input.pkp_block[type=text], input.is-notice[type=text], input.date[type=text],
+.is-primary.textarea, .textarea.pkp_block, .textarea.is-notice, .textarea.date, .textarea.task_count, textarea.is-primary, textarea.pkp_block, textarea.is-notice, textarea.date, textarea.task_count, .is-primary.input, .input.pkp_block, .input.is-notice, .input.date, .input.task_count, input.is-primary[type=text], input.pkp_block[type=text], input.is-notice[type=text], input.date[type=text], input.task_count[type=text],
 input.is-primary[type=password],
 input.pkp_block[type=password],
 input.is-notice[type=password],
 input.date[type=password],
+input.task_count[type=password],
 input.is-primary[type=email],
 input.pkp_block[type=email],
 input.is-notice[type=email],
 input.date[type=email],
+input.task_count[type=email],
 input.is-primary[type=tel],
 input.pkp_block[type=tel],
 input.is-notice[type=tel],
-input.date[type=tel] {
+input.date[type=tel],
+input.task_count[type=tel] {
   --bulma-input-h: var(--bulma-primary-h);
   --bulma-input-s: var(--bulma-primary-s);
   --bulma-input-l: var(--bulma-primary-l);
@@ -5823,7 +5839,7 @@ input.date[type=tel] {
   --bulma-input-focus-l: var(--bulma-primary-l);
   --bulma-input-border-l: var(--bulma-primary-l);
 }
-.is-link.textarea, .textarea.block_make_submission_link, .textarea.cmp_edit_link, textarea.is-link, textarea.block_make_submission_link, textarea.cmp_edit_link, .is-link.input, .input.block_make_submission_link, .input.cmp_edit_link, input.is-link[type=text], input.block_make_submission_link[type=text], input.cmp_edit_link[type=text],
+.is-link.textarea, .textarea.block_make_submission_link, .textarea.cmp_edit_link, .cmp_notification a.textarea, textarea.is-link, textarea.block_make_submission_link, textarea.cmp_edit_link, .is-link.input, .input.block_make_submission_link, .input.cmp_edit_link, .cmp_notification a.input, input.is-link[type=text], input.block_make_submission_link[type=text], input.cmp_edit_link[type=text],
 input.is-link[type=password],
 input.block_make_submission_link[type=password],
 input.cmp_edit_link[type=password],
@@ -5932,7 +5948,10 @@ input.is-inline[type=tel] {
 .input.is-rounded, input.is-rounded[type=text],
 input.is-rounded[type=password],
 input.is-rounded[type=email],
-input.is-rounded[type=tel] {
+input.is-rounded[type=tel], .input.task_count, input[type=text].task_count,
+input[type=password].task_count,
+input[type=email].task_count,
+input[type=tel].task_count {
   border-radius: var(--bulma-radius-rounded);
   padding-left: calc(calc(0.75em - 2px) + 0.375em);
   padding-right: calc(calc(0.75em - 2px) + 0.375em);
@@ -6011,7 +6030,7 @@ input[type=checkbox] input[disabled] {
   inset-inline-end: 1.125em;
   z-index: 4;
 }
-.select.is-rounded select, select.is-rounded select {
+.select.is-rounded select, select.is-rounded select, .select.task_count select, select.task_count select {
   border-radius: var(--bulma-radius-rounded);
   padding-inline-start: 1em;
 }
@@ -6088,7 +6107,7 @@ input[type=checkbox] input[disabled] {
   --bulma-input-border-l: var(--bulma-text-l);
   --bulma-arrow-color: var(--bulma-text);
 }
-.select.is-primary, select.is-primary, .select.pkp_block, select.pkp_block, .select.is-notice, select.is-notice, .select.date, select.date {
+.select.is-primary, select.is-primary, .select.pkp_block, select.pkp_block, .select.is-notice, select.is-notice, .select.date, select.date, .select.task_count, select.task_count {
   --bulma-input-h: var(--bulma-primary-h);
   --bulma-input-s: var(--bulma-primary-s);
   --bulma-input-l: var(--bulma-primary-l);
@@ -6098,7 +6117,7 @@ input[type=checkbox] input[disabled] {
   --bulma-input-border-l: var(--bulma-primary-l);
   --bulma-arrow-color: var(--bulma-primary);
 }
-.select.is-link, select.is-link, .select.block_make_submission_link, select.block_make_submission_link, .select.cmp_edit_link, select.cmp_edit_link {
+.select.is-link, select.is-link, .select.block_make_submission_link, select.block_make_submission_link, .select.cmp_edit_link, select.cmp_edit_link, .cmp_notification a.select {
   --bulma-input-h: var(--bulma-link-h);
   --bulma-input-s: var(--bulma-link-s);
   --bulma-input-l: var(--bulma-link-l);
@@ -6252,7 +6271,7 @@ input[type=checkbox] input[disabled] {
   --bulma-file-cta-color-l: var(--bulma-text-invert-l);
   --bulma-file-name-color-l: var(--bulma-text-on-scheme-l);
 }
-.file.is-primary, .file.pkp_block, .file.is-notice, .file.date {
+.file.is-primary, .file.pkp_block, .file.is-notice, .file.date, .file.task_count {
   --bulma-file-h: var(--bulma-primary-h);
   --bulma-file-s: var(--bulma-primary-s);
   --bulma-file-background-l: var(--bulma-primary-l);
@@ -6260,7 +6279,7 @@ input[type=checkbox] input[disabled] {
   --bulma-file-cta-color-l: var(--bulma-primary-invert-l);
   --bulma-file-name-color-l: var(--bulma-primary-on-scheme-l);
 }
-.file.is-link, .file.block_make_submission_link, .file.cmp_edit_link {
+.file.is-link, .file.block_make_submission_link, .file.cmp_edit_link, .cmp_notification a.file {
   --bulma-file-h: var(--bulma-link-h);
   --bulma-file-s: var(--bulma-link-s);
   --bulma-file-background-l: var(--bulma-link-l);
@@ -6502,10 +6521,10 @@ input[type=checkbox] input[disabled] {
 .help.is-text {
   color: hsl(var(--bulma-text-h), var(--bulma-text-s), var(--bulma-text-on-scheme-l));
 }
-.help.is-primary, .help.pkp_block, .help.is-notice, .help.date {
+.help.is-primary, .help.pkp_block, .help.is-notice, .help.date, .help.task_count {
   color: hsl(var(--bulma-primary-h), var(--bulma-primary-s), var(--bulma-primary-on-scheme-l));
 }
-.help.is-link, .help.block_make_submission_link, .help.cmp_edit_link {
+.help.is-link, .help.block_make_submission_link, .help.cmp_edit_link, .cmp_notification a.help {
   color: hsl(var(--bulma-link-h), var(--bulma-link-s), var(--bulma-link-on-scheme-l));
 }
 .help.is-info {
@@ -7399,7 +7418,7 @@ button.dropdown-item.is-selected {
 .message strong {
   color: currentColor;
 }
-.message a:not(.button):not(.block_make_submission_link):not(button):not(.tag):not(.cmp_edit_link):not(.date):not(.dropdown-item) {
+.message a:not(.button):not(.block_make_submission_link):not(button):not(.tag):not(.cmp_edit_link):not(.date):not(.task_count):not(.dropdown-item) {
   color: currentColor;
   text-decoration: underline;
 }
@@ -7452,7 +7471,7 @@ button.dropdown-item.is-selected {
   --bulma-message-header-background-l: var(--bulma-text-l);
   --bulma-message-header-color-l: var(--bulma-text-invert-l);
 }
-.message.is-primary, .message.pkp_block, .message.is-notice, .message.date {
+.message.is-primary, .message.pkp_block, .message.is-notice, .message.date, .message.task_count {
   --bulma-message-h: var(--bulma-primary-h);
   --bulma-message-s: var(--bulma-primary-s);
   --bulma-message-border-l: calc( var(--bulma-primary-l) + var(--bulma-message-border-l-delta) );
@@ -7460,7 +7479,7 @@ button.dropdown-item.is-selected {
   --bulma-message-header-background-l: var(--bulma-primary-l);
   --bulma-message-header-color-l: var(--bulma-primary-invert-l);
 }
-.message.is-link, .message.block_make_submission_link, .message.cmp_edit_link {
+.message.is-link, .message.block_make_submission_link, .message.cmp_edit_link, .cmp_notification a.message {
   --bulma-message-h: var(--bulma-link-h);
   --bulma-message-s: var(--bulma-link-s);
   --bulma-message-border-l: calc( var(--bulma-link-l) + var(--bulma-message-border-l-delta) );
@@ -7818,7 +7837,7 @@ button.dropdown-item.is-selected {
   --bulma-navbar-dropdown-item-h: var(--bulma-text-h);
   --bulma-navbar-dropdown-item-s: var(--bulma-text-s);
 }
-.navbar.is-primary, .navbar.pkp_block, .navbar.is-notice, .navbar.date {
+.navbar.is-primary, .navbar.pkp_block, .navbar.is-notice, .navbar.date, .navbar.task_count {
   --bulma-navbar-h: var(--bulma-primary-h);
   --bulma-navbar-s: var(--bulma-primary-s);
   --bulma-navbar-l: var(--bulma-primary-l);
@@ -7838,7 +7857,7 @@ button.dropdown-item.is-selected {
   --bulma-navbar-dropdown-item-h: var(--bulma-primary-h);
   --bulma-navbar-dropdown-item-s: var(--bulma-primary-s);
 }
-.navbar.is-link, .navbar.block_make_submission_link, .navbar.cmp_edit_link {
+.navbar.is-link, .navbar.block_make_submission_link, .navbar.cmp_edit_link, .cmp_notification a.navbar {
   --bulma-navbar-h: var(--bulma-link-h);
   --bulma-navbar-s: var(--bulma-link-s);
   --bulma-navbar-l: var(--bulma-link-l);
@@ -8441,17 +8460,22 @@ a.navbar-item.is-active, a.navbar-item.is-selected,
 .pagination.is-large, .is-large.cmp_pagination {
   font-size: var(--bulma-size-large);
 }
-.pagination.is-rounded .pagination-previous, .is-rounded.cmp_pagination .pagination-previous, .pagination.is-rounded .cmp_pagination .prev, .cmp_pagination .pagination.is-rounded .prev, .is-rounded.cmp_pagination .prev,
+.pagination.is-rounded .pagination-previous, .is-rounded.cmp_pagination .pagination-previous, .pagination.task_count .pagination-previous, .cmp_pagination.task_count .pagination-previous, .pagination.is-rounded .cmp_pagination .prev, .cmp_pagination .pagination.is-rounded .prev, .is-rounded.cmp_pagination .prev, .pagination.task_count .cmp_pagination .prev, .cmp_pagination .pagination.task_count .prev, .cmp_pagination.task_count .prev,
 .pagination.is-rounded .pagination-next,
 .is-rounded.cmp_pagination .pagination-next,
+.pagination.task_count .pagination-next,
+.cmp_pagination.task_count .pagination-next,
 .pagination.is-rounded .cmp_pagination .next,
 .cmp_pagination .pagination.is-rounded .next,
-.is-rounded.cmp_pagination .next {
+.is-rounded.cmp_pagination .next,
+.pagination.task_count .cmp_pagination .next,
+.cmp_pagination .pagination.task_count .next,
+.cmp_pagination.task_count .next {
   padding-left: 1em;
   padding-right: 1em;
   border-radius: var(--bulma-radius-rounded);
 }
-.pagination.is-rounded .pagination-link, .is-rounded.cmp_pagination .pagination-link, .pagination.is-rounded .cmp_pagination div strong, .cmp_pagination div .pagination.is-rounded strong, .is-rounded.cmp_pagination div strong, .pagination.is-rounded .cmp_pagination div a, .cmp_pagination div .pagination.is-rounded a, .is-rounded.cmp_pagination div a {
+.pagination.is-rounded .pagination-link, .is-rounded.cmp_pagination .pagination-link, .pagination.task_count .pagination-link, .cmp_pagination.task_count .pagination-link, .pagination.is-rounded .cmp_pagination div strong, .cmp_pagination div .pagination.is-rounded strong, .is-rounded.cmp_pagination div strong, .pagination.task_count .cmp_pagination div strong, .cmp_pagination div .pagination.task_count strong, .cmp_pagination.task_count div strong, .pagination.is-rounded .cmp_pagination div a, .cmp_pagination div .pagination.is-rounded a, .is-rounded.cmp_pagination div a, .pagination.task_count .cmp_pagination div a, .cmp_pagination div .pagination.task_count a, .cmp_pagination.task_count div a {
   border-radius: var(--bulma-radius-rounded);
 }
 
@@ -8706,14 +8730,14 @@ a.navbar-item.is-active, a.navbar-item.is-selected,
   --bulma-panel-heading-background-l: var(--bulma-text-l);
   --bulma-panel-heading-color-l: var(--bulma-text-invert-l);
 }
-.panel.is-primary, .pkp_block, .panel.is-notice, .panel.date {
+.panel.is-primary, .pkp_block, .panel.is-notice, .panel.date, .panel.task_count {
   --bulma-panel-h: var(--bulma-primary-h);
   --bulma-panel-s: var(--bulma-primary-s);
   --bulma-panel-color-l: var(--bulma-primary-l);
   --bulma-panel-heading-background-l: var(--bulma-primary-l);
   --bulma-panel-heading-color-l: var(--bulma-primary-invert-l);
 }
-.panel.is-link, .is-link.pkp_block, .panel.block_make_submission_link, .pkp_block.block_make_submission_link, .panel.cmp_edit_link, .pkp_block.cmp_edit_link {
+.panel.is-link, .is-link.pkp_block, .panel.block_make_submission_link, .pkp_block.block_make_submission_link, .panel.cmp_edit_link, .pkp_block.cmp_edit_link, .cmp_notification a.panel, .cmp_notification a.pkp_block {
   --bulma-panel-h: var(--bulma-link-h);
   --bulma-panel-s: var(--bulma-link-s);
   --bulma-panel-color-l: var(--bulma-link-l);
@@ -13522,7 +13546,7 @@ label.panel-block:hover,
     background-image: linear-gradient(141deg, hsl(calc(var(--bulma-hero-h) - $hero-gradient-h-offset), calc(var(--bulma-hero-s) + $hero-gradient-s-offset), calc(var(--bulma-hero-background-l) + $hero-gradient-l-offset)) 0%, hsl(var(--bulma-hero-h), var(--bulma-hero-s), var(--bulma-hero-color-l)) 71%, hsl(calc(var(--bulma-hero-h) + $hero-gradient-h-offset), calc(var(--bulma-hero-s) - $hero-gradient-s-offset), calc(var(--bulma-hero-background-l) - $hero-gradient-l-offset)) 100%);
   }
 }
-.hero.is-primary, .hero.pkp_block, .hero.is-notice, .hero.date {
+.hero.is-primary, .hero.pkp_block, .hero.is-notice, .hero.date, .hero.task_count {
   --bulma-hero-h: var(--bulma-primary-h);
   --bulma-hero-s: var(--bulma-primary-s);
   --bulma-hero-background-l: var(--bulma-primary-l);
@@ -13530,40 +13554,41 @@ label.panel-block:hover,
   background-color: hsl(var(--bulma-hero-h), var(--bulma-hero-s), var(--bulma-hero-background-l));
   color: hsl(var(--bulma-hero-h), var(--bulma-hero-s), var(--bulma-hero-color-l));
 }
-.hero.is-primary .navbar, .hero.pkp_block .navbar, .hero.is-notice .navbar, .hero.date .navbar {
+.hero.is-primary .navbar, .hero.pkp_block .navbar, .hero.is-notice .navbar, .hero.date .navbar, .hero.task_count .navbar {
   --bulma-navbar-item-color: hsl(var(--bulma-hero-h), var(--bulma-hero-s), var(--bulma-hero-color-l));
   --bulma-navbar-item-hover-background-color: hsl(var(--bulma-hero-h), var(--bulma-hero-s), var(--bulma-hero-color-l));
   --bulma-navbar-item-hover-color: hsl(var(--bulma-hero-h), var(--bulma-hero-s), var(--bulma-hero-background-l));
   --bulma-navbar-item-active-background-color: hsl(var(--bulma-hero-h), var(--bulma-hero-s), var(--bulma-hero-color-l));
   --bulma-navbar-item-active-color: hsl(var(--bulma-hero-h), var(--bulma-hero-s), var(--bulma-hero-background-l));
 }
-.hero.is-primary .tabs, .hero.pkp_block .tabs, .hero.is-notice .tabs, .hero.date .tabs {
+.hero.is-primary .tabs, .hero.pkp_block .tabs, .hero.is-notice .tabs, .hero.date .tabs, .hero.task_count .tabs {
   --bulma-tabs-link-color: hsl(var(--bulma-hero-h), var(--bulma-hero-s), var(--bulma-hero-color-l));
   --bulma-tabs-boxed-link-active-background-color: hsl(var(--bulma-hero-h), var(--bulma-hero-s), var(--bulma-hero-color-l));
   --bulma-tabs-boxed-link-active-border-color: hsl(var(--bulma-hero-h), var(--bulma-hero-s), var(--bulma-hero-background-l));
   --bulma-tabs-link-active-color: hsl(var(--bulma-hero-h), var(--bulma-hero-s), var(--bulma-hero-background-l));
 }
-.hero.is-primary .subtitle, .hero.pkp_block .subtitle, .hero.is-notice .subtitle, .hero.date .subtitle {
+.hero.is-primary .subtitle, .hero.pkp_block .subtitle, .hero.is-notice .subtitle, .hero.date .subtitle, .hero.task_count .subtitle {
   --bulma-subtitle-color: hsl(var(--bulma-hero-h), var(--bulma-hero-s), var(--bulma-hero-color-l));
   --bulma-subtitle-strong-color: hsl(var(--bulma-hero-h), var(--bulma-hero-s), var(--bulma-hero-color-l));
 }
-.hero.is-primary .title, .hero.pkp_block .title, .hero.is-notice .title, .hero.date .title, .hero.is-primary h1, .hero.pkp_block h1, .hero.is-notice h1, .hero.date h1, .hero.is-primary h2, .hero.pkp_block h2, .hero.is-notice h2, .hero.date h2, .hero.is-primary h3, .hero.pkp_block h3, .hero.is-notice h3, .hero.date h3,
+.hero.is-primary .title, .hero.pkp_block .title, .hero.is-notice .title, .hero.date .title, .hero.task_count .title, .hero.is-primary h1, .hero.pkp_block h1, .hero.is-notice h1, .hero.date h1, .hero.task_count h1, .hero.is-primary h2, .hero.pkp_block h2, .hero.is-notice h2, .hero.date h2, .hero.task_count h2, .hero.is-primary h3, .hero.pkp_block h3, .hero.is-notice h3, .hero.date h3, .hero.task_count h3,
 .hero.is-primary .current_issue_title,
 .hero.pkp_block .current_issue_title,
 .hero.is-notice .current_issue_title,
-.hero.date .current_issue_title, .hero.is-primary h4, .hero.pkp_block h4, .hero.is-notice h4, .hero.date h4, .hero.is-primary h5, .hero.pkp_block h5, .hero.is-notice h5, .hero.date h5, .hero.is-primary h6, .hero.pkp_block h6, .hero.is-notice h6, .hero.date h6, .hero.is-primary #articlesBySimilarityList h3, #articlesBySimilarityList .hero.is-primary h3, .hero.pkp_block #articlesBySimilarityList h3, #articlesBySimilarityList .hero.pkp_block h3, .hero.is-notice #articlesBySimilarityList h3, #articlesBySimilarityList .hero.is-notice h3, .hero.date #articlesBySimilarityList h3, #articlesBySimilarityList .hero.date h3, .hero.is-primary .entry_details .label, .entry_details .hero.is-primary .label, .hero.pkp_block .entry_details .label, .entry_details .hero.pkp_block .label, .hero.is-notice .entry_details .label, .entry_details .hero.is-notice .label, .hero.date .entry_details .label, .entry_details .hero.date .label, .hero.is-primary .entry_details label, .entry_details .hero.is-primary label, .hero.pkp_block .entry_details label, .entry_details .hero.pkp_block label, .hero.is-notice .entry_details label, .entry_details .hero.is-notice label, .hero.date .entry_details label, .entry_details .hero.date label {
+.hero.date .current_issue_title,
+.hero.task_count .current_issue_title, .hero.is-primary h4, .hero.pkp_block h4, .hero.is-notice h4, .hero.date h4, .hero.task_count h4, .hero.is-primary h5, .hero.pkp_block h5, .hero.is-notice h5, .hero.date h5, .hero.task_count h5, .hero.is-primary h6, .hero.pkp_block h6, .hero.is-notice h6, .hero.date h6, .hero.task_count h6, .hero.is-primary #articlesBySimilarityList h3, #articlesBySimilarityList .hero.is-primary h3, .hero.pkp_block #articlesBySimilarityList h3, #articlesBySimilarityList .hero.pkp_block h3, .hero.is-notice #articlesBySimilarityList h3, #articlesBySimilarityList .hero.is-notice h3, .hero.date #articlesBySimilarityList h3, #articlesBySimilarityList .hero.date h3, .hero.task_count #articlesBySimilarityList h3, #articlesBySimilarityList .hero.task_count h3, .hero.is-primary .entry_details .label, .entry_details .hero.is-primary .label, .hero.pkp_block .entry_details .label, .entry_details .hero.pkp_block .label, .hero.is-notice .entry_details .label, .entry_details .hero.is-notice .label, .hero.date .entry_details .label, .entry_details .hero.date .label, .hero.task_count .entry_details .label, .entry_details .hero.task_count .label, .hero.is-primary .entry_details label, .entry_details .hero.is-primary label, .hero.pkp_block .entry_details label, .entry_details .hero.pkp_block label, .hero.is-notice .entry_details label, .entry_details .hero.is-notice label, .hero.date .entry_details label, .entry_details .hero.date label, .hero.task_count .entry_details label, .entry_details .hero.task_count label {
   --bulma-title-color: hsl(var(--bulma-hero-h), var(--bulma-hero-s), var(--bulma-hero-color-l));
   --bulma-title-strong-color: hsl(var(--bulma-hero-h), var(--bulma-hero-s), var(--bulma-hero-color-l));
 }
-.hero.is-primary.is-bold, .hero.is-bold.pkp_block, .hero.is-bold.is-notice, .hero.is-bold.date {
+.hero.is-primary.is-bold, .hero.is-bold.pkp_block, .hero.is-bold.is-notice, .hero.is-bold.date, .hero.is-bold.task_count {
   background-image: linear-gradient(141deg, hsl(calc(var(--bulma-hero-h) - $hero-gradient-h-offset), calc(var(--bulma-hero-s) + $hero-gradient-s-offset), calc(var(--bulma-hero-background-l) + $hero-gradient-l-offset)) 0%, hsl(var(--bulma-hero-h), var(--bulma-hero-s), var(--bulma-hero-background-l)) 71%, hsl(calc(var(--bulma-hero-h) + $hero-gradient-h-offset), calc(var(--bulma-hero-s) - $hero-gradient-s-offset), calc(var(--bulma-hero-background-l) - $hero-gradient-l-offset)) 100%);
 }
 @media screen and (max-width: 768px) {
-  .hero.is-primary.is-bold .navbar-menu, .hero.is-bold.pkp_block .navbar-menu, .hero.is-bold.is-notice .navbar-menu, .hero.is-bold.date .navbar-menu {
+  .hero.is-primary.is-bold .navbar-menu, .hero.is-bold.pkp_block .navbar-menu, .hero.is-bold.is-notice .navbar-menu, .hero.is-bold.date .navbar-menu, .hero.is-bold.task_count .navbar-menu {
     background-image: linear-gradient(141deg, hsl(calc(var(--bulma-hero-h) - $hero-gradient-h-offset), calc(var(--bulma-hero-s) + $hero-gradient-s-offset), calc(var(--bulma-hero-background-l) + $hero-gradient-l-offset)) 0%, hsl(var(--bulma-hero-h), var(--bulma-hero-s), var(--bulma-hero-color-l)) 71%, hsl(calc(var(--bulma-hero-h) + $hero-gradient-h-offset), calc(var(--bulma-hero-s) - $hero-gradient-s-offset), calc(var(--bulma-hero-background-l) - $hero-gradient-l-offset)) 100%);
   }
 }
-.hero.is-link, .hero.block_make_submission_link, .hero.cmp_edit_link {
+.hero.is-link, .hero.block_make_submission_link, .hero.cmp_edit_link, .cmp_notification a.hero {
   --bulma-hero-h: var(--bulma-link-h);
   --bulma-hero-s: var(--bulma-link-s);
   --bulma-hero-background-l: var(--bulma-link-l);
@@ -13571,35 +13596,36 @@ label.panel-block:hover,
   background-color: hsl(var(--bulma-hero-h), var(--bulma-hero-s), var(--bulma-hero-background-l));
   color: hsl(var(--bulma-hero-h), var(--bulma-hero-s), var(--bulma-hero-color-l));
 }
-.hero.is-link .navbar, .hero.block_make_submission_link .navbar, .hero.cmp_edit_link .navbar {
+.hero.is-link .navbar, .hero.block_make_submission_link .navbar, .hero.cmp_edit_link .navbar, .cmp_notification a.hero .navbar {
   --bulma-navbar-item-color: hsl(var(--bulma-hero-h), var(--bulma-hero-s), var(--bulma-hero-color-l));
   --bulma-navbar-item-hover-background-color: hsl(var(--bulma-hero-h), var(--bulma-hero-s), var(--bulma-hero-color-l));
   --bulma-navbar-item-hover-color: hsl(var(--bulma-hero-h), var(--bulma-hero-s), var(--bulma-hero-background-l));
   --bulma-navbar-item-active-background-color: hsl(var(--bulma-hero-h), var(--bulma-hero-s), var(--bulma-hero-color-l));
   --bulma-navbar-item-active-color: hsl(var(--bulma-hero-h), var(--bulma-hero-s), var(--bulma-hero-background-l));
 }
-.hero.is-link .tabs, .hero.block_make_submission_link .tabs, .hero.cmp_edit_link .tabs {
+.hero.is-link .tabs, .hero.block_make_submission_link .tabs, .hero.cmp_edit_link .tabs, .cmp_notification a.hero .tabs {
   --bulma-tabs-link-color: hsl(var(--bulma-hero-h), var(--bulma-hero-s), var(--bulma-hero-color-l));
   --bulma-tabs-boxed-link-active-background-color: hsl(var(--bulma-hero-h), var(--bulma-hero-s), var(--bulma-hero-color-l));
   --bulma-tabs-boxed-link-active-border-color: hsl(var(--bulma-hero-h), var(--bulma-hero-s), var(--bulma-hero-background-l));
   --bulma-tabs-link-active-color: hsl(var(--bulma-hero-h), var(--bulma-hero-s), var(--bulma-hero-background-l));
 }
-.hero.is-link .subtitle, .hero.block_make_submission_link .subtitle, .hero.cmp_edit_link .subtitle {
+.hero.is-link .subtitle, .hero.block_make_submission_link .subtitle, .hero.cmp_edit_link .subtitle, .cmp_notification a.hero .subtitle {
   --bulma-subtitle-color: hsl(var(--bulma-hero-h), var(--bulma-hero-s), var(--bulma-hero-color-l));
   --bulma-subtitle-strong-color: hsl(var(--bulma-hero-h), var(--bulma-hero-s), var(--bulma-hero-color-l));
 }
-.hero.is-link .title, .hero.block_make_submission_link .title, .hero.cmp_edit_link .title, .hero.is-link h1, .hero.block_make_submission_link h1, .hero.cmp_edit_link h1, .hero.is-link h2, .hero.block_make_submission_link h2, .hero.cmp_edit_link h2, .hero.is-link h3, .hero.block_make_submission_link h3, .hero.cmp_edit_link h3,
+.hero.is-link .title, .hero.block_make_submission_link .title, .hero.cmp_edit_link .title, .cmp_notification a.hero .title, .hero.is-link h1, .hero.block_make_submission_link h1, .hero.cmp_edit_link h1, .cmp_notification a.hero h1, .hero.is-link h2, .hero.block_make_submission_link h2, .hero.cmp_edit_link h2, .cmp_notification a.hero h2, .hero.is-link h3, .hero.block_make_submission_link h3, .hero.cmp_edit_link h3, .cmp_notification a.hero h3,
 .hero.is-link .current_issue_title,
 .hero.block_make_submission_link .current_issue_title,
-.hero.cmp_edit_link .current_issue_title, .hero.is-link h4, .hero.block_make_submission_link h4, .hero.cmp_edit_link h4, .hero.is-link h5, .hero.block_make_submission_link h5, .hero.cmp_edit_link h5, .hero.is-link h6, .hero.block_make_submission_link h6, .hero.cmp_edit_link h6, .hero.is-link #articlesBySimilarityList h3, #articlesBySimilarityList .hero.is-link h3, .hero.block_make_submission_link #articlesBySimilarityList h3, #articlesBySimilarityList .hero.block_make_submission_link h3, .hero.cmp_edit_link #articlesBySimilarityList h3, #articlesBySimilarityList .hero.cmp_edit_link h3, .hero.is-link .entry_details .label, .entry_details .hero.is-link .label, .hero.block_make_submission_link .entry_details .label, .entry_details .hero.block_make_submission_link .label, .hero.cmp_edit_link .entry_details .label, .entry_details .hero.cmp_edit_link .label, .hero.is-link .entry_details label, .entry_details .hero.is-link label, .hero.block_make_submission_link .entry_details label, .entry_details .hero.block_make_submission_link label, .hero.cmp_edit_link .entry_details label, .entry_details .hero.cmp_edit_link label {
+.hero.cmp_edit_link .current_issue_title,
+.cmp_notification a.hero .current_issue_title, .hero.is-link h4, .hero.block_make_submission_link h4, .hero.cmp_edit_link h4, .cmp_notification a.hero h4, .hero.is-link h5, .hero.block_make_submission_link h5, .hero.cmp_edit_link h5, .cmp_notification a.hero h5, .hero.is-link h6, .hero.block_make_submission_link h6, .hero.cmp_edit_link h6, .cmp_notification a.hero h6, .hero.is-link #articlesBySimilarityList h3, #articlesBySimilarityList .hero.is-link h3, .hero.block_make_submission_link #articlesBySimilarityList h3, #articlesBySimilarityList .hero.block_make_submission_link h3, .hero.cmp_edit_link #articlesBySimilarityList h3, #articlesBySimilarityList .hero.cmp_edit_link h3, .cmp_notification a.hero #articlesBySimilarityList h3, #articlesBySimilarityList .cmp_notification a.hero h3, .hero.is-link .entry_details .label, .entry_details .hero.is-link .label, .hero.block_make_submission_link .entry_details .label, .entry_details .hero.block_make_submission_link .label, .hero.cmp_edit_link .entry_details .label, .entry_details .hero.cmp_edit_link .label, .cmp_notification a.hero .entry_details .label, .entry_details .cmp_notification a.hero .label, .hero.is-link .entry_details label, .entry_details .hero.is-link label, .hero.block_make_submission_link .entry_details label, .entry_details .hero.block_make_submission_link label, .hero.cmp_edit_link .entry_details label, .entry_details .hero.cmp_edit_link label, .cmp_notification a.hero .entry_details label, .entry_details .cmp_notification a.hero label {
   --bulma-title-color: hsl(var(--bulma-hero-h), var(--bulma-hero-s), var(--bulma-hero-color-l));
   --bulma-title-strong-color: hsl(var(--bulma-hero-h), var(--bulma-hero-s), var(--bulma-hero-color-l));
 }
-.hero.is-link.is-bold, .hero.is-bold.block_make_submission_link, .hero.is-bold.cmp_edit_link {
+.hero.is-link.is-bold, .hero.is-bold.block_make_submission_link, .hero.is-bold.cmp_edit_link, .cmp_notification a.hero.is-bold {
   background-image: linear-gradient(141deg, hsl(calc(var(--bulma-hero-h) - $hero-gradient-h-offset), calc(var(--bulma-hero-s) + $hero-gradient-s-offset), calc(var(--bulma-hero-background-l) + $hero-gradient-l-offset)) 0%, hsl(var(--bulma-hero-h), var(--bulma-hero-s), var(--bulma-hero-background-l)) 71%, hsl(calc(var(--bulma-hero-h) + $hero-gradient-h-offset), calc(var(--bulma-hero-s) - $hero-gradient-s-offset), calc(var(--bulma-hero-background-l) - $hero-gradient-l-offset)) 100%);
 }
 @media screen and (max-width: 768px) {
-  .hero.is-link.is-bold .navbar-menu, .hero.is-bold.block_make_submission_link .navbar-menu, .hero.is-bold.cmp_edit_link .navbar-menu {
+  .hero.is-link.is-bold .navbar-menu, .hero.is-bold.block_make_submission_link .navbar-menu, .hero.is-bold.cmp_edit_link .navbar-menu, .cmp_notification a.hero.is-bold .navbar-menu {
     background-image: linear-gradient(141deg, hsl(calc(var(--bulma-hero-h) - $hero-gradient-h-offset), calc(var(--bulma-hero-s) + $hero-gradient-s-offset), calc(var(--bulma-hero-background-l) + $hero-gradient-l-offset)) 0%, hsl(var(--bulma-hero-h), var(--bulma-hero-s), var(--bulma-hero-color-l)) 71%, hsl(calc(var(--bulma-hero-h) + $hero-gradient-h-offset), calc(var(--bulma-hero-s) - $hero-gradient-s-offset), calc(var(--bulma-hero-background-l) - $hero-gradient-l-offset)) 100%);
   }
 }
@@ -23296,7 +23322,6 @@ has-background-danger.is-hoverable:active {
 }
 
 .hero-bg {
-  opacity: 0.2;
   position: absolute;
   top: var(--bulma-navbar-height);
   width: 100%;
@@ -23334,6 +23359,9 @@ has-background-danger.is-hoverable:active {
   overflow-wrap: break-word;
 }
 
+.hero-body {
+  padding-top: 0px;
+}
 .hero-body p {
   font-weight: bold;
 }

@@ -12,37 +12,34 @@ msgstr ""
 "Language: \n"
 
 msgid "plugins.themes.bulma.name"
-msgstr "Tema Base Bulma"
+msgstr "Bulma Base Theme"
 
 msgid "plugins.themes.bulma.description"
-msgstr "Un tema de inicio de Bulma para la interfaz del lector."
+msgstr "A starter Bulma theme for the reader frontend."
 
 msgid "plugins.themes.bulma.accessible_menu.label"
-msgstr "Salto rápido al contenido de la página"
+msgstr "Quick jump to page content"
 
 msgid "plugins.themes.bulma.accessible_menu.main_navigation"
-msgstr "Navegación principal"
+msgstr "Main Navigation"
 
 msgid "plugins.themes.bulma.accessible_menu.main_content"
-msgstr "Contenido principal"
+msgstr "Main Content"
 
 msgid "plugins.themes.bulma.accessible_menu.sidebar"
-msgstr "Barra lateral"
+msgstr "Sidebar"
 
 msgid "plugins.themes.bulma.article.sidebar"
-msgstr "Barra lateral del artículo"
+msgstr "Article Sidebar"
 
 msgid "plugins.themes.bulma.article.main"
-msgstr "Contenido principal del artículo"
+msgstr "Main Article Content"
 
 msgid "plugins.themes.bulma.article.details"
-msgstr "Detalles del artículo"
+msgstr "Article Details"
 
 msgid "plugins.themes.bulma.statistics.types"
-msgstr "Gráfico"
-
-msgid "plugins.themes.bulma.statistics.year"
-msgstr "Año"
+msgstr "Chart"
 
 msgid "plugins.themes.bulma.link.facebook"
 msgstr "Facebook"
@@ -58,3 +55,6 @@ msgstr "Instagram"
 
 msgid "plugins.themes.bulma.link.youtube"
 msgstr "Youtube"
+
+msgid "plugins.themes.bulma.langswitch"
+msgstr "Language"

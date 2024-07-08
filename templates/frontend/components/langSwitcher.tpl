@@ -1,8 +1,8 @@
 {if $languageToggleLocales && $languageToggleLocales|@count > 1}
-
     <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
-            <span class="icon"><i class="fas fa-language" aria-hidden="true"></i></span>
+        {translate key="plugins.themes.bulma.langswitch"}
+            {* <span class="icon"><i class="fas fa-language" aria-hidden="true"></i></span> *}
         </a>
     
         <div class="navbar-dropdown is-right">

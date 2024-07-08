@@ -14,35 +14,68 @@
  *}
 
 {if $navigationMenu}
-	{* <ul id="{$id|escape}" class="{$ulClass|escape} pkp_nav_list"> *}
-		{foreach key=field item=navigationMenuItemAssignment from=$navigationMenu->menuTree}
-			{if !$navigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
-				{continue}
-			{/if}
-			{if $navigationMenuItemAssignment->navigationMenuItem->getIsChildVisible()}
-				<div class="{$liClass|escape} navbar-item has-dropdown is-hoverable">
-					<a class="navbar-link" href="#">
+	{if $id == 'navigationPrimary'} 
+	{foreach key=field item=navigationMenuItemAssignment from=$navigationMenu->menuTree}
+		{if !$navigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
+			{continue}
+		{/if}
+		{if $navigationMenuItemAssignment->navigationMenuItem->getIsChildVisible()}
+			<div class="{$liClass|escape} navbar-item has-dropdown is-hoverable">
+				<a class="navbar-link" href="#">
 					{$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
 				</a>
-					<div class="navbar-dropdown {$ulClass|escape}">
-						{foreach key=childField item=childNavigationMenuItemAssignment from=$navigationMenuItemAssignment->children}
-							{if $childNavigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
+				<div class="navbar-dropdown {$ulClass|escape}">
+					{foreach key=childField item=childNavigationMenuItemAssignment from=$navigationMenuItemAssignment->children}
+						{if $childNavigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
 							{* <li class="{$liClass|escape} navbar-item"> *}
-								<a class="navbar-item" href="{$childNavigationMenuItemAssignment->navigationMenuItem->getUrl()}">
-										{$childNavigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
-									</a>
+							<a class="navbar-item" href="{$childNavigationMenuItemAssignment->navigationMenuItem->getUrl()}">
+								{$childNavigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
+							</a>
 							{* </li> *}
-							{/if}
-						{/foreach}
-					</div>
+						{/if}
+					{/foreach}
 				</div>
-			{else}
-				{* <li class="{$liClass|escape}"> *}
-					<a class="navbar-item" href="{$navigationMenuItemAssignment->navigationMenuItem->getUrl()}">
-						{$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
-					</a>
-				{* </li> *}
+			</div>
+		{else}
+			{* <li class="{$liClass|escape}"> *}
+			<a class="navbar-item" href="{$navigationMenuItemAssignment->navigationMenuItem->getUrl()}">
+				{$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
+			</a>
+			{* </li> *}
+		{/if}
+	{/foreach}
+	{* </ul> *}
 {/if}
-			{/foreach}
-		{* </ul> *}
-	{/if}
+{if $id == 'navigationUser'} 
+	{foreach key=field item=navigationMenuItemAssignment from=$navigationMenu->menuTree}
+		{if !$navigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
+			{continue}
+		{/if}
+		{if $navigationMenuItemAssignment->navigationMenuItem->getIsChildVisible()}
+				<p  class="menu-label">
+					{$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
+				</p>
+				<ul class="menu-list {$ulClass|escape}">
+					{foreach key=childField item=childNavigationMenuItemAssignment from=$navigationMenuItemAssignment->children}
+						{if $childNavigationMenuItemAssignment->navigationMenuItem->getIsDisplayed()}
+							<li class="{$liClass|escape}">
+							<a class="navbar-item" href="{$childNavigationMenuItemAssignment->navigationMenuItem->getUrl()}">
+								{$childNavigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
+							</a>
+							</li>
+							
+						{/if}
+					{/foreach}
+				</ul>
+				<div class="divider is-right m-0"></div>
+		{else}
+			<li class="{$liClass|escape}">
+			<a class="navbar-item" href="{$navigationMenuItemAssignment->navigationMenuItem->getUrl()}">
+				{$navigationMenuItemAssignment->navigationMenuItem->getLocalizedTitle()}
+			</a>
+			</li>
+		{/if}
+	{/foreach}
+{/if}
+
+{/if}

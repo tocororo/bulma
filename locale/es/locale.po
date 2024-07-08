@@ -1,0 +1,63 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2020-02-18T19:18:25+00:00\n"
+"PO-Revision-Date: 2020-02-18T19:18:25+00:00\n"
+"Language: \n"
+
+msgid "plugins.themes.bulma.name"
+msgstr "Tema Base Bulma"
+
+msgid "plugins.themes.bulma.description"
+msgstr "Un tema de inicio de Bulma para la interfaz del lector."
+
+msgid "plugins.themes.bulma.accessible_menu.label"
+msgstr "Salto rápido al contenido de la página"
+
+msgid "plugins.themes.bulma.accessible_menu.main_navigation"
+msgstr "Navegación principal"
+
+msgid "plugins.themes.bulma.accessible_menu.main_content"
+msgstr "Contenido principal"
+
+msgid "plugins.themes.bulma.accessible_menu.sidebar"
+msgstr "Barra lateral"
+
+msgid "plugins.themes.bulma.article.sidebar"
+msgstr "Barra lateral del artículo"
+
+msgid "plugins.themes.bulma.article.main"
+msgstr "Contenido principal del artículo"
+
+msgid "plugins.themes.bulma.article.details"
+msgstr "Detalles del artículo"
+
+msgid "plugins.themes.bulma.statistics.types"
+msgstr "Gráfico"
+
+msgid "plugins.themes.bulma.statistics.year"
+msgstr "Año"
+
+msgid "plugins.themes.bulma.link.facebook"
+msgstr "Facebook"
+
+msgid "plugins.themes.bulma.link.twitter"
+msgstr "Twitter"
+
+msgid "plugins.themes.bulma.link.linkedin"
+msgstr "LinkedIn"
+
+msgid "plugins.themes.bulma.link.instagram"
+msgstr "Instagram"
+
+msgid "plugins.themes.bulma.link.youtube"
+msgstr "Youtube"
+
+msgid "plugins.themes.bulma.langswitch"
+msgstr "Idioma"

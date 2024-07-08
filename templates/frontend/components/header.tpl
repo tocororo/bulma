@@ -112,7 +112,6 @@
 									</a>
 									{* </div> *}
 								{/if}
-
 								{include file="frontend/components/langSwitcher.tpl"}
 
 								<div class="navbar-item has-dropdown is-hoverable">
@@ -120,8 +119,8 @@
 										<span class="icon"><i class="fas fa-user" aria-hidden="true"></i></span>
 									</a>
 
-									<div class="navbar-dropdown is-right">
-										{load_menu name="user" id="navigationUser" isRightClass="is-right"  ulClass="is-right" liClass="profile navbar-item"}
+									<div class="navbar-dropdown is-right menu px-3">
+										{load_menu name="user" id="navigationUser" isRightClass="is-right"  ulClass="menu-list" liClass="profile "}
 									</div>
 								</div>
 
@@ -148,10 +147,10 @@
 			{if $requestedPage == 'index'  || $requestedPage == ''}
 
 				<div id="journal-home-hero" class="hero is-primary"
-					{* style="background-image: url({$publicFilesDir}/{$homepageImage.uploadName|escape:'url'}); background-position: center top; background-size: cover; opacity:0.5;" *}
+					 {* style="background-image: url({$publicFilesDir}/{$homepageImage.uploadName|escape:'url'}); background-position: center top; background-size: cover;"  *}
 					>
 
-					<img id="journal-home-hero-bg" class="hero-bg"
+				 <img id="journal-home-hero-bg" class="hero-bg"
 						src="{$publicFilesDir}/{$homepageImage.uploadName|escape:'url'}" alt="">
 					{* <div
 					class="hero-bg"

@@ -349,7 +349,7 @@ fieldset {
 }
 
 .hero-bg {
-  opacity: 0.2;
+  // opacity: 0.2;
   position: absolute;
   // left: 0;
   top: var(--bulma-navbar-height);
@@ -427,6 +427,7 @@ fieldset {
 }
 
 .hero-body {
+  padding-top: 0px;
   p {
     font-weight: bold;
   }
@@ -482,4 +483,17 @@ fieldset {
   .glide__arrow--disabled {
     opacity: 0.33;
   }
+}
+
+.cmp_notification {
+    @extend .box;
+    a {
+      @extend .tag;
+      @extend .is-link;
+    }
+  }
+.task_count {
+  @extend .tag;
+  @extend .is-primary;
+  @extend .is-rounded;
 }
