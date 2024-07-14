@@ -23427,6 +23427,10 @@ has-background-danger.is-hoverable:active {
   opacity: 0.33;
 }
 
+.navbar-dropdown li {
+  list-style: none;
+}
+
 .card:first-child {
   min-height: 52px;
 }
