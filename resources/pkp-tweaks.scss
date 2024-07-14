@@ -349,13 +349,27 @@ fieldset {
 }
 
 .hero-bg {
-  // opacity: 0.2;
+  opacity: 0.2;
   position: absolute;
   // left: 0;
   top: var(--bulma-navbar-height);
   width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
+}
+
+#journal-home-hero {
+ position: relative;
+}
+#journal-home-hero::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-color: rgba( $primary, .6 );
 }
 // @include mixins.mobile {
 //   .hero-bg {

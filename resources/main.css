@@ -23322,11 +23322,27 @@ has-background-danger.is-hoverable:active {
 }
 
 .hero-bg {
+  opacity: 0.2;
   position: absolute;
   top: var(--bulma-navbar-height);
   width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
+  background-attachment: fixed;
+}
+
+#journal-home-hero {
+  position: relative;
+}
+
+#journal-home-hero::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-color: rgba(45, 44, 113, 0.6);
 }
 
 .galleys_links a:hover {

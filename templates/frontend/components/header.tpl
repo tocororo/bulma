@@ -31,7 +31,7 @@
 	{include file="frontend/components/headerHead.tpl"}
 
 	<body
-		class="pkp_page_{$requestedPage|escape|default:"index"} pkp_op_{$requestedOp|escape|default:"index"}{if $showingLogo} has_site_logo{/if}"
+		class="has-navbar-fixed-top pkp_page_{$requestedPage|escape|default:"index"} pkp_op_{$requestedOp|escape|default:"index"}{if $showingLogo} has_site_logo{/if}"
 		dir="{$currentLocaleLangDir|escape|default:"ltr"}">
 
 		<div class="pkp_structure_page">
@@ -51,7 +51,7 @@
 					</h1>
 				{/if}
 
-				<nav class="pkp_head_wrapper navbar is-primary" role="navigation" aria-label="main navigation">
+				<nav class="pkp_head_wrapper navbar is-primary  is-fixed-top" role="navigation" aria-label="main navigation">
 					<div class="container">
 						<div class="pkp_site_name_wrapper navbar-brand">
 							{* <div class="pkp_site_name navbar-item"> *}
@@ -146,12 +146,13 @@
 			</header><!-- .pkp_structure_head -->
 			{if $requestedPage == 'index'  || $requestedPage == ''}
 
-				<div id="journal-home-hero" class="hero is-primary"
+				<section id="journal-home-hero" class="hero is-primary is-medium"
+				style="background-image: url('{$publicFilesDir}/{$homepageImage.uploadName|escape:'url'}'); background-position: center center; background-size: cover;background-attachment: fixed;"
 					 {* style="background-image: url({$publicFilesDir}/{$homepageImage.uploadName|escape:'url'}); background-position: center top; background-size: cover;"  *}
 					>
 
-				 <img id="journal-home-hero-bg" class="hero-bg"
-						src="{$publicFilesDir}/{$homepageImage.uploadName|escape:'url'}" alt="">
+				 {* <img id="journal-home-hero-bg" class="hero-bg"
+						src="{$publicFilesDir}/{$homepageImage.uploadName|escape:'url'}" alt="">  *}
 					{* <div
 					class="hero-bg"
 					style="background-image: url({$publicFilesDir}/{$homepageImage.uploadName|escape:'url'}); background-position: center top; background-size: cover; opacity:0.5;"
@@ -194,10 +195,10 @@
 
 					</div> *}
 
-				</div>
+				</section>
 
 
-			{{/if}}
+			{/if}
 			{* Wrapper for page content and sidebars *}
 			{if $isFullWidth}
 				{assign var=hasSidebar value=0}

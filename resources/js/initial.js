@@ -66,19 +66,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  var hero = document.getElementById('journal-home-hero');
-  var herobg = document.getElementById('journal-home-hero-bg');
+  // var hero = document.getElementById('journal-home-hero');
+  // var herobg = document.getElementById('journal-home-hero-bg');
 
-  if (herobg){
-    herobg.style.height = herobg.offsetWidth/2  + 'px';
-    hero.style.minHeight = herobg.offsetWidth/2  + 'px';
-    // herobg.style.height= hero.offsetHeight + 'px';
-  }
-  window.addEventListener('resize', function() {
-    // Update the image's height
-    herobg.style.height = herobg.offsetWidth/2  + 'px';
-    hero.style.minHeight = herobg.offsetWidth/2  + 'px';
-    // herobg.style.height = hero.offsetHeight + 'px';
-  });
+  // if (herobg){
+  //   herobg.style.height = herobg.offsetWidth/2  + 'px';
+  //   hero.style.minHeight = herobg.offsetWidth/2  + 'px';
+  //   // herobg.style.height= hero.offsetHeight + 'px';
+  // }
+  // window.addEventListener('resize', function() {
+  //   // Update the image's height
+  //   herobg.style.height = herobg.offsetWidth/2  + 'px';
+  //   hero.style.minHeight = herobg.offsetWidth/2  + 'px';
+  //   // herobg.style.height = hero.offsetHeight + 'px';
+  // });
 });
 
