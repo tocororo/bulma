@@ -48,6 +48,10 @@ class BulmaThemePlugin extends \PKP\plugins\ThemePlugin
 			'glide',
 			'resources/glidejs/glide.core.min.css'
 		);
+        $this->addStyle('pkp-backend-tweaks', 'resources/pkp-backend-tweaks.css', array( 'contexts' => 'backend' ));
+
+
+        // $this->modifyStyle('pkpLib', array('pkp-backend-tweaks' => array('resources/pkp-backend-tweaks.less')));
 
 
 		$this->addMenuArea(array('primary', 'user'));

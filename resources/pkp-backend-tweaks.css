@@ -1,0 +1,29 @@
+.app__header {
+ background-color: rgb(45, 44, 113);
+}
+.app__tasksCount,
+.pkpBadge--submission:focus, 
+.pkpBadge--submission:hover{
+    background-color: rgb(169, 99, 20);
+    border-color: rgb(126, 71, 9);
+}
+/* 
+// Background
+@bg: #eaedee;
+@bg-dark: #b7c5ca;
+@bg-light: #eaedee;
+@shade:			 #888;
+@lift:			 #fff;
+@bg-anchor:      rgb(45, 44, 113); // Dark color background
+@bg-anchor-lift: lighten(@bg-anchor, 10%);
+
+
+// Primary color for links and buttons
+@primary: rgb(45, 44, 113);       
+@primary-lift:   lighten(@primary, 10%);
+@primary-shade:  darken(@primary, 10%);
+
+// Offset "highlight" color
+@offset:         rgb(219, 143, 54);;
+@offset-lift:    lighten(@offset, 20%);
+@offset-shade:   rgb(153, 87, 11);; */

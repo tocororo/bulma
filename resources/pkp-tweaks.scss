@@ -362,15 +362,16 @@ fieldset {
 #journal-home-hero {
  position: relative;
 }
-#journal-home-hero::before {
-  content: "";
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-  background-color: rgba( $primary, .6 );
-}
+// #journal-home-hero::before {
+//   content: "";
+//   position: absolute;
+//   top: 0px;
+//   right: 0px;
+//   bottom: 0px;
+//   left: 0px;
+//   background-color: rgba( $black, .5 );
+// }
+
 // @include mixins.mobile {
 //   .hero-bg {
 //     height: 400px;
