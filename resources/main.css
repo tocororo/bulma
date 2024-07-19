@@ -22064,7 +22064,7 @@ has-background-danger.is-hoverable:active {
   padding-bottom: 0.25rem !important;
 }
 
-.p-2 {
+.p-2, .obj_announcement_summary .summary p {
   padding: 0.5rem !important;
 }
 
@@ -22732,7 +22732,8 @@ has-background-danger.is-hoverable:active {
   }
 }
 .is-display-flex,
-.is-flex {
+.is-flex,
+.obj_announcement_summary .summary {
   display: flex !important;
 }
 
@@ -23419,6 +23420,11 @@ has-background-danger.is-hoverable:active {
 
 .navbar-dropdown li {
   list-style: none;
+}
+
+.homepage_about, .homepage_image {
+  background-color: rgba(255, 255, 255, 0.6);
+  color: rgb(45, 44, 113);
 }
 
 .card:first-child {

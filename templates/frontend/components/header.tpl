@@ -183,7 +183,7 @@
 
 						{* Journal Description *}
 						{if $activeTheme->getOption('showDescriptionInJournalIndex')}
-							<div class="homepage_about">
+							<div class="homepage_about p-3">
 								<a id="homepageAbout"></a>
 								{* <h2>{translate key="about.aboutContext"}</h2> *}
 								{$currentContext->getLocalizedData('description')}

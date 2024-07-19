@@ -517,3 +517,20 @@ fieldset {
     list-style: none;
   }
 }
+
+.homepage_about,.homepage_image {
+  background-color: rgba($color: #ffffff, $alpha: .6);
+  color: $primary;
+}
+// .homepage_image {
+//   background-color: rgba($color: $primary, $alpha: .4);
+// }
+
+.obj_announcement_summary {
+  .summary {
+    @extend .is-flex;
+    p {
+      @extend .p-2;
+    }
+  }
+}
