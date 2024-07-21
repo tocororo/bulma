@@ -531,6 +531,11 @@ fieldset {
     @extend .is-flex;
     p {
       @extend .p-2;
+    };
+    img {
+      min-width: 250px;
+      height: 250px;
+      @extend .m-2;
     }
   }
 }

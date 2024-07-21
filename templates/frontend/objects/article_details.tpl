@@ -397,6 +397,25 @@
 		<div class="divider is-right"></div>
 	{/if}
 
+
+	{* Usage statistics chart*}
+	{if $activeTheme->getOption('displayStats') != 'none'}
+		{$activeTheme->displayUsageStatsGraph($article->getId())}
+		<div class="item downloads_chart">
+			<h2 class="label  title is-4">
+				{translate key="plugins.themes.default.displayStats.downloads"}
+			</h2>
+			<div class="value">
+				<canvas class="usageStatsGraph" data-object-type="Submission" data-object-id="{$article->getId()|escape}"></canvas>
+				<div class="usageStatsUnavailable" data-object-type="Submission" data-object-id="{$article->getId()|escape}">
+					{translate key="plugins.themes.default.displayStats.noStats"}
+				</div>
+			</div>
+		</div>
+		<div class="divider is-right"></div>
+	{/if}
+
+
 	{* Licensing info *}
 	{if $currentContext->getLocalizedData('licenseTerms') || $publication->getData('licenseUrl')}
 

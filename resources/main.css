@@ -21824,7 +21824,7 @@ has-background-danger.is-hoverable:active {
   margin-bottom: 0.25rem !important;
 }
 
-.m-2 {
+.m-2, .obj_announcement_summary .summary img {
   margin: 0.5rem !important;
 }
 
@@ -23425,6 +23425,11 @@ has-background-danger.is-hoverable:active {
 .homepage_about, .homepage_image {
   background-color: rgba(255, 255, 255, 0.6);
   color: rgb(45, 44, 113);
+}
+
+.obj_announcement_summary .summary img {
+  min-width: 250px;
+  height: 250px;
 }
 
 .card:first-child {
