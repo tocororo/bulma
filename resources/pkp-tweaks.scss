@@ -298,6 +298,13 @@ fieldset {
   }
 }
 
+.obj_article_details > .item> .sub_item{
+  h2.label {
+    @extend .title;
+    @extend .is-4;
+    }
+  }
+
 .entry_details {
   .label {
     @extend .title;
@@ -436,11 +443,10 @@ fieldset {
   li {
     margin-bottom: 1em;
   }
-  a {
-    overflow-wrap: break-word;
-  }
 }
-
+a {
+  overflow-wrap: break-word;
+}
 .hero-body {
   padding-top: 0px;
   p {
@@ -528,7 +534,7 @@ fieldset {
 
 .obj_announcement_summary {
   .summary {
-    @extend .is-flex;
+    @extend .is-flex-tablet;
     p {
       @extend .p-2;
     };
@@ -538,4 +544,14 @@ fieldset {
       @extend .m-2;
     }
   }
+}
+button.citation_formats_button:after{
+  font: inherit !important;
+  font-family: "Font Awesome 5 Free" !important;
+}
+.citation_formats_list{
+  @extend .menu;
+}
+ul.citation_formats_styles {
+  @extend .menu-list;
 }

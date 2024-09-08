@@ -62,7 +62,7 @@
 {/if}
 
 {* Don't be frightened. This is just a link *}
-<a class="button is-primary mb-0  {if $isSupplementary}obj_galley_link_supplementary{else}obj_galley_link{/if} {$type|escape}{if $restricted} restricted{/if}" href="{url page=$page op="view" path=$path}"{if $id} id="{$id}"{/if}{if $labelledBy} aria-labelledby="{$labelledBy}"{/if}>
+<a class="button is-primary mb-0  {if $isSupplementary}obj_galley_link_supplementary{else}obj_galley_link{/if} {$type|escape}{if $restricted} restricted{/if}" href="{url page=$page op="view" path=$path}"{if $id} id="{$id}"{/if}{if $labelledBy} aria-labelledby="{$labelledBy}"{/if} {if $target} target="{$target}"{/if}>
 	{* Add some screen reader text to indicate if a galley is restricted *}
 	{if $restricted}
 		<span class="pkp_screen_reader">

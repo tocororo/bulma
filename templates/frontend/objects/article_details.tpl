@@ -176,6 +176,7 @@
 		</div>
 	{/if}
 
+	{* cover image, DOI, PubIds, article appears in *}
 	<div class="columns">
 		<div class="column is-half">
 			{* Article/Issue cover image *}
@@ -447,7 +448,7 @@
 
 
 	{* How to cite *}
-	{if $citation}
+	{* {if $citation}
 		<div class="item citation">
 			<div class="sub_item citation_display">
 				<h2 class="label title is-4">
@@ -507,7 +508,7 @@
 			</div>
 			<div class="divider is-right"></div>
 		</div>
-	{/if}
+	{/if} *}
 
 	{* References *}
 	{call_hook name="Templates::Article::Main"}
@@ -531,7 +532,6 @@
 		</div>
 		<div class="divider is-right"></div>
 	{/if}
-
 
 	{call_hook name="Templates::Article::Details"}
 
